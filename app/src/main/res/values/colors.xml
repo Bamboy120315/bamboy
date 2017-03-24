@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorBamboy">#0066CC</color>
+    <color name="colorWhite">#FFF</color>
+    <color name="colorBlack">#000</color>
+    <color name="colorRed">#F03</color>
+    <color name="colorYellow">#ff0</color>
+    <color name="colorBlue">#06C</color>
+    <color name="colorGreen">#096</color>
+    <color name="colorGrey">#ccc</color>
 </resources>
