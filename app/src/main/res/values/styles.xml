@@ -19,4 +19,15 @@
         <item name="android:windowIsTranslucent">false</item>
     </style>
 
+    <!-- EditView的样式，包含了 height、HintColor、textColor、textSize 和 background -->
+    <style name="main_btn" parent="@android:style/Widget.Button">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@color/colorBlue</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
 </resources>
