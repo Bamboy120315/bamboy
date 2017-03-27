@@ -18,13 +18,13 @@ import com.bamboy.bamboycollected.page.main.MainActivity;
 
 /**
  * 启动页
- *
+ * <p>
  * 利用透明主题，
  * 只显示Logo在眨眼，
  * 然后等数据加载完成后，
  * 利用动画过渡成主页的样子，
  * 最后利用无动画完成与主页的无感知跳转
- *
+ * <p>
  * Created by Bamboy on 2017/3/27.
  */
 public class LaunchActivity extends BamboyActivity {
@@ -73,7 +73,7 @@ public class LaunchActivity extends BamboyActivity {
         iv_back.setVisibility(View.GONE);
         tv_title.setText("主页");
 
-        mcMSM = new MyCountDownTimer((int) (2 * 1000), 300);
+        mcMSM = new MyCountDownTimer((int) (3 * 1000), 300);
 
         iv_icon.post(new Runnable() {
             @Override
@@ -96,7 +96,7 @@ public class LaunchActivity extends BamboyActivity {
         rl_title.setVisibility(View.VISIBLE);
 
         // icon降下
-        ObjectAnimator.ofFloat(iv_icon, "Y", location[1], location[1] + height).setDuration(400).start();
+        ObjectAnimator.ofFloat(iv_icon, "Y", location[1], location[1] + iv_icon.getY()).setDuration(400).start();
 
         // 白色背景展示
         backShow(location, width, height, 400);
@@ -157,16 +157,27 @@ public class LaunchActivity extends BamboyActivity {
     /**
      * 改变眼睛样式
      */
-    private void changeEye() {
+    private void changeEye(long countTimer) {
         if (iv_icon.getTag() == null) {
             iv_icon.setTag(false);
+            return;
         }
         boolean open = (boolean) iv_icon.getTag();
-        iv_icon.setImageResource(open ? R.drawable.ic_bamboy : R.drawable.icon_eye);
         iv_icon.setTag(!open);
+
+        float y = iv_icon.getY();
+        if (open){
+            iv_icon.setImageResource(R.drawable.ic_bamboy);
+            ObjectAnimator.ofFloat(iv_icon, "Y", y, y + 100).setDuration(countTimer).start();
+        } else {
+            iv_icon.setImageResource(R.drawable.icon_eye);
+            ObjectAnimator.ofFloat(iv_icon, "Y", y, y - 200).setDuration(countTimer).start();
+        }
     }
 
     class MyCountDownTimer extends CountDownTimer {
+
+        long countTimer;
 
         /**
          * @param millisInFuture    表示以毫秒为单位 倒计时的总数
@@ -178,6 +189,7 @@ public class LaunchActivity extends BamboyActivity {
          */
         public MyCountDownTimer(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
+            countTimer = countDownInterval;
         }
 
         @Override
@@ -188,7 +200,7 @@ public class LaunchActivity extends BamboyActivity {
         @Override
         public void onTick(long millisUntilFinished) {
             long sec = millisUntilFinished;
-            changeEye();
+            changeEye(countTimer);
         }
     }
 }
