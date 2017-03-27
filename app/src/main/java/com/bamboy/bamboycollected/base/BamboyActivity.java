@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -119,9 +120,6 @@ public abstract class BamboyActivity extends Activity {
 
         // 去掉根布局顶部的状态栏高度间距
         View view = ((ViewGroup) findViewById(android.R.id.content)).getChildAt(0);
-
-        // 离屏缓冲，否则部分手机会闪退
-        view.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
         view.setPadding(
                 view.getPaddingLeft(),

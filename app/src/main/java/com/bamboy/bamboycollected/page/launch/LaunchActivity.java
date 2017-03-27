@@ -88,7 +88,7 @@ public class LaunchActivity extends BamboyActivity {
         ObjectAnimator.ofFloat(iv_icon, "Y", location[1], location[1] + height).setDuration(400).start();
 
         // 白色背景展示
-        ObjectAnimator.ofFloat(vi_back, "Y", vi_back.getHeight(), 0).setDuration(400).start();
+        backShow(location, width, height, 400);
 
         // titleBar展示
         ObjectAnimator anim = ObjectAnimator.ofFloat(rl_title, "Y", 0 - rl_title.getHeight(), 0);
@@ -114,6 +114,33 @@ public class LaunchActivity extends BamboyActivity {
             }
         });
         anim.start();
+    }
+
+    /**
+     * 白色背景显示动画
+     *
+     * @param location
+     * @param width
+     * @param height
+     */
+    private void backShow(int[] location, int width, int height, int duration) {
+        /**
+         * 如果是Android 4.4 以上，就兼容沉浸式
+         */
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            // 结束大小半径 大小为图片对角线的一半
+            float endRadius = (float) Math.sqrt(vi_back.getWidth() * vi_back.getWidth() + vi_back.getHeight() * vi_back.getHeight());
+            ViewAnimationUtils.createCircularReveal(
+                    vi_back,
+                    location[0] + width / 2,
+                    location[1] + height / 2,
+                    0f,
+                    endRadius)
+                    .setDuration(duration)
+                    .start();
+        } else {
+            ObjectAnimator.ofFloat(vi_back, "Y", vi_back.getHeight(), 0).setDuration(duration).start();
+        }
     }
 
     /**
