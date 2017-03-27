@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -17,7 +16,14 @@ import com.bamboy.bamboycollected.util.UtilBox;
 import com.bamboy.bamboycollected.view.SlideBackLayout;
 
 /**
- * Created by liushaochen on 2017/3/24.
+ * Activity 基类
+ *
+ * 右滑关闭
+ * 沉浸式
+ * 先显示后加载
+ * 工具箱
+ *
+ * Created by Bamboy on 2017/3/24.
  */
 public abstract class BamboyActivity extends Activity {
     /**
@@ -54,6 +60,7 @@ public abstract class BamboyActivity extends Activity {
          */
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             try {
+                // 初始化状态栏
                 initBar();
             } catch (Exception e) {
                 util.want.showException(e);
@@ -79,11 +86,6 @@ public abstract class BamboyActivity extends Activity {
                 view.getPaddingTop() + barHeight,
                 view.getPaddingRight(),
                 view.getPaddingBottom());
-    }
-
-    @Override
-    public void startActivity(Intent intent) {
-        startActivity(intent, true);
     }
 
     @Override
@@ -117,16 +119,13 @@ public abstract class BamboyActivity extends Activity {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             return;
         }
-
         // 去掉根布局顶部的状态栏高度间距
         View view = ((ViewGroup) findViewById(android.R.id.content)).getChildAt(0);
-
         view.setPadding(
                 view.getPaddingLeft(),
                 view.getPaddingTop() - barHeight,
                 view.getPaddingRight(),
                 view.getPaddingBottom());
-
         /**
          * titleBar加上状态栏高度的间距
          *
@@ -137,7 +136,6 @@ public abstract class BamboyActivity extends Activity {
         topView.post(new Runnable() {
             @Override
             public void run() {
-
                 View parentView = (View) topView.getParent();
 
                 if (parentView instanceof RelativeLayout) {
@@ -147,7 +145,6 @@ public abstract class BamboyActivity extends Activity {
                 } else if (parentView instanceof FrameLayout) {
                     topView.setLayoutParams(new FrameLayout.LayoutParams(-1, topView.getHeight() + barHeight));
                 }
-
                 topView.setPadding(
                         topView.getPaddingLeft(),
                         topView.getPaddingTop() + barHeight,
@@ -156,8 +153,6 @@ public abstract class BamboyActivity extends Activity {
 
             }
         });
-
-
     }
 
     /**
@@ -195,7 +190,18 @@ public abstract class BamboyActivity extends Activity {
         }
     }
 
+    /**
+     * 打开Activity
+     * @param intent intent
+     */
+    @Override
+    public void startActivity(Intent intent) {
+        startActivity(intent, true);
+    }
 
+    /**
+     * 退出Activity
+     */
     @Override
     public void finish() {
         finish(true);

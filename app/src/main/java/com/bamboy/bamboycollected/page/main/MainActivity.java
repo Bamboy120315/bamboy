@@ -15,12 +15,20 @@ import com.bamboy.bamboycollected.base.BamboyActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 主页
+ *
+ * 动画显示技术点列表
+ * 每个按钮进入一个技术点展示页面
+ *
+ * Created by Bamboy on 2017/3/24.
+ */
 public class MainActivity extends BamboyActivity {
 
     private RelativeLayout rl_title;
     private ImageView iv_back;
     private TextView tv_title;
-    private List<BeanMain> mList;
+    private List<BeanActivity> mList;
     private MainAdapter mAdapter;
     private RecyclerView rv_list;
 
@@ -59,14 +67,14 @@ public class MainActivity extends BamboyActivity {
      * 初始化List
      */
     private void initList() {
-        mList = new ArrayList<BeanMain>();
+        mList = new ArrayList<BeanActivity>();
 
-        mList.add(new BeanMain("Text 1", null));
-        mList.add(new BeanMain("Text 2", null));
-        mList.add(new BeanMain("Text 3", null));
-        mList.add(new BeanMain("Text 4", null));
-        mList.add(new BeanMain("Text 5", null));
-        mList.add(new BeanMain("Text 6", null));
+        mList.add(new BeanActivity("Text 1", null));
+        mList.add(new BeanActivity("Text 2", null));
+        mList.add(new BeanActivity("Text 3", null));
+        mList.add(new BeanActivity("Text 4", null));
+        mList.add(new BeanActivity("Text 5", null));
+        mList.add(new BeanActivity("Text 6", null));
 
         mAdapter = new MainAdapter(this, mList);
         rv_list.setLayoutManager(new LinearLayoutManager(this));

@@ -12,6 +12,10 @@ import java.util.Locale;
 /**
  * 日志系统
  *
+ * 只需要写一个参数即可
+ * 同时会打印所在类、方法、行号
+ * 且只在DeBug模式会打印
+ *
  * Created by Bamboy on 2017/3/24.
  */
 @SuppressWarnings("unused")

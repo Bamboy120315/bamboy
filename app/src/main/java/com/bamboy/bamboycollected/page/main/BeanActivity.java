@@ -1,14 +1,18 @@
 package com.bamboy.bamboycollected.page.main;
 
 /**
+ * Activity的Bean
+ *
+ * 用于在主页展示
+ *
  * Created by Bamboy on 2017/3/27.
  */
-public class BeanMain {
+public class BeanActivity {
 
     private String text;
     private Class startClass;
 
-    public BeanMain(String text, Class startClass) {
+    public BeanActivity(String text, Class startClass) {
         this.text = text;
         this.startClass = startClass;
     }

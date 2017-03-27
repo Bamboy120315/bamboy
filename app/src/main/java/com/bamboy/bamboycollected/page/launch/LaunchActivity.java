@@ -16,6 +16,17 @@ import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.BamboyActivity;
 import com.bamboy.bamboycollected.page.main.MainActivity;
 
+/**
+ * 启动页
+ *
+ * 利用透明主题，
+ * 只显示Logo在眨眼，
+ * 然后等数据加载完成后，
+ * 利用动画过渡成主页的样子，
+ * 最后利用无动画完成与主页的无感知跳转
+ *
+ * Created by Bamboy on 2017/3/27.
+ */
 public class LaunchActivity extends BamboyActivity {
 
     private RelativeLayout rl_title;

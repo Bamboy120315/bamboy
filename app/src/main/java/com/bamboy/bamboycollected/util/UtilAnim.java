@@ -9,7 +9,9 @@ import android.view.View;
 import android.view.ViewAnimationUtils;
 
 /**
- * Created by liushaochen on 2017/3/24.
+ * 动画工具类
+ *
+ * Created by Bamboy on 2017/3/24.
  */
 public class UtilAnim {
 

@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.BamboyActivity;
@@ -13,14 +12,16 @@ import com.bamboy.bamboycollected.view.clickanimview.BamButton;
 import java.util.List;
 
 /**
+ * 主页Adapter
+ *
  * Created by Bamboy on 2017/3/27.
  */
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     private BamboyActivity mActivity;
-    private List<BeanMain> mList;
+    private List<BeanActivity> mList;
 
-    public MainAdapter(BamboyActivity activity, List<BeanMain> list){
+    public MainAdapter(BamboyActivity activity, List<BeanActivity> list) {
         mActivity = activity;
         mList = list;
     }
@@ -35,7 +36,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(MainAdapter.ViewHolder vh, int i) {
-        BeanMain bean = mList.get(i);
+        BeanActivity bean = mList.get(i);
         vh.btn_main.setText(bean.getText());
         vh.btn_main.closeSuperb();
 
@@ -52,7 +53,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         return mList.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder {
         BamButton btn_main;
 
         public ViewHolder(View itemView) {
