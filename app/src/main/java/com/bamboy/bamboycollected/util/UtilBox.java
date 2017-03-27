@@ -17,6 +17,8 @@ public class UtilBox {
      */
     private UtilBox() {
         ui = new UtilUI();
+        want = new UtilWant();
+        initBox();
     }
 
     /**
@@ -25,7 +27,6 @@ public class UtilBox {
     public void initBox() {
         new Thread(new Runnable() {
             public void run() {
-                want = new UtilWant();
                 anim = new UtilAnim();
                 log = new UtilLog();
             }

@@ -8,6 +8,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- 启动页 -->
         <activity android:name=".page.launch.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -15,7 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".page.main.MainActivity" />
+
+        <!-- 主页 -->
+        <activity android:name=".page.main.MainActivity"></activity>
     </application>
 
 </manifest>

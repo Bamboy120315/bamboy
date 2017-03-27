@@ -42,6 +42,7 @@ public abstract class BamboyActivity extends Activity {
 
         mSlideBack = new SlideBackLayout(this);
         mSlideBack.bind();
+        isCreate = true;
     }
 
     @Override
@@ -51,7 +52,11 @@ public abstract class BamboyActivity extends Activity {
          * 如果是Android 4.4 以上，就兼容沉浸式
          */
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            initBar();
+            try {
+                initBar();
+            } catch (Exception e) {
+                util.want.showException(e);
+            }
         }
     }
 
@@ -114,6 +119,10 @@ public abstract class BamboyActivity extends Activity {
 
         // 去掉根布局顶部的状态栏高度间距
         View view = ((ViewGroup) findViewById(android.R.id.content)).getChildAt(0);
+
+        // 离屏缓冲，否则部分手机会闪退
+        view.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+
         view.setPadding(
                 view.getPaddingLeft(),
                 view.getPaddingTop() - barHeight,
@@ -130,6 +139,7 @@ public abstract class BamboyActivity extends Activity {
         topView.post(new Runnable() {
             @Override
             public void run() {
+
                 View parentView = (View) topView.getParent();
 
                 if (parentView instanceof RelativeLayout) {
@@ -145,6 +155,7 @@ public abstract class BamboyActivity extends Activity {
                         topView.getPaddingTop() + barHeight,
                         topView.getPaddingRight(),
                         topView.getPaddingBottom());
+
             }
         });
 
