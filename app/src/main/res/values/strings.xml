@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Bamboy合集</string>
+    <string name="tag_key_translation_z">translation_z</string>
 </resources>

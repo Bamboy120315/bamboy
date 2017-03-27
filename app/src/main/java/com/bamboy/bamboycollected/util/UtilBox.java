@@ -2,7 +2,7 @@ package com.bamboy.bamboycollected.util;
 
 /**
  * 工具箱，所有工具类均从这里取
- *
+ * <p>
  * Created by Bamboy on 2017/3/24.
  */
 public class UtilBox {
@@ -17,9 +17,19 @@ public class UtilBox {
      */
     private UtilBox() {
         ui = new UtilUI();
-        want = new UtilWant();
-        anim = new UtilAnim();
-        log = new UtilLog();
+    }
+
+    /**
+     * 加载工具箱
+     */
+    public void initBox() {
+        new Thread(new Runnable() {
+            public void run() {
+                want = new UtilWant();
+                anim = new UtilAnim();
+                log = new UtilLog();
+            }
+        }).start();
     }
 
     /**
@@ -31,9 +41,10 @@ public class UtilBox {
 
     /**
      * 获取工具箱单例
+     *
      * @return
      */
-    public static UtilBox getUtilBox(){
+    public static UtilBox getUtilBox() {
         return StockRemindUtilHolder.mUtilBox;
     }
 

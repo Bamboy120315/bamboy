@@ -8,23 +8,11 @@
 
     <include layout="@layout/title_bar" />
 
-    <ScrollView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/rl_title">
+        android:layoutAnimation="@anim/list_anim_layout"
+        android:layout_below="@+id/rl_title" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="16dp">
-
-            <Button
-                style="@style/main_btn"
-                android:text="Test 1" />
-
-        </LinearLayout>
-    </ScrollView>
 </RelativeLayout>

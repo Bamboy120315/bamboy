@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="android-support-v7-recyclerview">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/android-support-v7-recyclerview.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

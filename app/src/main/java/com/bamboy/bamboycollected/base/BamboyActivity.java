@@ -51,20 +51,28 @@ public abstract class BamboyActivity extends Activity {
          * 如果是Android 4.4 以上，就兼容沉浸式
          */
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            //透明状态栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            if (barHeight == -1) {
-                barHeight = util.ui.getBarHeight(this);
-            }
-
-            // 根布局顶部加上了状态栏高度的间距
-            View view = ((ViewGroup) findViewById(android.R.id.content)).getChildAt(0);
-            view.setPadding(
-                    view.getPaddingLeft(),
-                    view.getPaddingTop() + barHeight,
-                    view.getPaddingRight(),
-                    view.getPaddingBottom());
+            initBar();
         }
+    }
+
+    /**
+     * 初始化状态栏
+     */
+    private void initBar(){
+        //透明状态栏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+        if (barHeight == -1) {
+            barHeight = util.ui.getBarHeight(this);
+        }
+
+        // 根布局顶部加上了状态栏高度的间距
+        View view = ((ViewGroup) findViewById(android.R.id.content)).getChildAt(0);
+        view.setPadding(
+                view.getPaddingLeft(),
+                view.getPaddingTop() + barHeight,
+                view.getPaddingRight(),
+                view.getPaddingBottom());
     }
 
     @Override
