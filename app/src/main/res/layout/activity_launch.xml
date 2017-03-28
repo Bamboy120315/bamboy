@@ -4,6 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_bamboy"
+        android:layout_alignParentBottom="true" />
+
     <View
         android:id="@+id/vi_back"
         android:layout_width="match_parent"
@@ -12,14 +20,5 @@
         android:background="@color/colorWhite" />
 
     <include layout="@layout/title_bar" />
-
-    <ImageView
-        android:id="@+id/iv_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:translationZ="20px"
-        android:src="@drawable/ic_bamboy"
-        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

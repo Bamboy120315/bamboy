@@ -3,11 +3,10 @@ package com.bamboy.bamboycollected.page.launch;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -70,14 +69,20 @@ public class LaunchActivity extends BamboyActivity {
         setImmerseTitleBar(rl_title);
 
         rl_title.setVisibility(View.INVISIBLE);
-        iv_back.setVisibility(View.GONE);
+        iv_back.setVisibility(View.INVISIBLE);
         tv_title.setText("主页");
 
-        mcMSM = new MyCountDownTimer((int) (3 * 1000), 300);
+        mcMSM = new MyCountDownTimer((int) (2.7 * 1000), 300);
 
         iv_icon.post(new Runnable() {
             @Override
             public void run() {
+                DisplayMetrics dm = new DisplayMetrics();
+                // 获取屏幕信息
+                getWindowManager().getDefaultDisplay().getMetrics(dm);
+                util.info.phoneWidth = dm.widthPixels;
+                util.info.phoneHeigh = dm.heightPixels;
+                util.info.phoneSDK = android.os.Build.VERSION.SDK_INT;
                 mcMSM.start();
                 util.initBox();
             }
@@ -90,16 +95,16 @@ public class LaunchActivity extends BamboyActivity {
     private void startAnim() {
         int[] location = new int[2];
         iv_icon.getLocationOnScreen(location);
-        int width = iv_icon.getWidth();
-        int height = iv_icon.getHeight();
+
         vi_back.setVisibility(View.VISIBLE);
         rl_title.setVisibility(View.VISIBLE);
 
         // icon降下
+        iv_icon.setImageResource(R.drawable.ic_bamboy);
         ObjectAnimator.ofFloat(iv_icon, "Y", location[1], location[1] + iv_icon.getY()).setDuration(400).start();
 
         // 白色背景展示
-        backShow(location, width, height, 400);
+        ObjectAnimator.ofFloat(vi_back, "Y", vi_back.getHeight(), 0).setDuration(400).start();
 
         // titleBar展示
         ObjectAnimator anim = ObjectAnimator.ofFloat(rl_title, "Y", 0 - rl_title.getHeight(), 0);
@@ -128,33 +133,6 @@ public class LaunchActivity extends BamboyActivity {
     }
 
     /**
-     * 白色背景显示动画
-     *
-     * @param location
-     * @param width
-     * @param height
-     */
-    private void backShow(int[] location, int width, int height, int duration) {
-        /**
-         * 如果是Android 4.4 以上，就兼容沉浸式
-         */
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            // 结束大小半径 大小为图片对角线的一半
-            float endRadius = (float) Math.sqrt(vi_back.getWidth() * vi_back.getWidth() + vi_back.getHeight() * vi_back.getHeight());
-            ViewAnimationUtils.createCircularReveal(
-                    vi_back,
-                    location[0] + width / 2,
-                    location[1] + height / 2,
-                    0f,
-                    endRadius)
-                    .setDuration(duration)
-                    .start();
-        } else {
-            ObjectAnimator.ofFloat(vi_back, "Y", vi_back.getHeight(), 0).setDuration(duration).start();
-        }
-    }
-
-    /**
      * 改变眼睛样式
      */
     private void changeEye(long countTimer) {
@@ -165,13 +143,23 @@ public class LaunchActivity extends BamboyActivity {
         boolean open = (boolean) iv_icon.getTag();
         iv_icon.setTag(!open);
 
+        // 上下幅度为屏幕的1/7
+        float value = util.info.phoneHeigh / 7;
+        // 获取当前高度
         float y = iv_icon.getY();
-        if (open){
+
+        if (open) {
+            // 降落
             iv_icon.setImageResource(R.drawable.ic_bamboy);
-            ObjectAnimator.ofFloat(iv_icon, "Y", y, y + 100).setDuration(countTimer).start();
+            ObjectAnimator.ofFloat(iv_icon, "Y", y, y + value).setDuration(countTimer).start();
         } else {
+            // 起跳
+            if (y > util.info.phoneHeigh / 2){
+                // 若是点钱高度低于屏幕一半，增加跳动幅度
+                value = value * 1.5f;
+            }
             iv_icon.setImageResource(R.drawable.icon_eye);
-            ObjectAnimator.ofFloat(iv_icon, "Y", y, y - 200).setDuration(countTimer).start();
+            ObjectAnimator.ofFloat(iv_icon, "Y", y, y - value).setDuration(countTimer).start();
         }
     }
 

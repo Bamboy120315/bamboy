@@ -23,7 +23,7 @@ public class UtilLog {
 	/**
 	 * 日志标签
 	 */
-	private final String TAG = "bamboy";
+	private final String TAG = "bamboyLog";
 	/**
 	 * 日志保存路径
 	 */

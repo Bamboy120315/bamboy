@@ -11,6 +11,7 @@ public class UtilBox {
     public UtilWant want;
     public UtilAnim anim;
     public UtilLog log;
+    public UtilInfo info;
 
     /**
      * 私有化构造方法
@@ -18,6 +19,7 @@ public class UtilBox {
     private UtilBox() {
         ui = new UtilUI();
         want = new UtilWant();
+        info = new UtilInfo();
         initBox();
     }
 
