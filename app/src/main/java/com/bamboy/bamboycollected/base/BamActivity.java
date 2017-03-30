@@ -185,7 +185,7 @@ public abstract class BamActivity extends Activity {
      */
     public void startActivity(Intent intent, boolean isAnim) {
         if (isAnim) {
-            startActivity(intent, R.anim.bamboy_right_in, R.anim.bamboy_left_out);
+            startActivity(intent, R.anim.act_right_in, R.anim.act_left_out);
         } else {
             super.startActivity(intent);
         }
@@ -226,7 +226,7 @@ public abstract class BamActivity extends Activity {
      */
     public void finish(boolean isAnim) {
         if (isAnim) {
-            finish(R.anim.bamboy_left_in, R.anim.bamboy_right_out);
+            finish(R.anim.act_left_in, R.anim.act_right_out);
         } else {
             super.finish();
         }

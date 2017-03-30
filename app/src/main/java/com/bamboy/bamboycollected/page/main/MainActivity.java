@@ -84,6 +84,6 @@ public class MainActivity extends BamActivity {
 
     @Override
     public void finish() {
-        super.finish(false);
+        super.finish(R.anim.act_shade_in, R.anim.act_shade_out);
     }
 }

@@ -72,7 +72,8 @@ public class LaunchActivity extends BamActivity {
         iv_back.setVisibility(View.INVISIBLE);
         tv_title.setText("主页");
 
-        mcMSM = new MyCountDownTimer((int) (2.7 * 1000), 300);
+        // 模拟加载数据时间
+        mcMSM = new MyCountDownTimer((int) (12 * 1000), 300);
         //mcMSM = new MyCountDownTimer((int) (0.9 * 1000), 300);
 
         iv_icon.post(new Runnable() {
@@ -118,8 +119,8 @@ public class LaunchActivity extends BamActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
-                startActivity(intent, R.anim.bamboy_static, R.anim.bamboy_static);
-                finish(false);
+                startActivity(intent, R.anim.act_shade_in, R.anim.act_shade_out);
+                finish(R.anim.act_static, R.anim.act_static);
             }
 
             @Override
@@ -144,8 +145,8 @@ public class LaunchActivity extends BamActivity {
         boolean open = (boolean) iv_icon.getTag();
         iv_icon.setTag(!open);
 
-        // 上下幅度为屏幕的1/7
-        float value = util.info.phoneHeigh / 7;
+        // 上下幅度为屏幕的1/6
+        float value = util.info.phoneHeigh / 6;
         // 获取当前高度
         float y = iv_icon.getY();
 
@@ -155,9 +156,9 @@ public class LaunchActivity extends BamActivity {
             ObjectAnimator.ofFloat(iv_icon, "Y", y, y + value).setDuration(countTimer).start();
         } else {
             // 起跳
-            if (y > util.info.phoneHeigh / 2){
+            if (y > util.info.phoneHeigh * 0.4){
                 // 若是点钱高度低于屏幕一半，增加跳动幅度
-                value = value * 1.5f;
+                value = value * 1.6f;
             }
             iv_icon.setImageResource(R.drawable.icon_eye);
             ObjectAnimator.ofFloat(iv_icon, "Y", y, y - value).setDuration(countTimer).start();

@@ -3,6 +3,7 @@ package com.bamboy.bamboycollected.page.toast;
 import android.animation.Animator;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.widget.Button;
@@ -195,6 +196,17 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
         util.log.i("-=-=-=" + rl_title.getHeight());
     }
 
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (sv_introduce.getVisibility() == View.VISIBLE){
+                hideIntroduce();
+                return false;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
     /**
      * 展开介绍
      */
@@ -211,6 +223,9 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
         });
     }
 
+    /**
+     * 关闭介绍
+     */
     private void hideIntroduce() {
         float maxRadius = (float) Math.sqrt(sv_introduce.getWidth() * sv_introduce.getWidth() + sv_introduce.getHeight() * sv_introduce.getHeight());
         Animator anim = ViewAnimationUtils.createCircularReveal(sv_introduce, util.info.phoneWidth, 0, maxRadius, 0f);
