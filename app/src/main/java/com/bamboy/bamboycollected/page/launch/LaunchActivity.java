@@ -73,7 +73,7 @@ public class LaunchActivity extends BamActivity {
         tv_title.setText("主页");
 
         // 模拟加载数据时间
-        mcMSM = new MyCountDownTimer((int) (12 * 1000), 300);
+        mcMSM = new MyCountDownTimer((int) (2.7 * 1000), 300);
         //mcMSM = new MyCountDownTimer((int) (0.9 * 1000), 300);
 
         iv_icon.post(new Runnable() {
@@ -146,7 +146,7 @@ public class LaunchActivity extends BamActivity {
         iv_icon.setTag(!open);
 
         // 上下幅度为屏幕的1/6
-        float value = util.info.phoneHeigh / 6;
+        float value = util.info.phoneHeigh / 6.5f;
         // 获取当前高度
         float y = iv_icon.getY();
 
@@ -156,7 +156,7 @@ public class LaunchActivity extends BamActivity {
             ObjectAnimator.ofFloat(iv_icon, "Y", y, y + value).setDuration(countTimer).start();
         } else {
             // 起跳
-            if (y > util.info.phoneHeigh * 0.4){
+            if (y > util.info.phoneHeigh * 0.45){
                 // 若是点钱高度低于屏幕一半，增加跳动幅度
                 value = value * 1.6f;
             }
