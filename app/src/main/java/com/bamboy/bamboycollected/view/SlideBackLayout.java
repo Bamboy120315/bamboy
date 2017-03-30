@@ -9,12 +9,13 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.bamboy.bamboycollected.base.BamboyActivity;
+import com.bamboy.bamboycollected.base.BamActivity;
 
 /**
  * Created by Bamboy on 2017/3/10.
@@ -51,7 +52,7 @@ public class SlideBackLayout extends FrameLayout {
      */
     private Paint mPaint;
 
-    private BamboyActivity mActivity;
+    private BamActivity mActivity;
     /**
      * 当前Activity的ViewGroup
      */
@@ -75,7 +76,7 @@ public class SlideBackLayout extends FrameLayout {
 
     private void init(Context context) {
         //必须是传入Activity
-        mActivity = (BamboyActivity) context;
+        mActivity = (BamActivity) context;
         //构造ViewDragHelper
         mViewDragHelper = ViewDragHelper.create(this, new DragCallback());
         //设置从左边缘捕捉View

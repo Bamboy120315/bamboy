@@ -20,18 +20,21 @@
     </style>
 
     <!-- EditView的样式，包含了 height、HintColor、textColor、textSize 和 background -->
-    <style name="main_btn" parent="@android:style/Widget.Button">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">match_parent</item>
+    <style name="main_btn" parent="@style/view_style">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:translationZ">15px</item>
         <item name="android:textSize">18sp</item>
         <item name="android:background">@color/colorBlue</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="view_style" parent="@android:style/Widget">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_marginTop">2dp</item>
         <item name="android:layout_marginBottom">8dp</item>
         <item name="android:layout_marginLeft">10dp</item>
         <item name="android:layout_marginRight">10dp</item>
-        <item name="android:padding">12dp</item>
     </style>
 
 </resources>

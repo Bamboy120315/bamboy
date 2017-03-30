@@ -20,6 +20,10 @@
 
         <!-- 主页 -->
         <activity android:name=".page.main.MainActivity"></activity>
+
+        <!-- Toast页 -->
+        <activity android:name=".page.toast.ToastActivity"></activity>
+
     </application>
 
 </manifest>

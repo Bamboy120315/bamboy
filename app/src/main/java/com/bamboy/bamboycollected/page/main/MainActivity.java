@@ -10,7 +10,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.base.BamboyActivity;
+import com.bamboy.bamboycollected.base.BamActivity;
+import com.bamboy.bamboycollected.page.toast.ToastActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +24,12 @@ import java.util.List;
  *
  * Created by Bamboy on 2017/3/24.
  */
-public class MainActivity extends BamboyActivity {
+public class MainActivity extends BamActivity {
 
     private RelativeLayout rl_title;
     private ImageView iv_back;
     private TextView tv_title;
-    private List<BeanActivity> mList;
+    private List<MainBean> mList;
     private MainAdapter mAdapter;
     private RecyclerView rv_list;
 
@@ -67,14 +68,13 @@ public class MainActivity extends BamboyActivity {
      * 初始化List
      */
     private void initList() {
-        mList = new ArrayList<BeanActivity>();
+        mList = new ArrayList<MainBean>();
 
-        mList.add(new BeanActivity("Text 1", null));
-        mList.add(new BeanActivity("Text 2", null));
-        mList.add(new BeanActivity("Text 3", null));
-        mList.add(new BeanActivity("Text 4", null));
-        mList.add(new BeanActivity("Text 5", null));
-        mList.add(new BeanActivity("Text 6", null));
+        mList.add(new MainBean("Toast Demo", ToastActivity.class));
+        mList.add(new MainBean("自动换行 Demo", null));
+        mList.add(new MainBean("分批加载 Demo", null));
+        mList.add(new MainBean("高斯模糊 Demo", null));
+        mList.add(new MainBean("点击动画 Demo", null));
 
         mAdapter = new MainAdapter(this, mList);
         rv_list.setLayoutManager(new LinearLayoutManager(this));

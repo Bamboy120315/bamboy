@@ -24,4 +24,14 @@
         android:textColor="@color/colorWhite"
         android:textSize="20sp" />
 
+
+    <ImageView
+        android:id="@+id/iv_introduce"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:padding="12dp"
+        android:visibility="gone"
+        android:src="@drawable/icon_introduce" />
+
 </RelativeLayout>

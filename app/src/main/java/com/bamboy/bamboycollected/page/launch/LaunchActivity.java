@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.base.BamboyActivity;
+import com.bamboy.bamboycollected.base.BamActivity;
 import com.bamboy.bamboycollected.page.main.MainActivity;
 
 /**
@@ -26,7 +26,7 @@ import com.bamboy.bamboycollected.page.main.MainActivity;
  * <p>
  * Created by Bamboy on 2017/3/27.
  */
-public class LaunchActivity extends BamboyActivity {
+public class LaunchActivity extends BamActivity {
 
     private RelativeLayout rl_title;
     private ImageView iv_back;
@@ -73,6 +73,7 @@ public class LaunchActivity extends BamboyActivity {
         tv_title.setText("主页");
 
         mcMSM = new MyCountDownTimer((int) (2.7 * 1000), 300);
+        //mcMSM = new MyCountDownTimer((int) (0.9 * 1000), 300);
 
         iv_icon.post(new Runnable() {
             @Override
