@@ -73,8 +73,8 @@ public class LaunchActivity extends BamActivity {
         tv_title.setText("主页");
 
         // 模拟加载数据时间
-        mcMSM = new MyCountDownTimer((int) (2.7 * 1000), 300);
-        //mcMSM = new MyCountDownTimer((int) (0.9 * 1000), 300);
+        //mcMSM = new MyCountDownTimer((int) (2.7 * 1000), 300);
+        mcMSM = new MyCountDownTimer((int) (0.9 * 1000), 300);
 
         iv_icon.post(new Runnable() {
             @Override

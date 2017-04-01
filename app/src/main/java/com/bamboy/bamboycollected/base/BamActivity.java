@@ -170,19 +170,23 @@ public abstract class BamActivity extends Activity {
     /**
      * 展开介绍
      */
-    protected void showIntroduce(View rl_introduce, ImageView iv_introduce_back) {
+    protected void showIntroduce(View rl_introduce) {
 
         // 获取截图的Bitmap
         Bitmap bitmap = UtilBox.getUtilBox().ui.getDrawing(this);
 
-        if (bitmap != null) {
+        ImageView iv_introduce_back = (ImageView) rl_introduce.findViewById(R.id.iv_introduce_back);
+
+        if (util.info.phoneSDK >= Build.VERSION_CODES.KITKAT && bitmap != null) {
             // 将截屏Bitma放入ImageView
             iv_introduce_back.setImageBitmap(bitmap);
             // 将ImageView进行高斯模糊【25是最高模糊等级】【最后一个参数是蒙上一层颜色，此参数可不填】
-            util.bitmap.blurImageView(this, iv_introduce_back, 25, getColor(R.color.colorWhite_t));
+            // 写两遍是因为最大模糊程度是25，但我需要更高的模糊程度，所以写了两遍
+            util.bitmap.blurImageView(this, iv_introduce_back, 9, getResources().getColor(R.color.colorWhite_t5));
+            util.bitmap.blurImageView(this, iv_introduce_back, 9, getResources().getColor(R.color.colorWhite_t5));
         } else {
             // 获取的Bitmap为null时，用半透明代替
-            iv_introduce_back.setBackgroundColor(getColor(R.color.colorWhite_t));
+            iv_introduce_back.setBackgroundColor(getResources().getColor(R.color.colorWhite_tD));
         }
 
         util.anim.showIntroduce(rl_introduce, 350);

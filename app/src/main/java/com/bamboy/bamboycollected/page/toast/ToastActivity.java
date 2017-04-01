@@ -149,7 +149,7 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
                 break;
             case R.id.iv_introduce:
                 if (rl_introduce.getVisibility() == View.GONE) {
-                    showIntroduce(rl_introduce, iv_introduce_back);
+                    showIntroduce(rl_introduce);
                 } else {
                     hideIntroduce(rl_introduce);
                 }

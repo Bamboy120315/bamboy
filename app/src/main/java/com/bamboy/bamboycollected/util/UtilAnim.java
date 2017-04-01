@@ -10,7 +10,7 @@ import android.view.ViewAnimationUtils;
 
 /**
  * 动画工具类
- *
+ * <p>
  * Created by Bamboy on 2017/3/24.
  */
 public class UtilAnim {
@@ -184,6 +184,7 @@ public class UtilAnim {
 
     /**
      * 展开介绍
+     *
      * @param view 需要展开的介绍容器
      */
     public void showIntroduce(final View view) {
@@ -192,29 +193,19 @@ public class UtilAnim {
 
     /**
      * 展开介绍
-     * @param view 需要展开的介绍容器
+     *
+     * @param view     需要展开的介绍容器
      * @param duration 动画时长
      */
-    public void showIntroduce(final View view, final int duration){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            view.setAlpha(0);
-            view.setVisibility(View.VISIBLE);
-            view.post(new Runnable() {
-                @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-                @Override
-                public void run() {
-                    float maxRadius = (float) Math.sqrt(view.getWidth() * view.getWidth() + view.getHeight() * view.getHeight());
-                    view.setAlpha(1);
-                    ViewAnimationUtils.createCircularReveal(view, UtilBox.getUtilBox().info.phoneWidth, 0, 0f, maxRadius).setDuration(duration).start();
-                }
-            });
-        } else{
-            ObjectAnimator.ofFloat(view, "Y", view.getY() - view.getHeight(), view.getY()).setDuration(duration).start();
-        }
+    public void showIntroduce(final View view, final int duration) {
+        view.setAlpha(0);
+        view.setVisibility(View.VISIBLE);
+        ObjectAnimator.ofFloat(view, "alpha", 0, 1).setDuration(duration).start();
     }
 
     /**
      * 隐藏介绍
+     *
      * @param view 需要隐藏的介绍容器
      */
     public void hideIntroduce(final View view) {
@@ -223,39 +214,35 @@ public class UtilAnim {
 
     /**
      * 隐藏介绍
-     * @param view 需要隐藏的介绍容器
+     *
+     * @param view     需要隐藏的介绍容器
      * @param duration 动画时长
      */
-    public void hideIntroduce(final View view, final int duration){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            float maxRadius = (float) Math.sqrt(view.getWidth() * view.getWidth() + view.getHeight() * view.getHeight());
-            Animator anim = ViewAnimationUtils.createCircularReveal(view, UtilBox.getUtilBox().info.phoneWidth, 0, maxRadius, 0f);
-            anim.setDuration(duration);
-            anim.addListener(new Animator.AnimatorListener() {
-                @Override
-                public void onAnimationStart(Animator animation) {
+    public void hideIntroduce(final View view, final int duration) {
+        Animator anim = ObjectAnimator.ofFloat(view, "alpha", 1, 0);
+        anim.setDuration(duration);
+        anim.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
 
-                }
+            }
 
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    view.setVisibility(View.GONE);
-                }
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                view.setVisibility(View.GONE);
+            }
 
-                @Override
-                public void onAnimationCancel(Animator animation) {
+            @Override
+            public void onAnimationCancel(Animator animation) {
 
-                }
+            }
 
-                @Override
-                public void onAnimationRepeat(Animator animation) {
+            @Override
+            public void onAnimationRepeat(Animator animation) {
 
-                }
-            });
-            anim.start();
-        } else{
-            ObjectAnimator.ofFloat(view, "Y", view.getY(), view.getY() - view.getHeight()).setDuration(duration).start();
-        }
+            }
+        });
+        anim.start();
     }
 
 }

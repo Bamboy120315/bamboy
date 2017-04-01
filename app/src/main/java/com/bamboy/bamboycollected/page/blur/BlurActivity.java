@@ -1,7 +1,7 @@
 package com.bamboy.bamboycollected.page.blur;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -106,7 +106,7 @@ public class BlurActivity extends BamActivity implements View.OnClickListener {
                 break;
             case R.id.iv_introduce:
                 if (rl_introduce.getVisibility() == View.GONE) {
-                    showIntroduce(rl_introduce, iv_introduce_back);
+                    showIntroduce(rl_introduce);
                 } else {
                     hideIntroduce(rl_introduce);
                 }
@@ -160,14 +160,16 @@ public class BlurActivity extends BamActivity implements View.OnClickListener {
         // 获取截图的Bitmap
         Bitmap bitmap = util.ui.getDrawing(this);
 
-        if (bitmap != null) {
+        if (util.info.phoneSDK >= Build.VERSION_CODES.KITKAT && bitmap != null) {
             // 将截屏Bitma放入ImageView
             iv_popup_window_back.setImageBitmap(bitmap);
-            // 将ImageView进行高斯模糊【25是最高模糊等级】【最后一个参数是蒙上一层颜色，此参数可不填】
-            util.bitmap.blurImageView(this, iv_popup_window_back, 25, getColor(R.color.colorWhite_t));
+            // 将ImageView进行高斯模糊【25是最高模糊程度】【最后一个参数是蒙上一层颜色，此参数可不填】
+            // 写两遍是因为最大模糊程度是25，但我需要更高的模糊程度，所以写了两遍
+            util.bitmap.blurImageView(this, iv_popup_window_back, 9, getResources().getColor(R.color.colorWhite_t5));
+            util.bitmap.blurImageView(this, iv_popup_window_back, 9, getResources().getColor(R.color.colorWhite_t5));
         } else {
             // 获取的Bitmap为null时，用半透明代替
-            iv_popup_window_back.setBackgroundColor(getColor(R.color.colorWhite_t));
+            iv_popup_window_back.setBackgroundColor(getResources().getColor(R.color.colorWhite_tD));
         }
 
         // 打开弹窗
