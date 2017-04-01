@@ -19,6 +19,6 @@
         android:visibility="invisible"
         android:background="@color/colorWhite" />
 
-    <include layout="@layout/title_bar" />
+    <include layout="@layout/include_title_bar" />
 
 </RelativeLayout>

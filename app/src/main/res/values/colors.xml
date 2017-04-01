@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorWhite">#FFF</color>
-    <color name="colorWhite_t">#DFFF</color>
+    <color name="colorWhite_t">#6FFF</color>
     <color name="colorBlack">#000</color>
     <color name="colorBrown">#C60</color>
     <color name="colorBrownDark">#933</color>
@@ -12,9 +12,9 @@
     <color name="colorGreenTeg">#993</color>
     <color name="colorGreenDaisy">#660</color>
     <color name="colorBlueSky">#09C</color>
-    <color name="colorBlueSky_t">#D09C</color>
+    <color name="colorBlueSky_t">#609C</color>
     <color name="colorBlue">#06C</color>
-    <color name="colorBlue_t">#D06C</color>
+    <color name="colorBlue_t">#606C</color>
     <color name="colorPurple">#939</color>
     <color name="colorGrey">#ccc</color>
 </resources>

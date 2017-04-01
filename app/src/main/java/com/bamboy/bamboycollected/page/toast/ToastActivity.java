@@ -1,6 +1,7 @@
 package com.bamboy.bamboycollected.page.toast;
 
 import android.animation.Animator;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.BamActivity;
+import com.bamboy.bamboycollected.util.UtilBox;
 import com.bamboy.bamboycollected.view.BamToast;
 
 /**
@@ -32,7 +34,8 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
     /**
      * 介绍容器
      */
-    private ScrollView sv_introduce;
+    private RelativeLayout rl_introduce;
+    private ImageView iv_introduce_back;
     private TextView tv_introduce;
 
     /**
@@ -73,8 +76,9 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
         iv_back = (ImageView) findViewById(R.id.iv_back);
         iv_introduce = (ImageView) findViewById(R.id.iv_introduce);
         tv_title = (TextView) findViewById(R.id.tv_title);
-        sv_introduce = (ScrollView) findViewById(R.id.sv_introduce);
+        rl_introduce = (RelativeLayout) findViewById(R.id.rl_introduce);
         tv_introduce = (TextView) findViewById(R.id.tv_introduce);
+        iv_introduce_back = (ImageView) findViewById(R.id.iv_introduce_back);
 
         sb_color_a = (SeekBar) findViewById(R.id.sb_color_a);
         tv_color_value_a = (TextView) findViewById(R.id.tv_color_value_a);
@@ -144,10 +148,10 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
                 finish();
                 break;
             case R.id.iv_introduce:
-                if (sv_introduce.getVisibility() == View.GONE){
-                    showIntroduce();
+                if (rl_introduce.getVisibility() == View.GONE) {
+                    showIntroduce(rl_introduce, iv_introduce_back);
                 } else {
-                    hideIntroduce();
+                    hideIntroduce(rl_introduce);
                 }
                 break;
             case R.id.btn_toast_red:
@@ -192,66 +196,22 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
 
         int color = Color.argb(a, r, g, b);
         BamToast.show(this, "自定义颜色Toast", color);
-
-        util.log.i("-=-=-=" + rl_title.getHeight());
     }
 
+    /**
+     * 按键监听
+     * @param keyCode
+     * @param event
+     * @return
+     */
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (sv_introduce.getVisibility() == View.VISIBLE){
-                hideIntroduce();
+            if (rl_introduce.getVisibility() == View.VISIBLE) {
+                hideIntroduce(rl_introduce);
                 return false;
             }
         }
         return super.onKeyDown(keyCode, event);
-    }
-
-    /**
-     * 展开介绍
-     */
-    private void showIntroduce() {
-        sv_introduce.setAlpha(0);
-        sv_introduce.setVisibility(View.VISIBLE);
-        sv_introduce.post(new Runnable() {
-            @Override
-            public void run() {
-                float maxRadius = (float) Math.sqrt(sv_introduce.getWidth() * sv_introduce.getWidth() + sv_introduce.getHeight() * sv_introduce.getHeight());
-                sv_introduce.setAlpha(1);
-                ViewAnimationUtils.createCircularReveal(sv_introduce, util.info.phoneWidth, 0, 0f, maxRadius).setDuration(300).start();
-            }
-        });
-    }
-
-    /**
-     * 关闭介绍
-     */
-    private void hideIntroduce() {
-        float maxRadius = (float) Math.sqrt(sv_introduce.getWidth() * sv_introduce.getWidth() + sv_introduce.getHeight() * sv_introduce.getHeight());
-        Animator anim = ViewAnimationUtils.createCircularReveal(sv_introduce, util.info.phoneWidth, 0, maxRadius, 0f);
-        anim.setDuration(300);
-        anim.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                sv_introduce.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-        });
-        anim.start();
     }
 
 }

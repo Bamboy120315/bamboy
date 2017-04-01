@@ -53,7 +53,7 @@ public class UtilAnim {
                     // 弹窗圆形动画
                     ViewAnimationUtils.createCircularReveal(view,
                             view.getWidth() / 2,
-                            (int) (view.getHeight() * 0.8), 0, endRadius).setDuration(duration_view).start();
+                            (int) (view.getHeight() * 0.85), 0, endRadius).setDuration(duration_view).start();
 
                 }
             });
@@ -119,7 +119,7 @@ public class UtilAnim {
             // 弹窗圆形动画
             Animator animator = ViewAnimationUtils.createCircularReveal(view,
                     view.getWidth() / 2,
-                    (int) (view.getHeight() * 0.8),
+                    (int) (view.getHeight() * 0.85),
                     (float) Math.hypot(view.getWidth(), view.getHeight()),
                     0);
             animator.setDuration(duration);
@@ -181,4 +181,81 @@ public class UtilAnim {
     public void hidePopupWindow(View view, View view_back) {
         hidePopupWindow(view, view_back, 250);
     }
+
+    /**
+     * 展开介绍
+     * @param view 需要展开的介绍容器
+     */
+    public void showIntroduce(final View view) {
+        showIntroduce(view, 250);
+    }
+
+    /**
+     * 展开介绍
+     * @param view 需要展开的介绍容器
+     * @param duration 动画时长
+     */
+    public void showIntroduce(final View view, final int duration){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            view.setAlpha(0);
+            view.setVisibility(View.VISIBLE);
+            view.post(new Runnable() {
+                @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+                @Override
+                public void run() {
+                    float maxRadius = (float) Math.sqrt(view.getWidth() * view.getWidth() + view.getHeight() * view.getHeight());
+                    view.setAlpha(1);
+                    ViewAnimationUtils.createCircularReveal(view, UtilBox.getUtilBox().info.phoneWidth, 0, 0f, maxRadius).setDuration(duration).start();
+                }
+            });
+        } else{
+            ObjectAnimator.ofFloat(view, "Y", view.getY() - view.getHeight(), view.getY()).setDuration(duration).start();
+        }
+    }
+
+    /**
+     * 隐藏介绍
+     * @param view 需要隐藏的介绍容器
+     */
+    public void hideIntroduce(final View view) {
+        hideIntroduce(view, 250);
+    }
+
+    /**
+     * 隐藏介绍
+     * @param view 需要隐藏的介绍容器
+     * @param duration 动画时长
+     */
+    public void hideIntroduce(final View view, final int duration){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            float maxRadius = (float) Math.sqrt(view.getWidth() * view.getWidth() + view.getHeight() * view.getHeight());
+            Animator anim = ViewAnimationUtils.createCircularReveal(view, UtilBox.getUtilBox().info.phoneWidth, 0, maxRadius, 0f);
+            anim.setDuration(duration);
+            anim.addListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    view.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onAnimationCancel(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animation) {
+
+                }
+            });
+            anim.start();
+        } else{
+            ObjectAnimator.ofFloat(view, "Y", view.getY(), view.getY() - view.getHeight()).setDuration(duration).start();
+        }
+    }
+
 }

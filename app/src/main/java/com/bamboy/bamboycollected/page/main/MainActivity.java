@@ -1,5 +1,8 @@
 package com.bamboy.bamboycollected.page.main;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +14,7 @@ import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.BamActivity;
+import com.bamboy.bamboycollected.page.blur.BlurActivity;
 import com.bamboy.bamboycollected.page.toast.ToastActivity;
 
 import java.util.ArrayList;
@@ -71,9 +75,9 @@ public class MainActivity extends BamActivity {
         mList = new ArrayList<MainBean>();
 
         mList.add(new MainBean("Toast Demo", ToastActivity.class));
+        mList.add(new MainBean("高斯模糊 Demo", BlurActivity.class));
         mList.add(new MainBean("自动换行 Demo", null));
         mList.add(new MainBean("分批加载 Demo", null));
-        mList.add(new MainBean("高斯模糊 Demo", null));
         mList.add(new MainBean("点击动画 Demo", null));
 
         mAdapter = new MainAdapter(this, mList);
@@ -84,6 +88,31 @@ public class MainActivity extends BamActivity {
 
     @Override
     public void finish() {
-        super.finish(R.anim.act_shade_in, R.anim.act_shade_out);
+
+        // 白色背景展示
+        ObjectAnimator.ofFloat(rv_list, "Y", rv_list.getY(), rv_list.getY() + rv_list.getHeight()).setDuration(300).start();
+
+        // titleBar展示
+        ObjectAnimator anim = ObjectAnimator.ofFloat(rl_title, "Y", rl_title.getY(), 0 - rl_title.getHeight());
+        anim.setDuration(300);
+        anim.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                MainActivity.super.finish(R.anim.act_shade_in, R.anim.act_shade_out);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+            }
+        });
+        anim.start();
     }
 }

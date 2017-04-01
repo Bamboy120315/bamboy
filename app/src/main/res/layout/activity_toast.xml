@@ -6,23 +6,23 @@
     android:background="@color/colorWhite"
     tools:context=".page.main.MainActivity">
 
-    <include layout="@layout/title_bar" />
+    <include layout="@layout/include_title_bar" />
 
     <ScrollView
-        android:id="@+id/sv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/rl_title">
+        android:layout_below="@+id/rl_title"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:orientation="vertical">
 
             <com.bamboy.bamboycollected.view.clickanimview.BamButton
                 android:id="@+id/btn_toast_red"
                 style="@style/main_btn"
+                android:layout_marginTop="16dp"
                 android:text="显示红色Toast" />
 
             <com.bamboy.bamboycollected.view.clickanimview.BamButton
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:text="自定义颜色:"
                 android:textColor="@color/colorBlue"
                 android:textSize="18sp" />
@@ -73,7 +73,8 @@
                     android:paddingRight="10dp"
                     android:progress="255"
                     android:progressDrawable="@drawable/seekbar_style"
-                    android:thumb="@drawable/seekbar_thumb" />
+                    android:thumb="@drawable/seekbar_thumb"
+                    android:translationZ="15px" />
 
                 <TextView
                     android:id="@+id/tv_color_value_a"
@@ -109,7 +110,8 @@
                     android:paddingRight="10dp"
                     android:progress="0"
                     android:progressDrawable="@drawable/seekbar_style"
-                    android:thumb="@drawable/seekbar_thumb" />
+                    android:thumb="@drawable/seekbar_thumb"
+                    android:translationZ="15px" />
 
                 <TextView
                     android:id="@+id/tv_color_value_r"
@@ -146,7 +148,8 @@
                     android:paddingRight="10dp"
                     android:progress="102"
                     android:progressDrawable="@drawable/seekbar_style"
-                    android:thumb="@drawable/seekbar_thumb" />
+                    android:thumb="@drawable/seekbar_thumb"
+                    android:translationZ="15px" />
 
                 <TextView
                     android:id="@+id/tv_color_value_g"
@@ -182,7 +185,8 @@
                     android:paddingRight="10dp"
                     android:progress="204"
                     android:progressDrawable="@drawable/seekbar_style"
-                    android:thumb="@drawable/seekbar_thumb" />
+                    android:thumb="@drawable/seekbar_thumb"
+                    android:translationZ="15px" />
 
                 <TextView
                     android:id="@+id/tv_color_value_b"
@@ -197,33 +201,11 @@
             <com.bamboy.bamboycollected.view.clickanimview.BamButton
                 android:id="@+id/btn_toast_custom"
                 style="@style/main_btn"
+                android:layout_marginBottom="50dp"
                 android:text="显示自定义Toast" />
 
         </LinearLayout>
     </ScrollView>
 
-    <ScrollView
-        android:id="@+id/sv_introduce"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/rl_title"
-        android:visibility="gone"
-        android:background="@color/colorBlue_t">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp">
-
-            <TextView
-                android:id="@+id/tv_introduce"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorWhite"
-                android:textSize="18sp"
-                android:text="即将开始"/>
-
-        </LinearLayout>
-    </ScrollView>
-
+    <include layout="@layout/include_introduce" />
 </RelativeLayout>

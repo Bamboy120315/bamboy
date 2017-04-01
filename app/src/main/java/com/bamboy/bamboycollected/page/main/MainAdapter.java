@@ -49,7 +49,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                     Intent intent = new Intent(mActivity, bean.getStartClass());
                     mActivity.startActivity(intent);
                 } else {
-                    BamToast.show(mActivity, "该Demo尚未整合\n请耐心等待");
+                    BamToast.show(mActivity, "该Demo尚未整合\n请耐心等待", BamToast.COLOR_BLUE_SKY);
                 }
             }
         });

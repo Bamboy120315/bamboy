@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/include_title_bar" />
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_title"
+        android:background="@color/colorWhite"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_head_portrait"
+                style="@style/view_style"
+                android:layout_height="210dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/picture" />
+
+            <com.bamboy.bamboycollected.view.clickanimview.BamButton
+                android:id="@+id/btn_blur_img"
+                style="@style/main_btn"
+                android:layout_below="@+id/iv_head_portrait"
+                android:text="模糊图片" />
+
+            <com.bamboy.bamboycollected.view.clickanimview.BamButton
+                android:id="@+id/btn_blur_popup_window"
+                style="@style/main_btn"
+                android:layout_marginBottom="50dp"
+                android:layout_below="@+id/btn_blur_img"
+                android:text="弹窗" />
+        </RelativeLayout>
+    </ScrollView>
+    <!-- 弹窗背景 -->
+    <ImageView
+        android:id="@+id/iv_popup_window_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFF5F7FA"
+        android:clickable="true"
+        android:translationZ="35px"
+        android:visibility="gone" />
+
+    <!-- 弹窗菜单 -->
+    <RelativeLayout
+        android:id="@+id/rl_popup_window"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:translationZ="35px"
+        android:visibility="gone">
+
+        <com.bamboy.bamboycollected.view.clickanimview.BamButton
+            android:id="@+id/btn_menu_1"
+            style="@style/main_btn"
+            android:layout_marginTop="20dp"
+            android:text="菜单1" />
+
+        <com.bamboy.bamboycollected.view.clickanimview.BamButton
+            android:id="@+id/btn_menu_2"
+            style="@style/main_btn"
+            android:layout_below="@+id/btn_menu_1"
+            android:text="菜单2" />
+
+        <com.bamboy.bamboycollected.view.clickanimview.BamButton
+            android:id="@+id/btn_menu_3"
+            style="@style/main_btn"
+            android:layout_below="@+id/btn_menu_2"
+            android:text="菜单3" />
+
+        <com.bamboy.bamboycollected.view.clickanimview.BamButton
+            android:id="@+id/btn_close_popup_window"
+            style="@style/main_btn"
+            android:layout_below="@+id/btn_menu_3"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="关闭弹窗" />
+
+    </RelativeLayout>
+
+
+    <include layout="@layout/include_introduce" />
+</RelativeLayout>

@@ -19,22 +19,29 @@
         <item name="android:windowIsTranslucent">false</item>
     </style>
 
-    <!-- EditView的样式，包含了 height、HintColor、textColor、textSize 和 background -->
-    <style name="main_btn" parent="@style/view_style">
-        <item name="android:textColor">@color/colorWhite</item>
+    <style name="btn_style" parent="@style/view_style">
         <item name="android:translationZ">15px</item>
         <item name="android:textSize">18sp</item>
-        <item name="android:background">@color/colorBlue</item>
         <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="main_btn" parent="@style/btn_style">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@color/colorBlue</item>
+    </style>
+
+    <style name="popup_btn" parent="@style/btn_style">
+        <item name="android:textColor">@color/colorBlue</item>
+        <item name="android:background">@color/colorWhite</item>
     </style>
 
     <style name="view_style" parent="@android:style/Widget">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_marginTop">2dp</item>
-        <item name="android:layout_marginBottom">8dp</item>
-        <item name="android:layout_marginLeft">10dp</item>
-        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
     </style>
 
 </resources>

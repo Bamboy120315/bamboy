@@ -12,6 +12,7 @@ public class UtilBox {
     public UtilAnim anim;
     public UtilLog log;
     public UtilInfo info;
+    public UtilBitmap bitmap;
 
     /**
      * 私有化构造方法
@@ -31,6 +32,7 @@ public class UtilBox {
             public void run() {
                 anim = new UtilAnim();
                 log = new UtilLog();
+                bitmap = new UtilBitmap();
             }
         }).start();
     }

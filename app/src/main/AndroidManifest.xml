@@ -19,11 +19,11 @@
         </activity>
 
         <!-- 主页 -->
-        <activity android:name=".page.main.MainActivity"></activity>
+        <activity android:name=".page.main.MainActivity" />
 
         <!-- Toast页 -->
-        <activity android:name=".page.toast.ToastActivity"></activity>
-
+        <activity android:name=".page.toast.ToastActivity" />
+        <activity android:name=".page.blur.BlurActivity"></activity>
     </application>
 
 </manifest>

@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
     tools:context=".page.main.MainActivity">
 
-    <include layout="@layout/title_bar" />
+    <include layout="@layout/include_title_bar" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_list"
         android:layout_width="match_parent"
+        android:background="@color/colorWhite"
         android:layout_height="match_parent"
         android:layoutAnimation="@anim/list_anim_layout"
         android:layout_below="@+id/rl_title" />

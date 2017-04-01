@@ -2,12 +2,14 @@ package com.bamboy.bamboycollected.base;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -163,6 +165,34 @@ public abstract class BamActivity extends Activity {
      */
     protected void openSlideFinish(boolean open) {
         mSlideBack.setmSlideX(open ? 0 : -1);
+    }
+
+    /**
+     * 展开介绍
+     */
+    protected void showIntroduce(View rl_introduce, ImageView iv_introduce_back) {
+
+        // 获取截图的Bitmap
+        Bitmap bitmap = UtilBox.getUtilBox().ui.getDrawing(this);
+
+        if (bitmap != null) {
+            // 将截屏Bitma放入ImageView
+            iv_introduce_back.setImageBitmap(bitmap);
+            // 将ImageView进行高斯模糊【25是最高模糊等级】【最后一个参数是蒙上一层颜色，此参数可不填】
+            util.bitmap.blurImageView(this, iv_introduce_back, 25, getColor(R.color.colorWhite_t));
+        } else {
+            // 获取的Bitmap为null时，用半透明代替
+            iv_introduce_back.setBackgroundColor(getColor(R.color.colorWhite_t));
+        }
+
+        util.anim.showIntroduce(rl_introduce, 350);
+    }
+
+    /**
+     * 关闭介绍
+     */
+    protected void hideIntroduce(View rl_introduce) {
+        util.anim.hideIntroduce(rl_introduce, 350);
     }
 
     /**
