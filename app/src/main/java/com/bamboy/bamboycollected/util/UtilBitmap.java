@@ -88,6 +88,7 @@ public class UtilBitmap {
         Bitmap bitmap = blurBitmap(context, drawableToBitmap(img.getDrawable()), level);
         if (bitmap != null) {
             Drawable drawable = coverColor(context, bitmap, color);
+            img.setScaleType(ImageView.ScaleType.FIT_XY);
             img.setImageDrawable(drawable);
         } else {
             img.setImageBitmap(null);
