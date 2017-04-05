@@ -1,4 +1,49 @@
 <resources>
     <string name="app_name">Bamboy合集</string>
     <string name="tag_key_translation_z">translation_z</string>
+
+    <!-- 自定义Toast介绍 -->
+    <string name="introduce_toast">
+        \n
+        \n
+        注：\n
+        \n
+        本Demo为BamboyToast的2.0版本\n
+        \n
+        与1.0版区别在于：\n
+        1.0只有黑色背景，\n
+        且支持对号或叉号动画提示；\n
+        对1.0版本感兴趣的同学，\n
+        可以点击链接浏览CSDN：\n
+        http://blog.csdn.net/bamboy_/article/details/54952174\n
+        而2.0版本则增加了背景颜色，\n
+        利用颜色来体现警示程度，\n
+        如：错误提示可以用红色，\n
+        正确提示可以用蓝色等等……\n
+        \n
+        而此2.0版本中，\n
+        支持两种背景方式，\n
+        一种是由XML形式，\n
+        好处是可以自定义背景样式，\n
+        缺点是每种颜色都要写个XML\n
+        如：\nBamToast.show(this, "红色Toast", BamToast.COLOR_RED);\n
+        \n
+        一种是直接设置颜色，\n
+        好处是不需要写那么多XML\n
+        缺点是背景只能是方形的。\n
+        如：\nBamToast.show(this, "自定义颜色Toast", 0xFF0066CC);\n
+        \n
+        \n
+        如有问题可以联系尘少共同探讨：\n
+        QQ：1315166228\n
+        但本人QQ只在工作时间使用，\n
+        如紧急可以致电：15556786781\n
+        \n
+        git地址：\n
+        https://github.com/Bamboy120315/bamboy.git\n
+    </string>
+
+    <!-- 高斯模糊介绍 -->
+    <string name="introduce_blur"></string>
+    
 </resources>

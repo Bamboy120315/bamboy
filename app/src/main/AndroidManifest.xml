@@ -23,7 +23,9 @@
 
         <!-- Toast页 -->
         <activity android:name=".page.toast.ToastActivity" />
-        <activity android:name=".page.blur.BlurActivity"></activity>
+
+        <!-- 高斯模糊页 -->
+        <activity android:name=".page.blur.BlurActivity" />
     </application>
 
 </manifest>

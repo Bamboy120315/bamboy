@@ -2,7 +2,6 @@ package com.bamboy.bamboycollected.page.main;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -59,7 +58,7 @@ public class MainActivity extends BamActivity {
     @Override
     protected void init() {
         // 关闭当前界面的右滑关闭功能
-        openSlideFinish(false);
+        //openSlideFinish(false);
         // 设置titleBar
         setImmerseTitleBar(rl_title);
 

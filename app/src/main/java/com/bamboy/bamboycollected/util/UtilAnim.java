@@ -3,10 +3,15 @@ package com.bamboy.bamboycollected.util;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bamboy.bamboycollected.R;
 
 /**
  * 动画工具类
@@ -197,10 +202,27 @@ public class UtilAnim {
      * @param view     需要展开的介绍容器
      * @param duration 动画时长
      */
+    @SuppressLint("WrongViewCast")
     public void showIntroduce(final View view, final int duration) {
         view.setAlpha(0);
         view.setVisibility(View.VISIBLE);
         ObjectAnimator.ofFloat(view, "alpha", 0, 1).setDuration(duration).start();
+
+        try {
+            TextView tv = (TextView) view.findViewById(R.id.tv_introduce);
+            tv.setAlpha(0f);
+            Animator anim_alpha = ObjectAnimator.ofFloat(tv, "alpha", 0, 1);
+            anim_alpha.setStartDelay(duration / 2);
+            anim_alpha.setDuration(duration);
+            anim_alpha.start();
+
+            Animator anim_y = ObjectAnimator.ofFloat(tv, "Y", 100, 0);
+            anim_y.setStartDelay(duration / 2);
+            anim_y.setDuration(duration);
+            anim_y.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -220,11 +242,11 @@ public class UtilAnim {
      */
     public void hideIntroduce(final View view, final int duration) {
         Animator anim = ObjectAnimator.ofFloat(view, "alpha", 1, 0);
+        anim.setStartDelay(duration / 2);
         anim.setDuration(duration);
         anim.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
-
             }
 
             @Override
@@ -234,15 +256,28 @@ public class UtilAnim {
 
             @Override
             public void onAnimationCancel(Animator animation) {
-
             }
 
             @Override
             public void onAnimationRepeat(Animator animation) {
-
             }
         });
         anim.start();
+
+        try {
+            TextView tv = (TextView) view.findViewById(R.id.tv_introduce);
+            tv.setAlpha(0f);
+            Animator anim_alpha = ObjectAnimator.ofFloat(tv, "alpha", 1, 0);
+            anim_alpha.setDuration(duration);
+            anim_alpha.start();
+
+            float tvY = tv.getY();
+            Animator anim_y = ObjectAnimator.ofFloat(tv, "Y", tvY, tvY + 100);
+            anim_y.setDuration(duration);
+            anim_y.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

@@ -33,8 +33,8 @@
             <com.bamboy.bamboycollected.view.clickanimview.BamButton
                 android:id="@+id/btn_blur_popup_window"
                 style="@style/main_btn"
-                android:layout_marginBottom="50dp"
                 android:layout_below="@+id/btn_blur_img"
+                android:layout_marginBottom="50dp"
                 android:text="弹窗" />
         </RelativeLayout>
     </ScrollView>
@@ -80,8 +80,8 @@
             android:id="@+id/btn_close_popup_window"
             style="@style/main_btn"
             android:layout_below="@+id/btn_menu_3"
-            android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
             android:text="关闭弹窗" />
 
     </RelativeLayout>

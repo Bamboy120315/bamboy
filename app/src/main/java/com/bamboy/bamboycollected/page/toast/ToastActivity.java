@@ -1,22 +1,17 @@
 package com.bamboy.bamboycollected.page.toast;
 
-import android.animation.Animator;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.BamActivity;
-import com.bamboy.bamboycollected.util.UtilBox;
 import com.bamboy.bamboycollected.view.BamToast;
 
 /**
@@ -35,7 +30,6 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
      * 介绍容器
      */
     private RelativeLayout rl_introduce;
-    private ImageView iv_introduce_back;
     private TextView tv_introduce;
 
     /**
@@ -78,7 +72,6 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
         tv_title = (TextView) findViewById(R.id.tv_title);
         rl_introduce = (RelativeLayout) findViewById(R.id.rl_introduce);
         tv_introduce = (TextView) findViewById(R.id.tv_introduce);
-        iv_introduce_back = (ImageView) findViewById(R.id.iv_introduce_back);
 
         sb_color_a = (SeekBar) findViewById(R.id.sb_color_a);
         tv_color_value_a = (TextView) findViewById(R.id.tv_color_value_a);
@@ -99,6 +92,7 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
     protected void setListener() {
         iv_back.setOnClickListener(this);
         iv_introduce.setOnClickListener(this);
+        rl_introduce.setOnClickListener(this);
         findViewById(R.id.btn_toast_red).setOnClickListener(this);
         findViewById(R.id.btn_toast_blue).setOnClickListener(this);
         findViewById(R.id.btn_toast_green).setOnClickListener(this);
@@ -121,11 +115,6 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
             }
         };
 
-        sb_color_a.setTag(tv_color_value_a);
-        sb_color_r.setTag(tv_color_value_r);
-        sb_color_g.setTag(tv_color_value_g);
-        sb_color_b.setTag(tv_color_value_b);
-
         sb_color_a.setOnSeekBarChangeListener(seekBarChangeListener);
         sb_color_r.setOnSeekBarChangeListener(seekBarChangeListener);
         sb_color_g.setOnSeekBarChangeListener(seekBarChangeListener);
@@ -139,6 +128,12 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
         setImmerseTitleBar(rl_title);
         tv_title.setText("Toast Demo");
         iv_introduce.setVisibility(View.VISIBLE);
+        tv_introduce.setText(getString(R.string.introduce_toast));
+
+        sb_color_a.setTag(tv_color_value_a);
+        sb_color_r.setTag(tv_color_value_r);
+        sb_color_g.setTag(tv_color_value_g);
+        sb_color_b.setTag(tv_color_value_b);
     }
 
     @Override
@@ -146,6 +141,9 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.iv_back:
                 finish();
+                break;
+            case R.id.rl_introduce:
+                hideIntroduce(rl_introduce);
                 break;
             case R.id.iv_introduce:
                 if (rl_introduce.getVisibility() == View.GONE) {
@@ -200,6 +198,7 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
 
     /**
      * 按键监听
+     *
      * @param keyCode
      * @param event
      * @return

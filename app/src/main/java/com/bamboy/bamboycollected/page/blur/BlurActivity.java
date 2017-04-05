@@ -96,6 +96,7 @@ public class BlurActivity extends BamActivity implements View.OnClickListener {
 
         tv_title.setText("高斯模糊 Demo");
         iv_introduce.setVisibility(View.VISIBLE);
+        tv_introduce.setText(getString(R.string.introduce_blur));
     }
 
     @Override
@@ -164,9 +165,8 @@ public class BlurActivity extends BamActivity implements View.OnClickListener {
             // 将截屏Bitma放入ImageView
             iv_popup_window_back.setImageBitmap(bitmap);
             // 将ImageView进行高斯模糊【25是最高模糊程度】【最后一个参数是蒙上一层颜色，此参数可不填】
-            // 写两遍是因为最大模糊程度是25，但我需要更高的模糊程度，所以写了两遍
-            util.bitmap.blurImageView(this, iv_popup_window_back, 9, getResources().getColor(R.color.colorWhite_t5));
-            util.bitmap.blurImageView(this, iv_popup_window_back, 9, getResources().getColor(R.color.colorWhite_t5));
+            // 如果需要更高的模糊程度，可以将此行代码写两遍
+            util.bitmap.blurImageView(this, iv_popup_window_back, 25, getResources().getColor(R.color.colorWhite_t8));
         } else {
             // 获取的Bitmap为null时，用半透明代替
             iv_popup_window_back.setBackgroundColor(getResources().getColor(R.color.colorWhite_tD));
@@ -174,7 +174,6 @@ public class BlurActivity extends BamActivity implements View.OnClickListener {
 
         // 打开弹窗
         util.anim.showPopupWindow(rl_popup_window, iv_popup_window_back);
-
     }
 
     /**

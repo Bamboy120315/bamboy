@@ -7,9 +7,9 @@
         android:id="@+id/toast_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:translationZ="50px"
         android:layout_margin="50dp"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:translationZ="50px">
 
         <TextView
             android:id="@+id/toast_text"
@@ -17,8 +17,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:gravity="center"
-            android:textColor="#FFFFFF"
             android:text="jhkjhjkh"
+            android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
     </RelativeLayout>
