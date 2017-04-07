@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.BamActivity;
+import com.bamboy.bamboycollected.page.auto_line.AutoLineActivity;
 import com.bamboy.bamboycollected.page.blur.BlurActivity;
 import com.bamboy.bamboycollected.page.toast.ToastActivity;
 
@@ -22,10 +23,10 @@ import java.util.List;
 
 /**
  * 主页
- * <p/>
+ * <p>
  * 动画显示技术点列表
  * 每个按钮进入一个技术点展示页面
- * <p/>
+ * <p>
  * Created by Bamboy on 2017/3/24.
  */
 public class MainActivity extends BamActivity implements View.OnClickListener {
@@ -82,7 +83,9 @@ public class MainActivity extends BamActivity implements View.OnClickListener {
         iv_back.setVisibility(View.GONE);
         tv_title.setText("主页");
         iv_introduce.setVisibility(View.VISIBLE);
-        tv_introduce.setText(getString(R.string.introduce_main));
+        tv_introduce.setText(
+                getString(R.string.introduce_main) +
+                        getString(R.string.introduce_foot));
 
         initList();
     }
@@ -128,7 +131,7 @@ public class MainActivity extends BamActivity implements View.OnClickListener {
 
         mList.add(new MainBean("Toast Demo", ToastActivity.class));
         mList.add(new MainBean("高斯模糊 Demo", BlurActivity.class));
-        mList.add(new MainBean("自动换行 Demo", null));
+        mList.add(new MainBean("自动换行 Demo", AutoLineActivity.class));
         mList.add(new MainBean("分批加载 Demo", null));
         mList.add(new MainBean("点击动画 Demo", null));
 

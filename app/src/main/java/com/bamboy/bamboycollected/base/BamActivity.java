@@ -60,7 +60,7 @@ public abstract class BamActivity extends Activity {
     /**
      * 工具箱
      */
-    protected UtilBox util = UtilBox.getUtilBox();
+    public UtilBox util = UtilBox.getUtilBox();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -26,6 +26,9 @@
 
         <!-- 高斯模糊页 -->
         <activity android:name=".page.blur.BlurActivity" />
+
+        <!-- 自动换行页 -->
+        <activity android:name=".page.auto_line.AutoLineActivity" />
     </application>
 
 </manifest>

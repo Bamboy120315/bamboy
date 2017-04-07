@@ -2,6 +2,19 @@
     <string name="app_name">Bamboy合集</string>
     <string name="tag_key_translation_z">translation_z</string>
 
+    <string name="introduce_foot">
+        \n
+        \n
+        \n
+        如有问题可以联系尘少共同探讨：\n
+        QQ：1315166228\n
+        但本人QQ只在工作时间使用，\n
+        如紧急可以致电：15556786781\n
+        \n
+        git地址：\n
+        <a href="https://github.com/Bamboy120315/bamboy.git">https://github.com/Bamboy120315/bamboy.git</a>\n
+    </string>
+
     <!-- 主页介绍 -->
     <string name="introduce_main">
         \n
@@ -60,15 +73,7 @@
         主要是想象力，\n
         实在不行就找UED的朋友帮帮忙吧。\n
         \n
-        感兴趣的同学赶紧试试吧，\n
-        有问题可以找我共同探讨：\n
-        QQ：1315166228\n
-        但本人QQ只在工作时间使用，\n
-        如紧急可以致电：15556786781\n
-        \n
-        git地址：\n
-        <a href="https://github.com/Bamboy120315/bamboy.git">https://github.com/Bamboy120315/bamboy.git</a>\n
-        \n
+        感兴趣的同学赶紧试试吧。
     </string>
 
     <!-- 自定义Toast介绍 -->
@@ -100,16 +105,7 @@
         一种是直接设置颜色，\n
         好处是不需要写那么多XML\n
         缺点是背景只能是方形的。\n
-        如：\nBamToast.show(this, "自定义颜色Toast", 0xFF0066CC);\n
-        \n
-        \n
-        如有问题可以联系尘少共同探讨：\n
-        QQ：1315166228\n
-        但本人QQ只在工作时间使用，\n
-        如紧急可以致电：15556786781\n
-        \n
-        git地址：\n
-        <a href="https://github.com/Bamboy120315/bamboy.git">https://github.com/Bamboy120315/bamboy.git</a>\n
+        如：\nBamToast.show(this, "自定义颜色Toast", 0xFF0066CC);
     </string>
 
     <!-- 高斯模糊介绍 -->
@@ -136,16 +132,24 @@
         clickPopupWindow()方法\n
         \n
         本Demo的CSDN地址：\n
-        <a href="http://blog.csdn.net/bamboy_/article/details/54345636">http://blog.csdn.net/bamboy_/article/details/54345636</a>\n
+        <a href="http://blog.csdn.net/bamboy_/article/details/54345636">http://blog.csdn.net/bamboy_/article/details/54345636</a>
+    </string>
+
+    <!-- 自动换行介绍 -->
+    <string name="introduce_auto_line">
         \n
         \n
-        如有问题可以联系尘少共同探讨：\n
-        QQ：1315166228\n
-        但本人QQ只在工作时间使用，\n
-        如紧急可以致电：15556786781\n
+        Bamboy的自动换行，\n
+        使用起来很简单，\n
+        只需要把子View\n
+        add到BamAutoLineList中即可。\n
         \n
-        git地址：\n
-        <a href="https://github.com/Bamboy120315/bamboy.git">https://github.com/Bamboy120315/bamboy.git</a>\n
+        嗯，\n
+        就是这么简单。\n
+        \n
+        \n
+        本Demo的CSDN地址：\n
+        <a href="http://blog.csdn.net/bamboy_/article/details/54409840">http://blog.csdn.net/bamboy_/article/details/54409840</a>
     </string>
 
 </resources>

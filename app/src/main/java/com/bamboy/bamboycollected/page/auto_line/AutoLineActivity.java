@@ -1,20 +1,25 @@
-package com.bamboy.bamboycollected.page.blur;
+package com.bamboy.bamboycollected.page.auto_line;
 
-import android.graphics.Bitmap;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.BamActivity;
+import com.bamboy.bamboycollected.view.BamAutoLineList;
 
-public class BlurActivity extends BamActivity implements View.OnClickListener {
-
+/**
+ * 自动换行 Demo
+ * <p>
+ * Created by Bamboy on 2017/4/7.
+ */
+public class AutoLineActivity extends BamActivity implements View.OnClickListener {
     private RelativeLayout rl_title;
     private ImageView iv_back;
     private TextView tv_title;
@@ -26,40 +31,15 @@ public class BlurActivity extends BamActivity implements View.OnClickListener {
     private TextView tv_introduce;
 
     /**
-     * 按钮【模糊图片】
+     * 按钮【添加Item】
      */
-    private Button btn_blur_img;
-    /**
-     * 图片
-     */
-    private ImageView iv_head_portrait;
-    /**
-     * 按钮【显示弹窗】
-     */
-    private Button btn_blur_popup_window;
-
-    /**
-     * 弹窗背景
-     */
-    private ImageView iv_popup_window_back;
-    /**
-     * 弹窗容器
-     */
-    private RelativeLayout rl_popup_window;
-    /**
-     * 按钮【关闭弹窗】
-     */
-    private Button btn_close_popup_window;
-
-    /**
-     * 本页工具类
-     */
-    private BlurUtil blurUtil;
+    private Button btn_add;
+    private BamAutoLineList bal_list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_blur);
+        setContentView(R.layout.activity_auto_line);
     }
 
     @Override
@@ -72,23 +52,16 @@ public class BlurActivity extends BamActivity implements View.OnClickListener {
         rl_introduce = (RelativeLayout) findViewById(R.id.rl_introduce);
         tv_introduce = (TextView) findViewById(R.id.tv_introduce);
 
-        btn_blur_img = (Button) findViewById(R.id.btn_blur_img);
-        iv_head_portrait = (ImageView) findViewById(R.id.iv_head_portrait);
-        btn_blur_popup_window = (Button) findViewById(R.id.btn_blur_popup_window);
-
-        iv_popup_window_back = (ImageView) findViewById(R.id.iv_popup_window_back);
-        btn_close_popup_window = (Button) findViewById(R.id.btn_close_popup_window);
-        rl_popup_window = (RelativeLayout) findViewById(R.id.rl_popup_window);
+        btn_add = (Button) findViewById(R.id.btn_add);
+        bal_list = (BamAutoLineList) findViewById(R.id.bal_list);
     }
 
     @Override
     protected void setListener() {
         iv_back.setOnClickListener(this);
         iv_introduce.setOnClickListener(this);
-        btn_blur_img.setOnClickListener(this);
-        btn_blur_popup_window.setOnClickListener(this);
-        btn_close_popup_window.setOnClickListener(this);
-        iv_popup_window_back.setOnClickListener(this);
+
+        btn_add.setOnClickListener(this);
     }
 
     @Override
@@ -96,13 +69,11 @@ public class BlurActivity extends BamActivity implements View.OnClickListener {
         // 设置titleBar
         setImmerseTitleBar(rl_title);
 
-        tv_title.setText("高斯模糊 Demo");
+        tv_title.setText("自动换行 Demo");
         iv_introduce.setVisibility(View.VISIBLE);
         tv_introduce.setText(
-                getString(R.string.introduce_blur) +
+                getString(R.string.introduce_auto_line) +
                         getString(R.string.introduce_foot));
-
-        blurUtil = new BlurUtil(this);
     }
 
     @Override
@@ -118,17 +89,14 @@ public class BlurActivity extends BamActivity implements View.OnClickListener {
                     hideIntroduce(rl_introduce);
                 }
                 break;
-            case R.id.btn_blur_img:          // 点击模糊图片
-                blurUtil.clickBlurImg(iv_head_portrait);
-                break;
-            case R.id.btn_blur_popup_window: // 点击显示弹窗
-                blurUtil.clickPopupWindow(rl_popup_window, iv_popup_window_back);
-                break;
-            case R.id.iv_popup_window_back: // 弹窗背景
-            case R.id.btn_close_popup_window: // 关闭弹窗
-                blurUtil.clickClosePopupWindow(rl_popup_window, iv_popup_window_back);
+            case R.id.btn_add:
+                // 实例化View
+                View item = createView();
+                // 把View放到控件里去
+                bal_list.addView(item);
                 break;
         }
+
     }
 
     /**
@@ -144,12 +112,45 @@ public class BlurActivity extends BamActivity implements View.OnClickListener {
                 hideIntroduce(rl_introduce);
                 return false;
             }
-            if (rl_popup_window.getVisibility() == View.VISIBLE) {
-                blurUtil.clickClosePopupWindow(rl_popup_window, iv_popup_window_back);
-                return false;
-            }
         }
         return super.onKeyDown(keyCode, event);
     }
 
+    /**
+     * 初始化一个布局
+     *
+     * @return
+     */
+    private View createView() {
+        // 实例化一个View，以放到List里
+        View item = getLayoutInflater().inflate(R.layout.item_auto_line, null);
+        // 设置View里的文本值
+        ((TextView) item.findViewById(R.id.tv_item)).setText(randomText());
+
+        // 动画，如果需要可以打开，不需要则关闭
+        if (true) {
+            Animation anim = new ScaleAnimation(0, 1, 1, 1);
+            anim.setDuration(300);
+            item.setAnimation(anim);
+        }
+
+        return item;
+    }
+
+    /**
+     * 产生随机字符串，
+     * 为了让每个条目的文本不一样，
+     * 正常开发不需要此方法
+     *
+     * @return 带有随机数的文本
+     */
+    private String randomText() {
+        StringBuffer str = new StringBuffer("条目");
+
+        int count = (int) (Math.random() * 4);
+        for (int i = 0; i < count; i++) {
+            str.append("" + (int) (Math.random() * 10));
+        }
+        return str.toString();
+    }
 }

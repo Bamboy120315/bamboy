@@ -21,7 +21,6 @@ import com.bamboy.bamboycollected.view.BamToast;
  */
 public class ToastActivity extends BamActivity implements View.OnClickListener {
 
-
     private RelativeLayout rl_title;
     private ImageView iv_back;
     private ImageView iv_introduce;
@@ -103,7 +102,7 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 ((TextView) seekBar.getTag()).setText("" + progress);
-                setBtnColor();
+                btn_toast_custom.setBackgroundColor(getColor());
             }
 
             @Override
@@ -128,7 +127,9 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
         setImmerseTitleBar(rl_title);
         tv_title.setText("Toast Demo");
         iv_introduce.setVisibility(View.VISIBLE);
-        tv_introduce.setText(getString(R.string.introduce_toast));
+        tv_introduce.setText(
+                getString(R.string.introduce_toast) +
+                        getString(R.string.introduce_foot));
 
         sb_color_a.setTag(tv_color_value_a);
         sb_color_r.setTag(tv_color_value_r);
@@ -165,35 +166,9 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
                 BamToast.show(this, "黑色Toast");
                 break;
             case R.id.btn_toast_custom:
-                showColorToast();
+                BamToast.show(this, "自定义颜色Toast", getColor());
                 break;
         }
-    }
-
-    /**
-     * 设置按钮颜色
-     */
-    private void setBtnColor() {
-        int a = Integer.parseInt(tv_color_value_a.getText().toString());
-        int r = Integer.parseInt(tv_color_value_r.getText().toString());
-        int g = Integer.parseInt(tv_color_value_g.getText().toString());
-        int b = Integer.parseInt(tv_color_value_b.getText().toString());
-
-        int color = Color.argb(a, r, g, b);
-        btn_toast_custom.setBackgroundColor(color);
-    }
-
-    /**
-     * 显示自定义颜色Toast
-     */
-    private void showColorToast() {
-        int a = Integer.parseInt(tv_color_value_a.getText().toString());
-        int r = Integer.parseInt(tv_color_value_r.getText().toString());
-        int g = Integer.parseInt(tv_color_value_g.getText().toString());
-        int b = Integer.parseInt(tv_color_value_b.getText().toString());
-
-        int color = Color.argb(a, r, g, b);
-        BamToast.show(this, "自定义颜色Toast", color);
     }
 
     /**
@@ -211,6 +186,19 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
             }
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    /**
+     * 获取颜色值
+     * @return
+     */
+    private int getColor(){
+        int a = Integer.parseInt(tv_color_value_a.getText().toString());
+        int r = Integer.parseInt(tv_color_value_r.getText().toString());
+        int g = Integer.parseInt(tv_color_value_g.getText().toString());
+        int b = Integer.parseInt(tv_color_value_b.getText().toString());
+
+        return Color.argb(a, r, g, b);
     }
 
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <include layout="@layout/include_title_bar" />
+
+    <com.bamboy.bamboycollected.view.clickanimview.BamButton
+        android:id="@+id/btn_add"
+        style="@style/main_btn"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/rl_title"
+        android:text="添加Item" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btn_add">
+
+        <com.bamboy.bamboycollected.view.BamAutoLineList
+            android:id="@+id/bal_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp" />
+    </ScrollView>
+
+    <include layout="@layout/include_introduce" />
+</RelativeLayout>

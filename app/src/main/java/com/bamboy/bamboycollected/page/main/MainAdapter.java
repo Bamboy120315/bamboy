@@ -31,7 +31,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     @Override
     public MainAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         ViewHolder holder = new ViewHolder(LayoutInflater.from(
-                viewGroup.getContext()).inflate(R.layout.item_btn, viewGroup,
+                viewGroup.getContext()).inflate(R.layout.item_main, viewGroup,
                 false));
         return holder;
     }
