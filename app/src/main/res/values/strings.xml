@@ -2,6 +2,75 @@
     <string name="app_name">Bamboy合集</string>
     <string name="tag_key_translation_z">translation_z</string>
 
+    <!-- 主页介绍 -->
+    <string name="introduce_main">
+        \n
+        \n
+        首先，\n
+        谢谢大家关注尘少的Demo合集，\n
+        为此深感荣幸。\n
+        \n
+        那就容我在此先啰嗦几句，\n
+        熟悉尘少的同学都知道，\n
+        我是一个很在意UI效果的程序员，\n
+        虽然这在程序员里非常少见，\n
+        但是我仍然认准了这个方向，\n
+        并向这个方向发展。\n
+        \n
+        很喜欢林志炫版《浮夸》里的一句歌词：\n
+        幸运儿不是我，\n
+        因为我选择的路很难走，\n
+        如果够出色，\n
+        却不能出头，\n
+        至少也做到没第二个我。\n
+        \n
+        而现在的我，\n
+        只是刚刚起步，\n
+        不用说“出头”，\n
+        甚至连“出色”都还没碰到边儿😂
+        \n
+        \n
+        但从第一个同学看到这个Demo开始，\n
+        我就开始了一步一步的前进，\n
+        git的每一次更新，\n
+        都是我迈向“出色”的脚印！\n
+        谢谢大家的支持，\n
+        不管你的方向是否与我一致，\n
+        我们相互共勉，\n
+        一起进步！\n
+        \n
+        啰嗦了那么多，\n
+        下面开始进入本页技术点正题吧，\n
+        \n
+        首先大家好奇的，\n
+        肯定是有趣的启动效果吧？\n
+        Logo在页面活蹦乱跳，\n
+        其实实现起来并没有什么难度，\n
+        \n
+        1、使用透明主题：\n
+        Theme.Translucent.NoTitleBar\n
+        \n
+        2、把启动页的背景颜色去掉\n
+        \n
+        3、放个ImageView，\n
+        写个动画让它跳跳就OK了\n
+        \n
+        怎么样，\n
+        实现起来很简单吧，\n
+        主要是想象力，\n
+        实在不行就找UED的朋友帮帮忙吧。\n
+        \n
+        感兴趣的同学赶紧试试吧，\n
+        有问题可以找我共同探讨：\n
+        QQ：1315166228\n
+        但本人QQ只在工作时间使用，\n
+        如紧急可以致电：15556786781\n
+        \n
+        git地址：\n
+        <a href="https://github.com/Bamboy120315/bamboy.git">https://github.com/Bamboy120315/bamboy.git</a>\n
+        \n
+    </string>
+
     <!-- 自定义Toast介绍 -->
     <string name="introduce_toast">
         \n
@@ -15,7 +84,7 @@
         且支持对号或叉号动画提示；\n
         对1.0版本感兴趣的同学，\n
         可以点击链接浏览CSDN：\n
-        http://blog.csdn.net/bamboy_/article/details/54952174\n
+        <a href="http://blog.csdn.net/bamboy_/article/details/54952174">http://blog.csdn.net/bamboy_/article/details/54952174</a>\n
         而2.0版本则增加了背景颜色，\n
         利用颜色来体现警示程度，\n
         如：错误提示可以用红色，\n
@@ -40,10 +109,43 @@
         如紧急可以致电：15556786781\n
         \n
         git地址：\n
-        https://github.com/Bamboy120315/bamboy.git\n
+        <a href="https://github.com/Bamboy120315/bamboy.git">https://github.com/Bamboy120315/bamboy.git</a>\n
     </string>
 
     <!-- 高斯模糊介绍 -->
-    <string name="introduce_blur"></string>
-    
+    <string name="introduce_blur">
+        \n
+        \n
+        Bamboy高斯模糊，\n
+        也叫毛玻璃效果，\n
+        使用目前为止效率最高的算法，\n
+        使用起来也很简单，\n
+        只要调用blurImageView方法即可，\n
+        该方法有三个参数：\n
+        1：上下文；\n
+        2：需要模糊的ImageView；\n
+        3：模糊程度(0~25)。\n
+        \n
+        如果觉得最大模糊程度25还不够的话，\n
+        可以再复制一遍即可。\n
+        \n
+        我个人认为，\n
+        毛玻璃最广泛的应用场景应该是弹窗，\n
+        所以我单独写了一个关于弹窗的方法\n
+        大家可以参照本Demo里\n
+        clickPopupWindow()方法\n
+        \n
+        本Demo的CSDN地址：\n
+        <a href="http://blog.csdn.net/bamboy_/article/details/54345636">http://blog.csdn.net/bamboy_/article/details/54345636</a>\n
+        \n
+        \n
+        如有问题可以联系尘少共同探讨：\n
+        QQ：1315166228\n
+        但本人QQ只在工作时间使用，\n
+        如紧急可以致电：15556786781\n
+        \n
+        git地址：\n
+        <a href="https://github.com/Bamboy120315/bamboy.git">https://github.com/Bamboy120315/bamboy.git</a>\n
+    </string>
+
 </resources>

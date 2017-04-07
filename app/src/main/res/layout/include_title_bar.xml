@@ -23,7 +23,6 @@
         android:textColor="@color/colorWhite"
         android:textSize="20sp" />
 
-
     <ImageView
         android:id="@+id/iv_introduce"
         android:layout_width="50dp"

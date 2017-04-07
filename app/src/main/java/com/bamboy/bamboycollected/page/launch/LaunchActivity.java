@@ -34,6 +34,7 @@ public class LaunchActivity extends BamActivity {
 
     private View vi_back;
     private ImageView iv_icon;
+    private ImageView iv_introduce;
 
     /**
      * 倒计时
@@ -51,6 +52,7 @@ public class LaunchActivity extends BamActivity {
         rl_title = (RelativeLayout) findViewById(R.id.rl_title);
         iv_back = (ImageView) findViewById(R.id.iv_back);
         tv_title = (TextView) findViewById(R.id.tv_title);
+        iv_introduce = (ImageView) findViewById(R.id.iv_introduce);
 
         vi_back = findViewById(R.id.vi_back);
         iv_icon = (ImageView) findViewById(R.id.iv_icon);
@@ -70,6 +72,7 @@ public class LaunchActivity extends BamActivity {
 
         rl_title.setVisibility(View.INVISIBLE);
         iv_back.setVisibility(View.INVISIBLE);
+        iv_introduce.setVisibility(View.VISIBLE);
         tv_title.setText("主页");
 
         // 模拟加载数据时间

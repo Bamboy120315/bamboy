@@ -15,7 +15,7 @@ import com.bamboy.bamboycollected.R;
 
 /**
  * 动画工具类
- * <p>
+ * <p/>
  * Created by Bamboy on 2017/3/24.
  */
 public class UtilAnim {
@@ -98,7 +98,7 @@ public class UtilAnim {
      * @param view_back 背景遮罩
      */
     public void showPopupWindow(View view, View view_back) {
-        showPopupWindow(view, view_back, 250);
+        showPopupWindow(view, view_back, 300);
     }
 
     /**
@@ -112,7 +112,7 @@ public class UtilAnim {
     public void hidePopupWindow(final View view,
                                 final View view_back,
                                 int duration) {
-        if (view_back == null) {
+        if (view_back == null || view_back.getAlpha() != 1) {
             return;
         }
 
@@ -184,7 +184,7 @@ public class UtilAnim {
      * @param view_back 背景遮罩
      */
     public void hidePopupWindow(View view, View view_back) {
-        hidePopupWindow(view, view_back, 250);
+        hidePopupWindow(view, view_back, 300);
     }
 
     /**
@@ -193,7 +193,7 @@ public class UtilAnim {
      * @param view 需要展开的介绍容器
      */
     public void showIntroduce(final View view) {
-        showIntroduce(view, 250);
+        showIntroduce(view, 500);
     }
 
     /**
@@ -231,7 +231,7 @@ public class UtilAnim {
      * @param view 需要隐藏的介绍容器
      */
     public void hideIntroduce(final View view) {
-        hideIntroduce(view, 250);
+        hideIntroduce(view, 500);
     }
 
     /**
@@ -241,6 +241,27 @@ public class UtilAnim {
      * @param duration 动画时长
      */
     public void hideIntroduce(final View view, final int duration) {
+
+        try {
+            TextView tv = (TextView) view.findViewById(R.id.tv_introduce);
+            if (tv == null || tv.getAlpha() != 1) {
+                return;
+            }
+
+            tv.setAlpha(0f);
+            Animator anim_alpha = ObjectAnimator.ofFloat(tv, "alpha", 1, 0);
+            anim_alpha.setDuration(duration);
+            anim_alpha.start();
+
+            float tvY = tv.getY();
+            Animator anim_y = ObjectAnimator.ofFloat(tv, "Y", tvY, tvY + 100);
+            anim_y.setDuration(duration);
+            anim_y.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // 容器的渐出动画
         Animator anim = ObjectAnimator.ofFloat(view, "alpha", 1, 0);
         anim.setStartDelay(duration / 2);
         anim.setDuration(duration);
@@ -263,21 +284,6 @@ public class UtilAnim {
             }
         });
         anim.start();
-
-        try {
-            TextView tv = (TextView) view.findViewById(R.id.tv_introduce);
-            tv.setAlpha(0f);
-            Animator anim_alpha = ObjectAnimator.ofFloat(tv, "alpha", 1, 0);
-            anim_alpha.setDuration(duration);
-            anim_alpha.start();
-
-            float tvY = tv.getY();
-            Animator anim_y = ObjectAnimator.ofFloat(tv, "Y", tvY, tvY + 100);
-            anim_y.setDuration(duration);
-            anim_y.start();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 }

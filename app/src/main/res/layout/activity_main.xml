@@ -15,4 +15,6 @@
         android:background="@color/colorWhite"
         android:layoutAnimation="@anim/list_anim_layout" />
 
+    <include layout="@layout/include_introduce" />
+
 </RelativeLayout>

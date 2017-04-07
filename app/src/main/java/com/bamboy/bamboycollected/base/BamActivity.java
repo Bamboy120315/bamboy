@@ -349,14 +349,14 @@ public abstract class BamActivity extends Activity {
             iv_introduce_back.setBackgroundColor(getResources().getColor(R.color.colorWhite_tD));
         }
 
-        util.anim.showIntroduce(rl_introduce, 500);
+        util.anim.showIntroduce(rl_introduce);
     }
 
     /**
      * 关闭介绍
      */
     protected void hideIntroduce(View rl_introduce) {
-        util.anim.hideIntroduce(rl_introduce, 500);
+        util.anim.hideIntroduce(rl_introduce);
     }
 
     /**
