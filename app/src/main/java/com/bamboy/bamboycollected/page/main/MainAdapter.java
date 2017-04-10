@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.BamActivity;
-import com.bamboy.bamboycollected.view.BamToast;
-import com.bamboy.bamboycollected.view.clickanimview.BamButton;
+import com.bamboy.bamboycollected.views.BamToast;
+import com.bamboy.bamboycollected.views.clickanimview.BamButton;
 
 import java.util.List;
 

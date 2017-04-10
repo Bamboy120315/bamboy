@@ -1,5 +1,7 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="title_bar_translation_z">35px</dimen>
+    <dimen name="window_backdrop_translation_z">40px</dimen>
+    <dimen name="window_content_translation_z">45px</dimen>
+    <dimen name="button_translation_z">10px</dimen>
+    <dimen name="toast_translation_z">20px</dimen>
 </resources>

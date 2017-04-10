@@ -1,4 +1,4 @@
-package com.bamboy.bamboycollected.view;
+package com.bamboy.bamboycollected.views;
 
 import android.content.Context;
 import android.graphics.Canvas;

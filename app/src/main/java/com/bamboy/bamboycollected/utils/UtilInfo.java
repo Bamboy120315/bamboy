@@ -1,4 +1,4 @@
-package com.bamboy.bamboycollected.util;
+package com.bamboy.bamboycollected.utils;
 
 /**
  * 手机信息
@@ -18,4 +18,5 @@ public class UtilInfo {
      * 手机SDK版本号
      */
     public int phoneSDK;
+
 }

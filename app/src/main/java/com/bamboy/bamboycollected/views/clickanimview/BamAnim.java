@@ -1,4 +1,4 @@
-package com.bamboy.bamboycollected.view.clickanimview;
+package com.bamboy.bamboycollected.views.clickanimview;
 
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;

@@ -14,17 +14,6 @@ import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.BamActivity;
 
 public class BlurActivity extends BamActivity implements View.OnClickListener {
-
-    private RelativeLayout rl_title;
-    private ImageView iv_back;
-    private TextView tv_title;
-    private ImageView iv_introduce;
-    /**
-     * 介绍容器
-     */
-    private RelativeLayout rl_introduce;
-    private TextView tv_introduce;
-
     /**
      * 按钮【模糊图片】
      */
@@ -64,14 +53,6 @@ public class BlurActivity extends BamActivity implements View.OnClickListener {
 
     @Override
     protected void findView() {
-        rl_title = (RelativeLayout) findViewById(R.id.rl_title);
-        iv_back = (ImageView) findViewById(R.id.iv_back);
-        tv_title = (TextView) findViewById(R.id.tv_title);
-        iv_introduce = (ImageView) findViewById(R.id.iv_introduce);
-
-        rl_introduce = (RelativeLayout) findViewById(R.id.rl_introduce);
-        tv_introduce = (TextView) findViewById(R.id.tv_introduce);
-
         btn_blur_img = (Button) findViewById(R.id.btn_blur_img);
         iv_head_portrait = (ImageView) findViewById(R.id.iv_head_portrait);
         btn_blur_popup_window = (Button) findViewById(R.id.btn_blur_popup_window);
@@ -83,8 +64,6 @@ public class BlurActivity extends BamActivity implements View.OnClickListener {
 
     @Override
     protected void setListener() {
-        iv_back.setOnClickListener(this);
-        iv_introduce.setOnClickListener(this);
         btn_blur_img.setOnClickListener(this);
         btn_blur_popup_window.setOnClickListener(this);
         btn_close_popup_window.setOnClickListener(this);
@@ -93,31 +72,12 @@ public class BlurActivity extends BamActivity implements View.OnClickListener {
 
     @Override
     protected void init() {
-        // 设置titleBar
-        setImmerseTitleBar(rl_title);
-
-        tv_title.setText("高斯模糊 Demo");
-        iv_introduce.setVisibility(View.VISIBLE);
-        tv_introduce.setText(
-                getString(R.string.introduce_blur) +
-                        getString(R.string.introduce_foot));
-
         blurUtil = new BlurUtil(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.iv_back:
-                finish();
-                break;
-            case R.id.iv_introduce:
-                if (rl_introduce.getVisibility() == View.GONE) {
-                    showIntroduce(rl_introduce);
-                } else {
-                    hideIntroduce(rl_introduce);
-                }
-                break;
             case R.id.btn_blur_img:          // 点击模糊图片
                 blurUtil.clickBlurImg(iv_head_portrait);
                 break;
@@ -140,10 +100,6 @@ public class BlurActivity extends BamActivity implements View.OnClickListener {
      */
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (rl_introduce.getVisibility() == View.VISIBLE) {
-                hideIntroduce(rl_introduce);
-                return false;
-            }
             if (rl_popup_window.getVisibility() == View.VISIBLE) {
                 blurUtil.clickClosePopupWindow(rl_popup_window, iv_popup_window_back);
                 return false;

@@ -1,13 +1,13 @@
-package com.bamboy.bamboycollected.view.clickanimview;
+package com.bamboy.bamboycollected.views.clickanimview;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 /**
- * 自定义 ImageView 支持点击缩小、松开放大的功能
+ * 自定义 RelativeLayout 支持点击缩小、松开放大的功能
  *
  * 尘少为大家提供的，
  * 有两种点击效果，
@@ -35,12 +35,12 @@ import android.widget.ImageView;
  * 然后调用closeSuperb()即可。
  *
  * 如：
- * ((BamImageView)iv_bam).closeSuperb();
+ * ((BamRelativeLayout)rl_bam).closeSuperb();
  * 
  * @author Bamboy
  * 
  */
-public class BamImageView extends ImageView {
+public class BamRelativeLayout extends RelativeLayout {
 
 	/**
 	 * 动画模式【true：华丽效果——缩放加方向】【false：只缩放】
@@ -57,17 +57,17 @@ public class BamImageView extends ImageView {
 	/** 顶点判断【0：中间】【1：上】【2：右】【3：下】【4：左】 **/
 	private int pivot = 0;
 
-	public BamImageView(Context context) {
+	public BamRelativeLayout(Context context) {
 		super(context);
 		this.setClickable(true);
 	}
 
-	public BamImageView(Context context, AttributeSet attrs) {
+	public BamRelativeLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		this.setClickable(true);
 	}
 
-	public BamImageView(Context context, AttributeSet attrs, int defStyle) {
+	public BamRelativeLayout(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		this.setClickable(true);
 	}

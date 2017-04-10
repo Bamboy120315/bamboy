@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.bamboy.bamboycollected.view.clickanimview.BamLinearLayout
+<com.bamboy.bamboycollected.views.clickanimview.BamLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="40dp"
     android:layout_height="60dp"
-    android:translationZ="10px"
+    android:translationZ="@dimen/button_translation_z"
     android:background="@drawable/btn_auto_line"
     android:gravity="center_horizontal"
     android:orientation="vertical"
@@ -20,4 +20,4 @@
         android:layout_height="wrap_content"
         android:textColor="@color/colorWhite"
         android:textSize="14sp" />
-</com.bamboy.bamboycollected.view.clickanimview.BamLinearLayout>
+</com.bamboy.bamboycollected.views.clickanimview.BamLinearLayout>

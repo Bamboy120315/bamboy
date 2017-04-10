@@ -6,7 +6,7 @@
 
     <include layout="@layout/include_title_bar" />
 
-    <com.bamboy.bamboycollected.view.clickanimview.BamButton
+    <com.bamboy.bamboycollected.views.clickanimview.BamButton
         android:id="@+id/btn_add"
         style="@style/main_btn"
         android:layout_marginTop="16dp"
@@ -18,7 +18,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/btn_add">
 
-        <com.bamboy.bamboycollected.view.BamAutoLineList
+        <com.bamboy.bamboycollected.views.BamAutoLineList
             android:id="@+id/bal_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

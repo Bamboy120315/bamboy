@@ -17,23 +17,23 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.bamboy.bamboycollected.view.clickanimview.BamButton
+            <com.bamboy.bamboycollected.views.clickanimview.BamButton
                 android:id="@+id/btn_toast_red"
                 style="@style/main_btn"
                 android:layout_marginTop="16dp"
                 android:text="显示红色Toast" />
 
-            <com.bamboy.bamboycollected.view.clickanimview.BamButton
+            <com.bamboy.bamboycollected.views.clickanimview.BamButton
                 android:id="@+id/btn_toast_blue"
                 style="@style/main_btn"
                 android:text="显示蓝色Toast" />
 
-            <com.bamboy.bamboycollected.view.clickanimview.BamButton
+            <com.bamboy.bamboycollected.views.clickanimview.BamButton
                 android:id="@+id/btn_toast_green"
                 style="@style/main_btn"
                 android:text="显示绿色Toast" />
 
-            <com.bamboy.bamboycollected.view.clickanimview.BamButton
+            <com.bamboy.bamboycollected.views.clickanimview.BamButton
                 android:id="@+id/btn_toast_black"
                 style="@style/main_btn"
                 android:text="显示黑色Toast" />
@@ -71,8 +71,7 @@
                     android:paddingRight="10dp"
                     android:progress="255"
                     android:progressDrawable="@drawable/seekbar_style"
-                    android:thumb="@drawable/seekbar_thumb"
-                    android:translationZ="15px" />
+                    android:thumb="@drawable/seekbar_thumb" />
 
                 <TextView
                     android:id="@+id/tv_color_value_a"
@@ -108,8 +107,7 @@
                     android:paddingRight="10dp"
                     android:progress="0"
                     android:progressDrawable="@drawable/seekbar_style"
-                    android:thumb="@drawable/seekbar_thumb"
-                    android:translationZ="15px" />
+                    android:thumb="@drawable/seekbar_thumb" />
 
                 <TextView
                     android:id="@+id/tv_color_value_r"
@@ -146,8 +144,7 @@
                     android:paddingRight="10dp"
                     android:progress="102"
                     android:progressDrawable="@drawable/seekbar_style"
-                    android:thumb="@drawable/seekbar_thumb"
-                    android:translationZ="15px" />
+                    android:thumb="@drawable/seekbar_thumb" />
 
                 <TextView
                     android:id="@+id/tv_color_value_g"
@@ -183,8 +180,7 @@
                     android:paddingRight="10dp"
                     android:progress="204"
                     android:progressDrawable="@drawable/seekbar_style"
-                    android:thumb="@drawable/seekbar_thumb"
-                    android:translationZ="15px" />
+                    android:thumb="@drawable/seekbar_thumb" />
 
                 <TextView
                     android:id="@+id/tv_color_value_b"
@@ -196,7 +192,7 @@
                     android:textSize="18sp" />
             </LinearLayout>
 
-            <com.bamboy.bamboycollected.view.clickanimview.BamButton
+            <com.bamboy.bamboycollected.views.clickanimview.BamButton
                 android:id="@+id/btn_toast_custom"
                 style="@style/main_btn"
                 android:layout_marginBottom="50dp"

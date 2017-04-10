@@ -119,7 +119,7 @@ public class LaunchUtil {
         iv_icon.setTag(!open);
 
         // 上下幅度为屏幕的1/6
-        float value = mActivity.util.info.phoneHeigh / 6.5f;
+        float value = mActivity.utils.info.phoneHeigh / 6.5f;
         // 获取当前高度
         float y = iv_icon.getY();
 
@@ -129,7 +129,7 @@ public class LaunchUtil {
             ObjectAnimator.ofFloat(iv_icon, "Y", y, y + value).setDuration(stageTimer).start();
         } else {
             // 起跳
-            if (y > mActivity.util.info.phoneHeigh * 0.45){
+            if (y > mActivity.utils.info.phoneHeigh * 0.45){
                 // 若是点钱高度低于屏幕一半，增加跳动幅度
                 value = value * 1.6f;
             }

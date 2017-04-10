@@ -1,4 +1,4 @@
-package com.bamboy.bamboycollected.view;
+package com.bamboy.bamboycollected.views;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;

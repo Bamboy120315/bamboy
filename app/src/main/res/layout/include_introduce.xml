@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:elevation="3dp"
-    android:translationZ="35px"
+    android:translationZ="@dimen/window_backdrop_translation_z"
     android:visibility="gone">
 
     <ImageView
@@ -24,8 +24,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
 
             <TextView
                 android:id="@+id/tv_introduce"

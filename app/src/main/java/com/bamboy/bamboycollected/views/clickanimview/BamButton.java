@@ -1,9 +1,7 @@
-package com.bamboy.bamboycollected.view.clickanimview;
+package com.bamboy.bamboycollected.views.clickanimview;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.Button;

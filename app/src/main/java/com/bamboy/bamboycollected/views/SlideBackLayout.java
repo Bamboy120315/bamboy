@@ -1,4 +1,4 @@
-package com.bamboy.bamboycollected.view;
+package com.bamboy.bamboycollected.views;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -9,7 +9,6 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;

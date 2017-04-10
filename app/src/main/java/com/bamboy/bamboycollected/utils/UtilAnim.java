@@ -1,4 +1,4 @@
-package com.bamboy.bamboycollected.util;
+package com.bamboy.bamboycollected.utils;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
@@ -8,7 +8,6 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewAnimationUtils;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;

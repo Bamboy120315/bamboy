@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="btn_style" parent="@style/view_style">
+        <item name="android:translationZ">@dimen/button_translation_z</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:padding">12dp</item>
+    </style>
+</resources>

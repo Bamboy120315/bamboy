@@ -22,15 +22,8 @@ import com.bamboy.bamboycollected.base.BamActivity;
  * Created by Bamboy on 2017/3/27.
  */
 public class LaunchActivity extends BamActivity {
-
-    private RelativeLayout rl_title;
-    private ImageView iv_back;
-    private TextView tv_title;
-
     private View vi_back;
     private ImageView iv_icon;
-    private ImageView iv_introduce;
-
     /**
      * 倒计时
      **/
@@ -44,11 +37,6 @@ public class LaunchActivity extends BamActivity {
 
     @Override
     protected void findView() {
-        rl_title = (RelativeLayout) findViewById(R.id.rl_title);
-        iv_back = (ImageView) findViewById(R.id.iv_back);
-        tv_title = (TextView) findViewById(R.id.tv_title);
-        iv_introduce = (ImageView) findViewById(R.id.iv_introduce);
-
         vi_back = findViewById(R.id.vi_back);
         iv_icon = (ImageView) findViewById(R.id.iv_icon);
     }
@@ -62,13 +50,11 @@ public class LaunchActivity extends BamActivity {
     protected void init() {
         // 关闭当前界面的右滑关闭功能
         openSlideFinish(false);
-        // 设置titleBar
-        setImmerseTitleBar(rl_title);
 
+        //先隐藏标题栏
         rl_title.setVisibility(View.INVISIBLE);
-        iv_back.setVisibility(View.INVISIBLE);
+        // 显示介绍按钮
         iv_introduce.setVisibility(View.VISIBLE);
-        tv_title.setText("主页");
 
         LaunchUtil launchUtil = new LaunchUtil(this, rl_title, iv_icon, vi_back);
 
@@ -76,17 +62,18 @@ public class LaunchActivity extends BamActivity {
         mCountTimer = launchUtil.gteCountTimet((int) (2.7 * 1000), 300);
         //mCountTimer = launchUtil.gteCountTimet((int) (0.9 * 1000), 300);
 
+        // 控件绘制完成后执行
         iv_icon.post(new Runnable() {
             @Override
             public void run() {
                 DisplayMetrics dm = new DisplayMetrics();
                 // 获取屏幕信息
                 getWindowManager().getDefaultDisplay().getMetrics(dm);
-                util.info.phoneWidth = dm.widthPixels;
-                util.info.phoneHeigh = dm.heightPixels;
-                util.info.phoneSDK = android.os.Build.VERSION.SDK_INT;
+                utils.info.phoneWidth = dm.widthPixels;
+                utils.info.phoneHeigh = dm.heightPixels;
+                utils.info.phoneSDK = android.os.Build.VERSION.SDK_INT;
                 mCountTimer.start();
-                util.initBox();
+                utils.initBox();
             }
         });
     }

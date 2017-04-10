@@ -1,4 +1,4 @@
-package com.bamboy.bamboycollected.util;
+package com.bamboy.bamboycollected.utils;
 
 import android.os.Environment;
 import android.util.Log;

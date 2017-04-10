@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.BamActivity;
-import com.bamboy.bamboycollected.view.BamAutoLineList;
+import com.bamboy.bamboycollected.views.BamAutoLineList;
 
 /**
  * 自动换行 Demo
@@ -20,20 +20,13 @@ import com.bamboy.bamboycollected.view.BamAutoLineList;
  * Created by Bamboy on 2017/4/7.
  */
 public class AutoLineActivity extends BamActivity implements View.OnClickListener {
-    private RelativeLayout rl_title;
-    private ImageView iv_back;
-    private TextView tv_title;
-    private ImageView iv_introduce;
-    /**
-     * 介绍容器
-     */
-    private RelativeLayout rl_introduce;
-    private TextView tv_introduce;
-
     /**
      * 按钮【添加Item】
      */
     private Button btn_add;
+    /**
+     * 自动换行容器
+     */
     private BamAutoLineList bal_list;
 
     @Override
@@ -44,51 +37,22 @@ public class AutoLineActivity extends BamActivity implements View.OnClickListene
 
     @Override
     protected void findView() {
-        rl_title = (RelativeLayout) findViewById(R.id.rl_title);
-        iv_back = (ImageView) findViewById(R.id.iv_back);
-        tv_title = (TextView) findViewById(R.id.tv_title);
-        iv_introduce = (ImageView) findViewById(R.id.iv_introduce);
-
-        rl_introduce = (RelativeLayout) findViewById(R.id.rl_introduce);
-        tv_introduce = (TextView) findViewById(R.id.tv_introduce);
-
         btn_add = (Button) findViewById(R.id.btn_add);
         bal_list = (BamAutoLineList) findViewById(R.id.bal_list);
     }
 
     @Override
     protected void setListener() {
-        iv_back.setOnClickListener(this);
-        iv_introduce.setOnClickListener(this);
-
         btn_add.setOnClickListener(this);
     }
 
     @Override
     protected void init() {
-        // 设置titleBar
-        setImmerseTitleBar(rl_title);
-
-        tv_title.setText("自动换行 Demo");
-        iv_introduce.setVisibility(View.VISIBLE);
-        tv_introduce.setText(
-                getString(R.string.introduce_auto_line) +
-                        getString(R.string.introduce_foot));
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.iv_back:
-                finish();
-                break;
-            case R.id.iv_introduce:
-                if (rl_introduce.getVisibility() == View.GONE) {
-                    showIntroduce(rl_introduce);
-                } else {
-                    hideIntroduce(rl_introduce);
-                }
-                break;
             case R.id.btn_add:
                 // 实例化View
                 View item = createView();
@@ -97,23 +61,6 @@ public class AutoLineActivity extends BamActivity implements View.OnClickListene
                 break;
         }
 
-    }
-
-    /**
-     * 按键监听
-     *
-     * @param keyCode
-     * @param event
-     * @return
-     */
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (rl_introduce.getVisibility() == View.VISIBLE) {
-                hideIntroduce(rl_introduce);
-                return false;
-            }
-        }
-        return super.onKeyDown(keyCode, event);
     }
 
     /**

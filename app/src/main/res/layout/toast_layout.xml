@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
         android:padding="10dp"
-        android:translationZ="50px">
+        android:translationZ="@dimen/toast_translation_z">
 
         <TextView
             android:id="@+id/toast_text"

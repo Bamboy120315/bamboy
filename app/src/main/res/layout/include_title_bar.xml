@@ -5,7 +5,7 @@
     android:layout_height="50dp"
     android:background="@color/colorBlue"
     android:elevation="1dp"
-    android:translationZ="30px">
+    android:translationZ="@dimen/title_bar_translation_z">
 
     <ImageView
         android:id="@+id/iv_back"
@@ -29,6 +29,5 @@
         android:layout_height="50dp"
         android:layout_alignParentRight="true"
         android:padding="12dp"
-        android:src="@drawable/icon_introduce"
-        android:visibility="gone" />
+        android:src="@drawable/icon_introduce" />
 </RelativeLayout>

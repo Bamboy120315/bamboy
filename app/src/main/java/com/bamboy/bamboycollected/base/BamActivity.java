@@ -1,66 +1,79 @@
 package com.bamboy.bamboycollected.base;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.GestureDetector;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.util.UtilBox;
+import com.bamboy.bamboycollected.page.auto_line.AutoLineActivity;
+import com.bamboy.bamboycollected.page.blur.BlurActivity;
+import com.bamboy.bamboycollected.page.launch.LaunchActivity;
+import com.bamboy.bamboycollected.page.main.MainActivity;
+import com.bamboy.bamboycollected.page.toast.ToastActivity;
+import com.bamboy.bamboycollected.utils.UtilBox;
 
 /**
  * Activity 基类
- * <p>
+ * <p/>
  * 右滑关闭
  * 沉浸式
  * 先显示后加载
  * 工具箱
- * <p>
+ * <p/>
  * Created by Bamboy on 2017/3/24.
  */
 public abstract class BamActivity extends Activity {
 
     /**
-     * 手势探测器
+     * 触摸工具类
      */
-    private GestureDetector mGDetector;
+    private BaseGestureUtil mGestureUtil;
     /**
-     * 滑动速度
+     * 必备工具类
      */
-    private float slideSpeed = 0;
-    /**
-     * 根View
-     */
-    private View rootView;
-    /**
-     * 滑动关闭开关
-     */
-    private boolean slideOpen = true;
+    private BaseWantUtil mWantUtil;
 
     /**
      * 执行模拟onCreate标记
      */
     protected boolean isCreate = true;
     /**
-     * 状态高度
-     */
-    private static int barHeight = -1;
-    /**
      * 工具箱
      */
-    public UtilBox util = UtilBox.getUtilBox();
+    public UtilBox utils = UtilBox.getUtilBox();
+
+
+    /**
+     * 标题栏
+     */
+    protected RelativeLayout rl_title;
+    /**
+     * 标题栏关闭箭头
+     */
+    protected ImageView iv_back;
+    /**
+     * 标题栏文字
+     */
+    protected TextView tv_title;
+    /**
+     * 标题栏介绍Icon
+     */
+    protected ImageView iv_introduce;
+    /**
+     * 介绍容器
+     */
+    protected RelativeLayout rl_introduce;
+    /**
+     * 介绍内容
+     */
+    protected TextView tv_introduce;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,80 +85,122 @@ public abstract class BamActivity extends Activity {
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
+
+        // 手势工具类
+        mGestureUtil = new BaseGestureUtil(this);
+        // 必备工具类
+        mWantUtil = new BaseWantUtil(this);
+
         /**
          * 如果是Android 4.4 以上，就兼容沉浸式
          */
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             try {
                 // 初始化状态栏
-                initBar();
+                mWantUtil.initBar();
             } catch (Exception e) {
-                util.want.showException(e);
+                utils.want.showException(e);
             }
         }
+        initView();
+    }
 
-        // 获取根布局，用于右滑关闭
-        rootView = ((ViewGroup) findViewById(android.R.id.content)).getChildAt(0);
-        // 手势监听，用于监听滑动
-        mGDetector = new GestureDetector(this, new GestureDetector.OnGestureListener() {
+    /**
+     * 初始化View
+     * 状态栏 及 介绍页
+     * 这些View是本App专用
+     * 去Demo的时候无须搭理此方法
+     */
+    private void initView() {
+        rl_title = (RelativeLayout) findViewById(R.id.rl_title);
+        iv_back = (ImageView) findViewById(R.id.iv_back);
+        tv_title = (TextView) findViewById(R.id.tv_title);
+        iv_introduce = (ImageView) findViewById(R.id.iv_introduce);
+        rl_introduce = (RelativeLayout) findViewById(R.id.rl_introduce);
+        tv_introduce = (TextView) findViewById(R.id.tv_introduce);
 
-            /**
-             * 按下 未抬起
-             */
+        // 设置titleBar
+        setImmerseTitleBar(rl_title);
+        // 处理View内容
+        initViewContent();
+        // 处理View点击事件
+        initViewClick();
+    }
+
+    /**
+     * 处理View内容
+     */
+    private void initViewContent() {
+        if (this instanceof LaunchActivity) {
+            iv_back.setVisibility(View.GONE);
+            tv_title.setText("主页");
+
+        } else if (this instanceof MainActivity) {
+            iv_back.setVisibility(View.GONE);
+            tv_title.setText("主页");
+            tv_introduce.setText(
+                    getString(R.string.introduce_main) +
+                            getString(R.string.introduce_foot));
+
+        } else if (this instanceof ToastActivity) {
+            iv_back.setVisibility(View.VISIBLE);
+            tv_title.setText("Toast Demo");
+            tv_introduce.setText(
+                    getString(R.string.introduce_toast) +
+                            getString(R.string.introduce_foot));
+
+        } else if (this instanceof BlurActivity) {
+            iv_back.setVisibility(View.VISIBLE);
+            tv_title.setText("高斯模糊 Demo");
+            tv_introduce.setText(
+                    getString(R.string.introduce_blur) +
+                            getString(R.string.introduce_foot));
+
+        } else if (this instanceof AutoLineActivity) {
+            iv_back.setVisibility(View.VISIBLE);
+            tv_title.setText("自动换行 Demo");
+            tv_introduce.setText(
+                    getString(R.string.introduce_auto_line) +
+                            getString(R.string.introduce_foot));
+        }
+    }
+
+    /**
+     * 处理View点击事件
+     */
+    private void initViewClick() {
+        View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
-            public boolean onDown(MotionEvent e) {
-                return false;
-            }
-
-            /**
-             * 短按
-             */
-            @Override
-            public void onShowPress(MotionEvent e) {
-            }
-
-            /**
-             * 单击 并 抬起
-             */
-            @Override
-            public boolean onSingleTapUp(MotionEvent e) {
-                return false;
-            }
-
-            /**
-             * 滑动 开始滑动即开始执行 无需抬起
-             */
-            @Override
-            public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-                float e1X = e1.getX();
-                float e2X = e2.getX();
-                if (false == slideOpen || rootView == null || e1X > 50) {
-                    return false;
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.iv_back:
+                        finish();
+                        break;
+                    case R.id.iv_introduce:
+                        showIntroduce(rl_introduce);
+                        break;
                 }
-                // 计算滑动距离
-                float move = e2X > e1X ? e2X - e1X : 0;
-                // 更新界面位置
-                rootView.setX(move);
-                // 记录滑动速度，用于抬起手指时计算滚回去还是滚出去
-                slideSpeed = distanceX;
+            }
+        };
+        iv_back.setOnClickListener(clickListener);
+        iv_introduce.setOnClickListener(clickListener);
+    }
+
+    /**
+     * 按键监听
+     *
+     * @param keyCode
+     * @param event
+     * @return
+     */
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (rl_introduce != null && rl_introduce.getVisibility() == View.VISIBLE) {
+                hideIntroduce(rl_introduce);
                 return false;
             }
-
-            /**
-             * 长按
-             */
-            @Override
-            public void onLongPress(MotionEvent e) {
-            }
-
-            /**
-             * 滑动 飞翔 滑动时抬起监听
-             */
-            @Override
-            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-                return false;
-            }
-        });
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     /**
@@ -154,81 +209,12 @@ public abstract class BamActivity extends Activity {
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
 
-        mGDetector.onTouchEvent(ev);
+        mGestureUtil.getGestureDetector().onTouchEvent(ev);
 
-        // 触摸监听，用于监听抬起手指
-        switch (ev.getAction()) {
-            // 手指抬起
-            case MotionEvent.ACTION_UP:
-
-                if (false == slideOpen || rootView == null || rootView.getX() == 0) {
-                    return super.dispatchTouchEvent(ev);
-                }
-
-                boolean isFinish = false;
-                // 判断当前滑动有没有过屏幕的一半
-                if (rootView.getX() < util.info.phoneWidth / 2) {
-                    // 左半边
-                    if (slideSpeed < 0) {
-                        // 向右
-                        slideSpeed = Math.abs(slideSpeed);
-                        if (slideSpeed > 5) {
-                            isFinish = true;
-                        } else {
-                            isFinish = false;
-                        }
-                    } else {
-                        // 向左
-                        isFinish = false;
-                    }
-                } else {
-                    // 右半边
-                    if (slideSpeed < 0) {
-                        // 向右
-                        isFinish = true;
-                    } else {
-                        // 向左
-                        slideSpeed = Math.abs(slideSpeed);
-                        if (slideSpeed > 5) {
-                            isFinish = false;
-                        } else {
-                            isFinish = true;
-                        }
-                    }
-                }
-
-                if (false == isFinish) {    // 滚回去
-                    ObjectAnimator.ofFloat(rootView, "X", rootView.getX(), 0).setDuration(250).start();
-                } else {                    // 滚出去
-                    ObjectAnimator anim = ObjectAnimator.ofFloat(rootView, "X", rootView.getX(), util.info.phoneWidth);
-                    anim.setDuration(250);
-                    anim.addListener(new Animator.AnimatorListener() {
-                        @Override
-                        public void onAnimationStart(Animator animation) {
-
-                        }
-
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            finish(false);
-                        }
-
-                        @Override
-                        public void onAnimationCancel(Animator animation) {
-
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animator animation) {
-
-                        }
-                    });
-                    anim.start();
-                }
-                break;
-            default:
-                break;
+        if (mGestureUtil.motionEvent(ev)) {
+            return true;
         }
+
         return super.dispatchTouchEvent(ev);
     }
 
@@ -238,27 +224,7 @@ public abstract class BamActivity extends Activity {
      * @param open
      */
     protected void openSlideFinish(boolean open) {
-        slideOpen = open;
-    }
-
-    /**
-     * 初始化状态栏
-     */
-    private void initBar() {
-        //透明状态栏
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-
-        if (barHeight == -1) {
-            barHeight = util.ui.getBarHeight(this);
-        }
-
-        // 根布局顶部加上了状态栏高度的间距
-        View view = ((ViewGroup) findViewById(android.R.id.content)).getChildAt(0);
-        view.setPadding(
-                view.getPaddingLeft(),
-                view.getPaddingTop() + barHeight,
-                view.getPaddingRight(),
-                view.getPaddingBottom());
+        mGestureUtil.openSlideFinish(open);
     }
 
     @Override
@@ -282,82 +248,6 @@ public abstract class BamActivity extends Activity {
     protected abstract void setListener();
 
     protected abstract void init();
-
-    /**
-     * 设置沉浸TitleBar
-     *
-     * @param topView
-     */
-    protected void setImmerseTitleBar(final View topView) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            return;
-        }
-        // 去掉根布局顶部的状态栏高度间距
-        View view = ((ViewGroup) findViewById(android.R.id.content)).getChildAt(0);
-        view.setPadding(
-                view.getPaddingLeft(),
-                view.getPaddingTop() - barHeight,
-                view.getPaddingRight(),
-                view.getPaddingBottom());
-        /**
-         * titleBar加上状态栏高度的间距
-         *
-         * 这个时候Activity还在加载布局，
-         * 获取控件的宽高都是0，
-         * 所以要写在view.post(new Runnable() {……})里
-         */
-        topView.post(new Runnable() {
-            @Override
-            public void run() {
-                View parentView = (View) topView.getParent();
-
-                if (parentView instanceof RelativeLayout) {
-                    topView.setLayoutParams(new RelativeLayout.LayoutParams(-1, topView.getHeight() + barHeight));
-                } else if (parentView instanceof LinearLayout) {
-                    topView.setLayoutParams(new LinearLayout.LayoutParams(-1, topView.getHeight() + barHeight));
-                } else if (parentView instanceof FrameLayout) {
-                    topView.setLayoutParams(new FrameLayout.LayoutParams(-1, topView.getHeight() + barHeight));
-                }
-                topView.setPadding(
-                        topView.getPaddingLeft(),
-                        topView.getPaddingTop() + barHeight,
-                        topView.getPaddingRight(),
-                        topView.getPaddingBottom());
-
-            }
-        });
-    }
-
-    /**
-     * 展开介绍
-     */
-    protected void showIntroduce(View rl_introduce) {
-
-        // 获取截图的Bitmap
-        Bitmap bitmap = UtilBox.getUtilBox().ui.getDrawing(this);
-
-        ImageView iv_introduce_back = (ImageView) rl_introduce.findViewById(R.id.iv_introduce_back);
-
-        if (util.info.phoneSDK >= Build.VERSION_CODES.KITKAT && bitmap != null) {
-            // 将截屏Bitma放入ImageView
-            iv_introduce_back.setImageBitmap(bitmap);
-            // 将ImageView进行高斯模糊【25是最高模糊等级】【最后一个参数是蒙上一层颜色，此参数可不填】
-            // 如果需要更高的模糊程度，可以将此行代码写两遍
-            util.bitmap.blurImageView(this, iv_introduce_back, 25, getResources().getColor(R.color.colorWhite_t8));
-        } else {
-            // 获取的Bitmap为null时，用半透明代替
-            iv_introduce_back.setBackgroundColor(getResources().getColor(R.color.colorWhite_tD));
-        }
-
-        util.anim.showIntroduce(rl_introduce);
-    }
-
-    /**
-     * 关闭介绍
-     */
-    protected void hideIntroduce(View rl_introduce) {
-        util.anim.hideIntroduce(rl_introduce);
-    }
 
     /**
      * 打开新Activity
@@ -425,6 +315,29 @@ public abstract class BamActivity extends Activity {
         } else {
             super.finish();
         }
+    }
+
+    /**
+     * 设置沉浸TitleBar
+     *
+     * @param topView
+     */
+    protected void setImmerseTitleBar(View topView) {
+        mWantUtil.setImmerseTitleBar(topView);
+    }
+
+    /**
+     * 展开介绍
+     */
+    protected void showIntroduce(View rl_introduce) {
+        mWantUtil.showIntroduce(rl_introduce);
+    }
+
+    /**
+     * 关闭介绍
+     */
+    protected void hideIntroduce(View rl_introduce) {
+        mWantUtil.hideIntroduce(rl_introduce);
     }
 
 }
