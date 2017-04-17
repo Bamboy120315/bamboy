@@ -16,6 +16,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="none"
         android:layout_below="@+id/btn_add">
 
         <com.bamboy.bamboycollected.views.BamAutoLineList

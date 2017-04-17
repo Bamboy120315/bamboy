@@ -137,8 +137,8 @@ public class DivideLoadActivity extends BamActivity implements RecylerCallback {
             bean.setSerialNumber(i + 1);
             list.add(bean);
 
+            // 模拟数据一共只有53条
             if (page == 5 && i == 2) {
-                // 模拟数据一共只有53条
                 break;
             }
         }

@@ -32,6 +32,9 @@
 
         <!-- 分批加载页 -->
         <activity android:name=".page.divide_load.DivideLoadActivity" />
+
+        <!-- 点击动画页 -->
+        <activity android:name=".page.anim_click.AnimClickActivity" />
     </application>
 
 </manifest>

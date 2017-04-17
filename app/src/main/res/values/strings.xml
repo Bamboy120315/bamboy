@@ -40,7 +40,7 @@
         而现在的我，\n
         只是刚刚起步，\n
         不用说“出头”，\n
-        甚至连“出色”都还没碰到边儿😂
+        甚至连“出色”都还没碰到边儿..
         \n
         \n
         但从第一个同学看到这个Demo开始，\n
@@ -214,6 +214,87 @@
         使用的是相同的思路，\n
         有需要的同学可以研究下：\n
         <a href="http://blog.csdn.net/bamboy_/article/details/54408691">http://blog.csdn.net/bamboy_/article/details/54408691</a>
+    </string>
+
+    <!-- 点击动画介绍 -->
+    <string name="introduce_anim_click">
+        \n
+        \n
+        酷炫的点击动画，\n
+        不需要在代码中写一大堆监听，\n
+        只需要使用我写好的View就好。\n
+        \n
+        打个比方，\n
+        使用Button，\n
+        只需要XML里换成BamButton即可，\n
+        Java代码里不需要改成Bambutton。\n
+        \n
+        本来到这里就结束了，\n
+        但是有几个小坑还是需要说一下的：\n
+        \n
+        1、\n
+        关于点击效果：\n
+        我为大家提供的，\n
+        有两种点击效果，\n
+        \n
+        第一种是华丽效果，\n
+        即上边GIF里大家看到的效果；\n
+        \n
+        第二种是缩放效果，\n
+        它与华丽效果的区别在于，\n
+        使用默认的华丽效果时，\n
+        点击View的上、下、左、右、中，\n
+        分别对应的5种不一样的动画：\n
+        \n
+        上 ————> 后翻\n
+        下 ————> 前翻\n
+        左 ————> 左侧翻\n
+        右 ————> 右侧翻\n
+        中 ————> 缩放\n
+        \n
+        而缩放效果，\n
+        无论点击哪个位置，\n
+        都只有缩放的动画。\n
+        \n
+        而想要切换效果也很简单：\n
+        先把View转为BamView，\n
+        然后调用closeSuperb()即可。\n
+        \n
+        如：\n
+        ((BamImageView)iv_bam).closeSuperb();\n
+        \n
+        \n
+        2、\n
+        关于阴影：\n
+        Android 5.0以后，\n
+        想要阴影效果，\n
+        设置translationZ属性即可，\n
+        但是我设置该属性后却没有任何阴影，\n
+        网上查找资料也没能解决。\n
+        \n
+        最后发现，\n
+        因为View没有设置background属性，\n
+        所以才没有阴影效果的。\n
+        \n
+        比如ImageView，\n
+        你设置了src都不行，\n
+        必须要设置background属性。\n
+        \n
+        而且background透明度越低，\n
+        阴影的效果也就越低。\n
+        \n
+        \n
+        3、\n
+        关于点击事件：\n
+        我建议哪个View需要这种效果，\n
+        就给哪个View加，\n
+        其他的View就不要加了，\n
+        不仅为性能考虑，\n
+        更为了用户体验考虑。\n
+        \n
+        \n
+        本Demo的CSDN地址：\n
+        <a href="http://blog.csdn.net/bamboy_/article/details/54342079">http://blog.csdn.net/bamboy_/article/details/54342079</a>
     </string>
 
 </resources>

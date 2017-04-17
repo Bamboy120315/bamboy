@@ -14,6 +14,7 @@ import com.bamboy.bamboycollected.adapter.RecyclerAdapter;
 import com.bamboy.bamboycollected.adapter.RecylerCallback;
 import com.bamboy.bamboycollected.adapter.ViewHolderManager;
 import com.bamboy.bamboycollected.base.BamActivity;
+import com.bamboy.bamboycollected.page.anim_click.AnimClickActivity;
 import com.bamboy.bamboycollected.page.auto_line.AutoLineActivity;
 import com.bamboy.bamboycollected.page.blur.BlurActivity;
 import com.bamboy.bamboycollected.page.divide_load.DivideLoadActivity;
@@ -70,7 +71,7 @@ public class MainActivity extends BamActivity implements RecylerCallback {
         mList.add(new SingleBtnBean(this, "高斯模糊 Demo", BlurActivity.class));
         mList.add(new SingleBtnBean(this, "自动换行 Demo", AutoLineActivity.class));
         mList.add(new SingleBtnBean(this, "分批加载 Demo", DivideLoadActivity.class));
-        mList.add(new SingleBtnBean(this, "点击动画 Demo", null));
+        mList.add(new SingleBtnBean(this, "点击动画 Demo", AnimClickActivity.class));
 
         mAdapter = new RecyclerAdapter(mList);
         rv_list.setLayoutManager(new LinearLayoutManager(this));

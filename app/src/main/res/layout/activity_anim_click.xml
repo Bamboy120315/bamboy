@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <include layout="@layout/include_title_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:layout_below="@+id/rl_title">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <com.bamboy.bamboycollected.views.clickanimview.BamTextView
+                android:id="@+id/tv_anim_click"
+                style="@style/view_style"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/border"
+                android:padding="30dp"
+                android:text="TextView"
+                android:textColor="@color/colorBlue"
+                android:translationZ="@dimen/button_translation_z" />
+
+            <com.bamboy.bamboycollected.views.clickanimview.BamButton
+                android:id="@+id/btn_anim_click"
+                style="@style/single_btn_style"
+                android:layout_below="@+id/tv_anim_click"
+                android:layout_centerHorizontal="true"
+                android:text="按钮" />
+
+            <com.bamboy.bamboycollected.views.clickanimview.BamImageView
+                android:id="@+id/iv_anim_click"
+                style="@style/view_style"
+                android:layout_width="300dp"
+                android:layout_height="180dp"
+                android:layout_below="@+id/btn_anim_click"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorWhite"
+                android:scaleType="fitXY"
+                android:src="@drawable/picture"
+                android:translationZ="@dimen/button_translation_z" />
+
+            <com.bamboy.bamboycollected.views.clickanimview.BamRelativeLayout
+                android:id="@+id/rl_anim_click"
+                style="@style/view_style"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/iv_anim_click"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/border"
+                android:padding="10dp"
+                android:translationZ="@dimen/button_translation_z">
+
+                <ImageView
+                    android:layout_width="300dp"
+                    android:layout_height="180dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="#FFFFFF"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/picture" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:shadowColor="#000000"
+                    android:shadowRadius="10"
+                    android:text="这是RelativeLayout"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+
+            </com.bamboy.bamboycollected.views.clickanimview.BamRelativeLayout>
+
+            <com.bamboy.bamboycollected.views.clickanimview.BamLinearLayout
+                android:id="@+id/ll_anim_click"
+                style="@style/view_style"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/rl_anim_click"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/border"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:translationZ="@dimen/button_translation_z">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_horizontal"
+                    android:shadowColor="#FFFFFF"
+                    android:text="这是LinearLayout"
+                    android:textColor="@color/colorBlue"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="300dp"
+                    android:layout_height="180dp"
+                    android:layout_centerInParent="true"
+                    android:background="#FFFFFF"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/picture" />
+
+            </com.bamboy.bamboycollected.views.clickanimview.BamLinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <include layout="@layout/include_introduce" />
+</RelativeLayout>

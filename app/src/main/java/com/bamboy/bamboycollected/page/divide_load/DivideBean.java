@@ -71,6 +71,9 @@ public class DivideBean extends AdapterBean {
                         bean.getPagination() +
                         "<small><small><small>" + "页" + "</small></small></small>"));
 
+                // 由于本Demo最大的优点就是是无感知
+                // 所以为了方便同学们明确感知到分批加载
+                // 每一页以不同颜色来进行区分
                 switch (bean.getPagination() % 5) {
                     case 1:
                     default:

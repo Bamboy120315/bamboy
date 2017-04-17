@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
+import com.bamboy.bamboycollected.page.anim_click.AnimClickActivity;
 import com.bamboy.bamboycollected.page.auto_line.AutoLineActivity;
 import com.bamboy.bamboycollected.page.blur.BlurActivity;
 import com.bamboy.bamboycollected.page.divide_load.DivideLoadActivity;
@@ -168,6 +169,12 @@ public abstract class BamActivity extends Activity {
             tv_title.setText("分批加载 Demo");
             tv_introduce.setText(
                     getString(R.string.introduce_divide_load) +
+                            getString(R.string.introduce_foot));
+        } else if (this instanceof AnimClickActivity) {
+            iv_back.setVisibility(View.VISIBLE);
+            tv_title.setText("点击动画 Demo");
+            tv_introduce.setText(
+                    getString(R.string.introduce_anim_click) +
                             getString(R.string.introduce_foot));
         }
     }
