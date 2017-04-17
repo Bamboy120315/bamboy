@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bamboy.bamboycollected.views.clickanimview.BamRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/btn_style"
+    android:layout_height="80dp"
+    android:background="@color/colorGrey_t8"
+    android:orientation="horizontal"
+    android:padding="0dp">
+
+    <TextView
+        android:id="@+id/tv_pagination"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:background="@color/colorBlue"
+        android:gravity="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/tv_serial_number"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:layout_toRightOf="@+id/tv_pagination"
+        android:gravity="center"
+        android:textColor="@color/colorBlue"
+        android:textSize="16sp" />
+
+</com.bamboy.bamboycollected.views.clickanimview.BamRelativeLayout>

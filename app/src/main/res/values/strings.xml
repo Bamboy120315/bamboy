@@ -152,4 +152,68 @@
         <a href="http://blog.csdn.net/bamboy_/article/details/54409840">http://blog.csdn.net/bamboy_/article/details/54409840</a>
     </string>
 
+    <!-- 分批加载介绍 -->
+    <string name="introduce_divide_load">
+        \n
+        \n
+        Bamboy的分批加载，\n
+        不需要上拉的分批加载，\n
+        不需要第三方控件的分批加载，\n
+        用户无感知的分批加载，\n
+        (ps:除非用户网速很差)\n
+        \n
+        实现起来也很简单，\n
+        只需要一个监听器，\n
+        监听RecyclerView滚动状态，\n
+        当滚动到倒数第三个条目，\n
+        就开始加载下一页数据。\n
+        \n
+        不过为了避免网速差、\n
+        或服务器异常等问题，\n
+        还是要给用户一个提示的，\n
+        所以我的方案是在页脚，\n
+        显示一个TextView，\n
+        用于提示用户当前状态，\n
+        我设置的有四种状态：\n
+        \n
+        1、正常状态\n
+        蓄势待发，\n
+        随时可以点击加载下一页。\n
+        \n
+        2、正在加载\n
+        正在读取下一页内容，\n
+        除非读取结束，\n
+        否则不会改变。\n
+        更重要的是防止异步带来的困扰，\n
+        例如第三页数据还没回来，\n
+        第四页就又开始请求了，\n
+        有了这个状态，\n
+        在网络请求时做个小判断，\n
+        我们就不用再为异步而头疼了。\n
+        \n
+        3、已加载全部\n
+        当所有数据都已读取完毕，\n
+        就是功德圆满的时刻，\n
+        一切结束不解释。\n
+        \n
+        4、读取异常\n
+        这个其实很常见，\n
+        服务器异常、\n
+        网络不畅等，\n
+        这个时候这行文本就有了另一个功能，\n
+        那就是点击重新加载。\n
+        \n
+        是不是很清新脱俗、\n
+        通俗易懂？\n
+        \n
+        \n
+        不过RecyclerView添加页脚比较麻烦，\n
+        ListView就很简单，\n
+        我之前写过一篇CSDN，\n
+        是关于ListView的分批加载，\n
+        使用的是相同的思路，\n
+        有需要的同学可以研究下：\n
+        <a href="http://blog.csdn.net/bamboy_/article/details/54408691">http://blog.csdn.net/bamboy_/article/details/54408691</a>
+    </string>
+
 </resources>

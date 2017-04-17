@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.bamboy.bamboycollected"
-        minSdkVersion 11
+        minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -23,5 +23,5 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
-    compile files('libs/android-support-v7-recyclerview.jar')
+    compile 'com.android.support:recyclerview-v7:23.2.1'
 }

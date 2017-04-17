@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.page.auto_line.AutoLineActivity;
 import com.bamboy.bamboycollected.page.blur.BlurActivity;
+import com.bamboy.bamboycollected.page.divide_load.DivideLoadActivity;
 import com.bamboy.bamboycollected.page.launch.LaunchActivity;
 import com.bamboy.bamboycollected.page.main.MainActivity;
 import com.bamboy.bamboycollected.page.toast.ToastActivity;
@@ -161,6 +162,12 @@ public abstract class BamActivity extends Activity {
             tv_title.setText("自动换行 Demo");
             tv_introduce.setText(
                     getString(R.string.introduce_auto_line) +
+                            getString(R.string.introduce_foot));
+        } else if (this instanceof DivideLoadActivity) {
+            iv_back.setVisibility(View.VISIBLE);
+            tv_title.setText("分批加载 Demo");
+            tv_introduce.setText(
+                    getString(R.string.introduce_divide_load) +
                             getString(R.string.introduce_foot));
         }
     }

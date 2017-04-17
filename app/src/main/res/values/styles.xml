@@ -24,23 +24,42 @@
         <item name="android:padding">12dp</item>
     </style>
 
-    <style name="main_btn" parent="@style/btn_style">
+    <style name="single_btn_style" parent="@style/btn_style">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:background">@color/colorBlue</item>
     </style>
 
-    <style name="popup_btn" parent="@style/btn_style">
-        <item name="android:textColor">@color/colorBlue</item>
-        <item name="android:background">@color/colorWhite</item>
+    <!-- 与Btn相同演示的Layout里面的文字样式 -->
+    <style name="layout_btn_text_style" parent="@android:style/Widget">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_width">wrap_content</item>
     </style>
 
     <style name="view_style" parent="@android:style/Widget">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_marginBottom">10dp</item>
         <item name="android:layout_marginLeft">16dp</item>
         <item name="android:layout_marginRight">16dp</item>
     </style>
+
+    <!-- RecyclerView的Style -->
+    <style name="recycler_style" parent="@android:style/Widget">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_below">@+id/rl_title</item>
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:scrollbarSize">7dp</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scroll_thumb</item>
+        <item name="android:layoutAnimation">@anim/list_anim_shade_startoffset_layout</item>
+    </style>
+
+
 
 </resources>

@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".page.main.MainActivity">
+    android:background="@color/colorWhite">
 
     <include layout="@layout/include_title_bar" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_list"
-        android:layoutAnimation="@anim/list_anim_shade_layout"
-        style="@style/recycler_style" />
+        android:id="@+id/rv_divide_load"
+        style="@style/recycler_style"/>
 
     <include layout="@layout/include_introduce" />
-
 </RelativeLayout>

@@ -1,0 +1,19 @@
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:interpolator/overshoot"
+    android:startOffset="250">
+
+    <scale
+        android:duration="400"
+        android:fromXScale="0.6"
+        android:fromYScale="0.8"
+        android:pivotX="50%"
+        android:pivotY="20%"
+        android:toXScale="1"
+        android:toYScale="1" />
+
+    <alpha
+        android:duration="400"
+        android:fromAlpha="0"
+        android:toAlpha="1" />
+
+</set>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bamboy.bamboycollected.views.clickanimview.BamRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_single"
+    style="@style/single_btn_style">
+
+    <TextView
+        android:id="@+id/tv_single"
+        style="@style/layout_btn_text_style" />
+
+</com.bamboy.bamboycollected.views.clickanimview.BamRelativeLayout>

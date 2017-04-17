@@ -19,23 +19,23 @@
 
             <com.bamboy.bamboycollected.views.clickanimview.BamButton
                 android:id="@+id/btn_toast_red"
-                style="@style/main_btn"
+                style="@style/single_btn_style"
                 android:layout_marginTop="16dp"
                 android:text="显示红色Toast" />
 
             <com.bamboy.bamboycollected.views.clickanimview.BamButton
                 android:id="@+id/btn_toast_blue"
-                style="@style/main_btn"
+                style="@style/single_btn_style"
                 android:text="显示蓝色Toast" />
 
             <com.bamboy.bamboycollected.views.clickanimview.BamButton
                 android:id="@+id/btn_toast_green"
-                style="@style/main_btn"
+                style="@style/single_btn_style"
                 android:text="显示绿色Toast" />
 
             <com.bamboy.bamboycollected.views.clickanimview.BamButton
                 android:id="@+id/btn_toast_black"
-                style="@style/main_btn"
+                style="@style/single_btn_style"
                 android:text="显示黑色Toast" />
 
             <TextView
@@ -194,7 +194,7 @@
 
             <com.bamboy.bamboycollected.views.clickanimview.BamButton
                 android:id="@+id/btn_toast_custom"
-                style="@style/main_btn"
+                style="@style/single_btn_style"
                 android:layout_marginBottom="50dp"
                 android:text="显示自定义Toast" />
 

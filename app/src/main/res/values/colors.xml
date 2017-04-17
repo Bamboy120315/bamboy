@@ -18,4 +18,5 @@
     <color name="colorBlue_t">#606C</color>
     <color name="colorPurple">#939</color>
     <color name="colorGrey">#ccc</color>
+    <color name="colorGrey_t8">#8ccc</color>
 </resources>

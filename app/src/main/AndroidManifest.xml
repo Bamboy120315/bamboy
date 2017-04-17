@@ -29,6 +29,9 @@
 
         <!-- 自动换行页 -->
         <activity android:name=".page.auto_line.AutoLineActivity" />
+
+        <!-- 分批加载页 -->
+        <activity android:name=".page.divide_load.DivideLoadActivity" />
     </application>
 
 </manifest>

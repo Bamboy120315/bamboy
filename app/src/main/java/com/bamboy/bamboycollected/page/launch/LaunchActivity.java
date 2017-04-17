@@ -59,8 +59,8 @@ public class LaunchActivity extends BamActivity {
         LaunchUtil launchUtil = new LaunchUtil(this, rl_title, iv_icon, vi_back);
 
         // 模拟加载数据时间
-        mCountTimer = launchUtil.gteCountTimet((int) (2.7 * 1000), 300);
-        //mCountTimer = launchUtil.gteCountTimet((int) (0.9 * 1000), 300);
+        //mCountTimer = launchUtil.gteCountTimet((int) (2.7 * 1000), 300);
+        mCountTimer = launchUtil.gteCountTimet((int) (0.9 * 1000), 300);
 
         // 控件绘制完成后执行
         iv_icon.post(new Runnable() {
