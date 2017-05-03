@@ -4,20 +4,20 @@
     android:layout_width="40dp"
     android:layout_height="60dp"
     android:translationZ="@dimen/button_translation_z"
-    android:background="@drawable/btn_auto_line"
     android:gravity="center_horizontal"
+    android:background="@drawable/btn_auto_line"
     android:orientation="vertical"
-    android:padding="15dp">
+    android:padding="10dp">
 
     <ImageView
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:src="@drawable/icon_introduce" />
+        android:src="@drawable/icon_introduce_blue" />
 
     <TextView
         android:id="@+id/tv_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlue"
         android:textSize="14sp" />
 </com.bamboy.bamboycollected.views.clickanimview.BamLinearLayout>

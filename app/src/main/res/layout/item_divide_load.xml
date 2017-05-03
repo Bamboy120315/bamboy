@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.bamboy.bamboycollected.views.clickanimview.BamRelativeLayout
+    android:id="@+id/rl_root"
     xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/btn_style"
     android:layout_height="80dp"

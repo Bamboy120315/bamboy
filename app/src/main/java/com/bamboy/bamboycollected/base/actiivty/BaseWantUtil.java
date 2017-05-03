@@ -1,4 +1,4 @@
-package com.bamboy.bamboycollected.base;
+package com.bamboy.bamboycollected.base.actiivty;
 
 import android.graphics.Bitmap;
 import android.os.Build;
@@ -28,7 +28,7 @@ public class BaseWantUtil {
 
     public BaseWantUtil(BamActivity activity) {
         mActivity = activity;
-        utils = UtilBox.getUtilBox();
+        utils = UtilBox.getBox();
     }
 
     /**
@@ -114,7 +114,7 @@ public class BaseWantUtil {
     public void showIntroduce(View rl_introduce) {
 
         // 获取截图的Bitmap
-        Bitmap bitmap = UtilBox.getUtilBox().ui.getDrawing(mActivity);
+        Bitmap bitmap = UtilBox.getBox().ui.getDrawing(mActivity);
 
         // 介绍View的背景
         ImageView iv_introduce_back = (ImageView) rl_introduce.findViewById(R.id.iv_introduce_back);

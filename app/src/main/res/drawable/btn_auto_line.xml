@@ -2,19 +2,23 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:top="5dp"
-        android:bottom="5dp"
-        android:left="5dp"
-        android:right="5dp">
+        android:top="3dp"
+        android:bottom="3dp"
+        android:left="3dp"
+        android:right="3dp">
 
         <!-- 四周带边框的背景蓝色 -->
-        <shape xmlns:android="http://schemas.android.com/apk/res/android">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android" >
 
+            <!-- 线条属性 -->
+            <stroke
+                android:width="0.5dp"
+                android:color="@color/colorBlue" />
             <!-- 背景色 -->
-            <solid android:color="@color/colorBlue"/>
+            <solid android:color="#FFFFFFFF" />
 
-            <!-- 圆角 -->
-            <corners android:radius="5dp"/>
+            <corners android:radius="4dp"/>
+
         </shape>
     </item>
 

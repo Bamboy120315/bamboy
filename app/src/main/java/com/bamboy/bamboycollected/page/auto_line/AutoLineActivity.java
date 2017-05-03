@@ -1,17 +1,14 @@
 package com.bamboy.bamboycollected.page.auto_line;
 
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.base.BamActivity;
+import com.bamboy.bamboycollected.base.actiivty.BamActivity;
 import com.bamboy.bamboycollected.views.BamAutoLineList;
 
 /**

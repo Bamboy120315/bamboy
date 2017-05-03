@@ -1,17 +1,14 @@
 package com.bamboy.bamboycollected.page.blur;
 
-import android.graphics.Bitmap;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.base.BamActivity;
+import com.bamboy.bamboycollected.base.actiivty.BamActivity;
 
 public class BlurActivity extends BamActivity implements View.OnClickListener {
     /**

@@ -3,7 +3,7 @@ package com.bamboy.bamboycollected.page.anim_click;
 import android.os.Bundle;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.base.BamActivity;
+import com.bamboy.bamboycollected.base.actiivty.BamActivity;
 
 /**
  * 点击动画Activity

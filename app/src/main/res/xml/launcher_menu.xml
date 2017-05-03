@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launcher_menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 非约束列表 -->
+    <menu
+        data="flyme_3dtouch://com.bamboy.bamboycollected.page.freedom/a1"
+        icon="&#xe014;"
+        android:title="@string/title_bamboy_freedom_list" />
+
+    <!-- 高斯模糊 -->
+    <menu
+        data="flyme_3dtouch://com.bamboy.bamboycollected.page.blur/a1"
+        icon="&#xe001;"
+        android:title="@string/title_bamboy_blur" />
+
+    <!-- 自定义Toast -->
+    <menu
+        data="flyme_3dtouch://com.bamboy.bamboycollected.page.toast/a1"
+        icon="&#xe021;"
+        android:title="@string/title_bamboy_toast" />
+
+    <!-- 点击动画 -->
+    <menu
+        data="flyme_3dtouch://com.bamboy.bamboycollected.page.anim_click/a1"
+        icon="&#xe022;"
+        android:title="@string/title_bamboy_anim_click" />
+
+
+</launcher_menu>

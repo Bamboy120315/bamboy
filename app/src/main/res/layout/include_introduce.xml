@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="15dp"
-            android:paddingRight="15dp" >
+            android:paddingRight="15dp">
 
             <TextView
                 android:id="@+id/tv_introduce"
@@ -38,4 +38,14 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/iv_introduce_close"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:padding="12dp"
+        android:alpha="0.7"
+        android:src="@drawable/icon_introduce_blue" />
+
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package com.bamboy.bamboycollected.base;
+package com.bamboy.bamboycollected.base.actiivty;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
@@ -49,7 +49,7 @@ public class BaseGestureUtil {
      */
     public BaseGestureUtil(BamActivity activity) {
         this.mActivity = activity;
-        util = UtilBox.getUtilBox();
+        util = UtilBox.getBox();
 
         // 初始化手势探测器 用于计算滑动速度
         initGestureDetector();

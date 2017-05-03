@@ -27,7 +27,7 @@ public class BlurUtil {
      */
     public BlurUtil(BlurActivity activity) {
         this.mActivity = activity;
-        utils = UtilBox.getUtilBox();
+        utils = UtilBox.getBox();
     }
 
     /**

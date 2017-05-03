@@ -7,23 +7,26 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.adapter.RecyclerAdapter;
-import com.bamboy.bamboycollected.adapter.RecylerCallback;
-import com.bamboy.bamboycollected.adapter.ViewHolderManager;
-import com.bamboy.bamboycollected.base.BamActivity;
+import com.bamboy.bamboycollected.base.freedom.FreedomAdapter;
+import com.bamboy.bamboycollected.base.freedom.FreedomCallback;
+import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
+import com.bamboy.bamboycollected.base.actiivty.BamActivity;
+import com.bamboy.bamboycollected.page.bean.DivideBean;
+import com.bamboy.bamboycollected.page.bean.FootPromptBean;
+import com.bamboy.bamboycollected.views.BamToast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 分批加载Demo
- *
+ * <p>
  * Created by Bamboy on 2017/4/10.
  */
-public class DivideLoadActivity extends BamActivity implements RecylerCallback {
+public class DivideLoadActivity extends BamActivity implements FreedomCallback {
 
     private List mList;
-    private RecyclerAdapter mAdapter;
+    private FreedomAdapter mAdapter;
     private RecyclerView rv_divide_load;
     /**
      * 页脚的提示文字
@@ -80,10 +83,15 @@ public class DivideLoadActivity extends BamActivity implements RecylerCallback {
     @Override
     protected void init() {
         // 初始化页脚提示文字
-        tvBean = new FootPromptBean(this);
-        tvBean.setType(1);
+        tvBean = new FootPromptBean();
+        tvBean.setType(FootPromptBean.TYPE_PAGE_SUCCEED);
 
         load();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     /**
@@ -97,13 +105,13 @@ public class DivideLoadActivity extends BamActivity implements RecylerCallback {
             }
 
             // 先把底部文字改成正在加载
-            tvBean.setType(2);
+            tvBean.setType(FootPromptBean.TYPE_LOAD_ING);
 
             // 模拟解析数据
             analyticalData();
 
             if (mAdapter == null) {
-                mAdapter = new RecyclerAdapter(mList);
+                mAdapter = new FreedomAdapter(this, mList);
                 rv_divide_load.setLayoutManager(new LinearLayoutManager(this));
                 rv_divide_load.setItemAnimator(new DefaultItemAnimator());
                 rv_divide_load.setAdapter(mAdapter);
@@ -112,14 +120,14 @@ public class DivideLoadActivity extends BamActivity implements RecylerCallback {
             }
 
             // 数据正常，把状态标记成读取完毕，可进行下页数据的读取
-            tvBean.setType(1);
+            tvBean.setType(FootPromptBean.TYPE_PAGE_SUCCEED);
             page++;
         } catch (Exception e) {
             e.printStackTrace();
 
             if (tvBean != null) {
                 // 如遇断网、数据解析失败等异常情况时，把状态标记成加载失败，点击可重新加载
-                tvBean.setType(4);
+                tvBean.setType(FootPromptBean.TYPE_PAGE_FAILURE);
             }
         }
     }
@@ -132,10 +140,7 @@ public class DivideLoadActivity extends BamActivity implements RecylerCallback {
         // 模拟加载数据
         List<DivideBean> list = new ArrayList();
         for (int i = 0; i < PAGESIZE; i++) {
-            DivideBean bean = new DivideBean(this);
-            bean.setPagination(page);
-            bean.setSerialNumber(i + 1);
-            list.add(bean);
+            list.add(new DivideBean(page, i + 1));
 
             // 模拟数据一共只有53条
             if (page == 5 && i == 2) {
@@ -144,13 +149,14 @@ public class DivideLoadActivity extends BamActivity implements RecylerCallback {
         }
 
         // 是否是最后一页判断
-        if (list.size() == 0) {
-            // 如果一条数据都没读到，说明是最后一页，就不用刷新列表，故return；
-            tvBean.setType(3);
-            return;
-        } else if (list.size() < PAGESIZE) {
+        if (list.size() < PAGESIZE) {
             // 数据不足PageSize，说明最后一页
-            tvBean.setType(3);
+            tvBean.setType(FootPromptBean.TYPE_ALL_SUCCEED);
+
+            // 如果一条数据都没读到，说明是最后一页，就不用刷新列表，故return；
+            if (list.size() == 0){
+                return;
+            }
         }
 
         // 如果mList为空，则进行初始化
@@ -183,9 +189,16 @@ public class DivideLoadActivity extends BamActivity implements RecylerCallback {
             case R.id.tv_foot_prompt:                   // 底部提示文字点击事件
                 if (tvBean.getType() != 2 && tvBean.getType() != 3) {
                     // 只要不是正在读取下一页 和 已经读取全部数据，点击即可加载数据
-                    tvBean.setType(1);
+                    tvBean.setType(FootPromptBean.TYPE_PAGE_SUCCEED);
                     load();
                 }
+                break;
+
+            case R.id.rl_root:
+                DivideBean bean = (DivideBean) mList.get(position);
+                BamToast.show(
+                        this,
+                        "点击了第" + bean.getPagination() + "页的第" + bean.getSerialNumber() + "个");
                 break;
         }
     }

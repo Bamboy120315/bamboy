@@ -8,6 +8,7 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
@@ -192,7 +193,7 @@ public class UtilAnim {
      * @param view 需要展开的介绍容器
      */
     public void showIntroduce(final View view) {
-        showIntroduce(view, 500);
+        showIntroduce(view, 350);
     }
 
     /**
@@ -211,12 +212,12 @@ public class UtilAnim {
             TextView tv = (TextView) view.findViewById(R.id.tv_introduce);
             tv.setAlpha(0f);
             Animator anim_alpha = ObjectAnimator.ofFloat(tv, "alpha", 0, 1);
-            anim_alpha.setStartDelay(duration / 2);
+            anim_alpha.setStartDelay(duration * 2 / 3);
             anim_alpha.setDuration(duration);
             anim_alpha.start();
 
-            Animator anim_y = ObjectAnimator.ofFloat(tv, "Y", 100, 0);
-            anim_y.setStartDelay(duration / 2);
+            Animator anim_y = ObjectAnimator.ofFloat(tv, "Y", 80, 0);
+            anim_y.setStartDelay(duration * 2 / 3);
             anim_y.setDuration(duration);
             anim_y.start();
         } catch (Exception e) {
@@ -230,7 +231,7 @@ public class UtilAnim {
      * @param view 需要隐藏的介绍容器
      */
     public void hideIntroduce(final View view) {
-        hideIntroduce(view, 500);
+        hideIntroduce(view, 350);
     }
 
     /**
@@ -253,7 +254,7 @@ public class UtilAnim {
             anim_alpha.start();
 
             float tvY = tv.getY();
-            Animator anim_y = ObjectAnimator.ofFloat(tv, "Y", tvY, tvY + 100);
+            Animator anim_y = ObjectAnimator.ofFloat(tv, "Y", tvY, tvY + 80);
             anim_y.setDuration(duration);
             anim_y.start();
         } catch (Exception e) {
@@ -262,7 +263,7 @@ public class UtilAnim {
 
         // 容器的渐出动画
         Animator anim = ObjectAnimator.ofFloat(view, "alpha", 1, 0);
-        anim.setStartDelay(duration / 2);
+        anim.setStartDelay(duration * 2 / 3);
         anim.setDuration(duration);
         anim.addListener(new Animator.AnimatorListener() {
             @Override

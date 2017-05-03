@@ -4,11 +4,9 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.base.BamActivity;
+import com.bamboy.bamboycollected.base.actiivty.BamActivity;
 
 /**
  * 启动页

@@ -1,4 +1,4 @@
-package com.bamboy.bamboycollected.adapter;
+package com.bamboy.bamboycollected.base.freedom;
 
 import android.view.View;
 
@@ -8,7 +8,7 @@ import android.view.View;
  *
  * Created by Bamboy on 2017/4/14.
  */
-public interface RecylerCallback {
+public interface FreedomCallback {
 
     /**
      * 回调 用于item与Activity之间点击事件交互

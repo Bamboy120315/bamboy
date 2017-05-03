@@ -1,44 +1,34 @@
-package com.bamboy.bamboycollected.page.main;
+package com.bamboy.bamboycollected.page.bean;
 
+import android.app.Activity;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.adapter.AdapterBean;
-import com.bamboy.bamboycollected.adapter.ViewHolderManager;
-import com.bamboy.bamboycollected.base.BamActivity;
+import com.bamboy.bamboycollected.base.freedom.ViewHolderBindListener;
+import com.bamboy.bamboycollected.base.freedom.FreedomBean;
+import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
 
 import java.util.List;
 
 /**
- * Activity的Bean
- * <p>
- * 用于在主页展示
+ * 单个按钮的条目的Bean
  * <p>
  * Created by Bamboy on 2017/3/27.
  */
-public class SingleBtnBean extends AdapterBean {
+public class SingleBtnBean extends FreedomBean {
 
     private String text;
     private Class startClass;
 
     /**
      * 构造函数
-     * @param activity
-     */
-    public SingleBtnBean(BamActivity activity) {
-        super(activity);
-    }
-
-    /**
-     * 构造函数
-     * @param activity
-     * @param text 按钮上的文字
+     *
+     * @param text       按钮上的文字
      * @param startClass 要打开的Activity的类名
      */
-    public SingleBtnBean(BamActivity activity, String text, Class startClass) {
-        super(activity);
+    public SingleBtnBean(String text, Class startClass) {
         this.text = text;
         this.startClass = startClass;
     }
@@ -59,7 +49,6 @@ public class SingleBtnBean extends AdapterBean {
         this.startClass = startClass;
     }
 
-
     //==============================================================================================
     //======================= 以 下 是 关 于 条 目 所 需 内 容 ========================================
     //==============================================================================================
@@ -74,13 +63,14 @@ public class SingleBtnBean extends AdapterBean {
 
     /**
      * 将数据绘制到ViewHolder上
+     *
      * @param list 数据源
      */
     @Override
     public void initBindView(final List list) {
-        setBindListener(new AdapterBean.OnBindViewHolderListener() {
+        setViewHolderBindListener(new ViewHolderBindListener() {
             @Override
-            public void onBind(final ViewHolderManager.ViewHolder viewHolder, final int position) {
+            public void onBindViewHolder(final Activity activity, final ViewHolderManager.ViewHolder viewHolder, final int position) {
                 SingleBtnViewHolder vh = (SingleBtnViewHolder) viewHolder;
                 final SingleBtnBean bean = (SingleBtnBean) list.get(position);
                 vh.tv_single.setText(bean.getText());
@@ -88,7 +78,7 @@ public class SingleBtnBean extends AdapterBean {
                 vh.rl_single.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        getCallback().onClickCallback(v, position, viewHolder);
+                        getCallback(activity).onClickCallback(v, position, viewHolder);
                     }
                 });
             }
@@ -108,5 +98,6 @@ public class SingleBtnBean extends AdapterBean {
             rl_single = (RelativeLayout) itemView.findViewById(R.id.rl_single);
             tv_single = (TextView) itemView.findViewById(R.id.tv_single);
         }
+
     }
 }

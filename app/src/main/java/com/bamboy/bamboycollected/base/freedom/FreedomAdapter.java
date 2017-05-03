@@ -1,5 +1,6 @@
-package com.bamboy.bamboycollected.adapter;
+package com.bamboy.bamboycollected.base.freedom;
 
+import android.app.Activity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -16,16 +17,18 @@ import java.util.List;
  * <p>
  * Created by Bamboy on 2017/4/11.
  */
-public class RecyclerAdapter extends RecyclerView.Adapter<ViewHolderManager.ViewHolder> {
+public class FreedomAdapter extends RecyclerView.Adapter<ViewHolderManager.ViewHolder> {
 
-    private List<AdapterBean> mList;
+    private List<FreedomBean> mList;
+    private Activity mActivity;
 
     /**
      * Adapter 构造
      *
      * @param list
      */
-    public RecyclerAdapter(List list) {
+    public FreedomAdapter(Activity activity, List list) {
+        mActivity = activity;
         mList = list;
     }
 
@@ -36,11 +39,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<ViewHolderManager.View
 
     @Override
     public void onBindViewHolder(ViewHolderManager.ViewHolder viewHolder, int position) {
-        AdapterBean bean = mList.get(position);
-        if (bean.getBindListener() == null) {
+        FreedomBean bean = mList.get(position);
+        if (bean.getViewHolderBindListener() == null) {
             bean.initBindView(mList);
         }
-        bean.bindViewHolder(viewHolder, position);
+        bean.bindViewHolder(mActivity, viewHolder, position);
     }
 
     @Override

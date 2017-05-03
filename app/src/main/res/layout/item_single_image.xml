@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bamboy.bamboycollected.views.clickanimview.BamRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_single"
+    android:layout_width="match_parent"
+    android:background="@color/colorWhite"
+    android:translationZ="@dimen/button_translation_z"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_single"
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        android:layout_height="0dp" />
+
+</com.bamboy.bamboycollected.views.clickanimview.BamRelativeLayout>

@@ -1,13 +1,15 @@
-package com.bamboy.bamboycollected.page.divide_load;
+package com.bamboy.bamboycollected.page.bean;
 
+import android.app.Activity;
 import android.text.Html;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.adapter.AdapterBean;
-import com.bamboy.bamboycollected.adapter.ViewHolderManager;
-import com.bamboy.bamboycollected.base.BamActivity;
+import com.bamboy.bamboycollected.base.freedom.ViewHolderBindListener;
+import com.bamboy.bamboycollected.base.freedom.FreedomBean;
+import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
 
 import java.util.List;
 
@@ -18,18 +20,14 @@ import java.util.List;
  * <p>
  * Created by Bamboy on 2017/4/11.
  */
-public class DivideBean extends AdapterBean {
+public class DivideBean extends FreedomBean {
 
     private int Pagination;
     private int serialNumber;
 
-    public DivideBean(BamActivity activity) {
-        super(activity);
-    }
-
-    @Override
-    protected void initItemType() {
-        setItemType(ViewHolderManager.ITEM_TYPE_DIVIDE_LOAD);
+    public DivideBean(int pagination, int serialNumber) {
+        Pagination = pagination;
+        this.serialNumber = serialNumber;
     }
 
     public int getPagination() {
@@ -53,6 +51,11 @@ public class DivideBean extends AdapterBean {
     //======================= 以 下 是 关 于 条 目 所 需 内 容 ========================================
     //==============================================================================================
 
+    @Override
+    protected void initItemType() {
+        setItemType(ViewHolderManager.ITEM_TYPE_DIVIDE_LOAD);
+    }
+
     /**
      * 将数据绘制到ViewHolder上
      *
@@ -60,10 +63,10 @@ public class DivideBean extends AdapterBean {
      */
     @Override
     protected void initBindView(final List list) {
-        setBindListener(new AdapterBean.OnBindViewHolderListener() {
+        setViewHolderBindListener(new ViewHolderBindListener() {
             @Override
-            public void onBind(ViewHolderManager.ViewHolder viewHolder, int position) {
-                DivideLoadItemViewHolder vh = (DivideLoadItemViewHolder) viewHolder;
+            public void onBindViewHolder(final Activity activity, ViewHolderManager.ViewHolder viewHolder, final int position) {
+                final DivideLoadItemViewHolder vh = (DivideLoadItemViewHolder) viewHolder;
                 DivideBean bean = (DivideBean) list.get(position);
 
                 // 第N页
@@ -95,6 +98,13 @@ public class DivideBean extends AdapterBean {
 
                 //第N个条目
                 vh.tv_serial_number.setText("第" + bean.getSerialNumber() + "个");
+
+                vh.rl_root.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getCallback(activity).onClickCallback(v, position, vh);
+                    }
+                });
             }
         });
     }
@@ -103,12 +113,14 @@ public class DivideBean extends AdapterBean {
      * ViewHolder --> 分批加载Item
      */
     public static class DivideLoadItemViewHolder extends ViewHolderManager.ViewHolder {
+        public RelativeLayout rl_root;
         public TextView tv_pagination;
         public TextView tv_serial_number;
 
         public DivideLoadItemViewHolder(View itemView) {
             super(itemView);
 
+            rl_root = (RelativeLayout) itemView.findViewById(R.id.rl_root);
             tv_pagination = (TextView) itemView.findViewById(R.id.tv_pagination);
             tv_serial_number = (TextView) itemView.findViewById(R.id.tv_serial_number);
         }

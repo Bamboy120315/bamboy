@@ -60,6 +60,11 @@
         <item name="android:layoutAnimation">@anim/list_anim_shade_startoffset_layout</item>
     </style>
 
-
+    <!-- 横向分隔线 -->
+    <style name="line_dividing_horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/colorBlue</item>
+    </style>
 
 </resources>

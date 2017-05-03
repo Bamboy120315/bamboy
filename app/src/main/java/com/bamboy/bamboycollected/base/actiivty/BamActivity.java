@@ -1,4 +1,4 @@
-package com.bamboy.bamboycollected.base;
+package com.bamboy.bamboycollected.base.actiivty;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,6 +16,7 @@ import com.bamboy.bamboycollected.page.anim_click.AnimClickActivity;
 import com.bamboy.bamboycollected.page.auto_line.AutoLineActivity;
 import com.bamboy.bamboycollected.page.blur.BlurActivity;
 import com.bamboy.bamboycollected.page.divide_load.DivideLoadActivity;
+import com.bamboy.bamboycollected.page.freedom.FreedomListActivity;
 import com.bamboy.bamboycollected.page.launch.LaunchActivity;
 import com.bamboy.bamboycollected.page.main.MainActivity;
 import com.bamboy.bamboycollected.page.toast.ToastActivity;
@@ -49,7 +50,7 @@ public abstract class BamActivity extends Activity {
     /**
      * 工具箱
      */
-    public UtilBox utils = UtilBox.getUtilBox();
+    public UtilBox utils = UtilBox.getBox();
 
 
     /**
@@ -68,6 +69,10 @@ public abstract class BamActivity extends Activity {
      * 标题栏介绍Icon
      */
     protected ImageView iv_introduce;
+    /**
+     * 关闭介绍Icon
+     */
+    protected ImageView iv_introduce_close;
     /**
      * 介绍容器
      */
@@ -118,6 +123,7 @@ public abstract class BamActivity extends Activity {
         iv_back = (ImageView) findViewById(R.id.iv_back);
         tv_title = (TextView) findViewById(R.id.tv_title);
         iv_introduce = (ImageView) findViewById(R.id.iv_introduce);
+        iv_introduce_close = (ImageView) findViewById(R.id.iv_introduce_close);
         rl_introduce = (RelativeLayout) findViewById(R.id.rl_introduce);
         tv_introduce = (TextView) findViewById(R.id.tv_introduce);
 
@@ -127,6 +133,19 @@ public abstract class BamActivity extends Activity {
         initViewContent();
         // 处理View点击事件
         initViewClick();
+
+        if (iv_introduce != null && iv_introduce_close != null) {
+            iv_introduce.post(new Runnable() {
+                @Override
+                public void run() {
+                    RelativeLayout.LayoutParams params =
+                            (RelativeLayout.LayoutParams) iv_introduce_close.getLayoutParams();
+
+                    int height = utils.ui.getBarHeight(BamActivity.this);
+                    params.setMargins(-1, height, -1, -1);
+                }
+            });
+        }
     }
 
     /**
@@ -176,6 +195,12 @@ public abstract class BamActivity extends Activity {
             tv_introduce.setText(
                     getString(R.string.introduce_anim_click) +
                             getString(R.string.introduce_foot));
+        } else if (this instanceof FreedomListActivity) {
+            iv_back.setVisibility(View.VISIBLE);
+            tv_title.setText("非约束列表 Demo");
+            tv_introduce.setText(
+                    getString(R.string.introduce_freedom) +
+                            getString(R.string.introduce_foot));
         }
     }
 
@@ -193,11 +218,21 @@ public abstract class BamActivity extends Activity {
                     case R.id.iv_introduce:
                         showIntroduce(rl_introduce);
                         break;
+                    case R.id.iv_introduce_close:
+                        hideIntroduce(rl_introduce);
+                        break;
                 }
             }
         };
-        iv_back.setOnClickListener(clickListener);
-        iv_introduce.setOnClickListener(clickListener);
+
+        if (iv_back != null)
+            iv_back.setOnClickListener(clickListener);
+
+        if (iv_introduce != null)
+            iv_introduce.setOnClickListener(clickListener);
+
+        if (iv_introduce_close != null)
+            iv_introduce_close.setOnClickListener(clickListener);
     }
 
     /**

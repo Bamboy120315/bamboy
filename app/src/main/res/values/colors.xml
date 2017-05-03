@@ -4,6 +4,7 @@
     <color name="colorWhite_t8">#8FFF</color>
     <color name="colorWhite_tD">#D8FFFFFF</color>
     <color name="colorBlack">#000</color>
+    <color name="colorBlack_t8">#8000</color>
     <color name="colorBrown">#C60</color>
     <color name="colorBrownDark">#933</color>
     <color name="colorRed">#F03</color>
@@ -18,5 +19,6 @@
     <color name="colorBlue_t">#606C</color>
     <color name="colorPurple">#939</color>
     <color name="colorGrey">#ccc</color>
+    <color name="colorGrey_tc">#cccc</color>
     <color name="colorGrey_t8">#8ccc</color>
 </resources>

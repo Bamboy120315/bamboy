@@ -3,6 +3,7 @@ package com.bamboy.bamboycollected.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -24,6 +25,10 @@ public class UtilUI {
      * @return 状态栏高度
      */
     public int getBarHeight(Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            barHeight = 0;
+        }
+
         if (barHeight == -1) {
             Class<?> c = null;
             Object obj = null;

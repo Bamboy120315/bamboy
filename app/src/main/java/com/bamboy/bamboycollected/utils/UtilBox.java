@@ -71,7 +71,7 @@ public class UtilBox {
      *
      * @return
      */
-    public static UtilBox getUtilBox() {
+    public static UtilBox getBox() {
         return StockRemindUtilHolder.mUtilBox;
     }
 

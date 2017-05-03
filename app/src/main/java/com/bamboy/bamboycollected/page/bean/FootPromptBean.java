@@ -1,20 +1,22 @@
-package com.bamboy.bamboycollected.page.divide_load;
+package com.bamboy.bamboycollected.page.bean;
 
+import android.app.Activity;
 import android.view.View;
 import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.adapter.AdapterBean;
-import com.bamboy.bamboycollected.adapter.ViewHolderManager;
-import com.bamboy.bamboycollected.base.BamActivity;
+import com.bamboy.bamboycollected.base.freedom.ViewHolderBindListener;
+import com.bamboy.bamboycollected.base.freedom.FreedomBean;
+import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
 
 import java.util.List;
 
 /**
  * 列表底部”正在加载“文字提示
+ *
  * Created by Bamboy on 2017/4/11.
  */
-public class FootPromptBean extends AdapterBean {
+public class FootPromptBean extends FreedomBean {
     /**
      * 本页数据加载完成
      */
@@ -35,14 +37,8 @@ public class FootPromptBean extends AdapterBean {
     private String prompt;
     private int type;
 
-    public FootPromptBean(BamActivity activity) {
-        super(activity);
+    public FootPromptBean() {
         setType(TYPE_PAGE_SUCCEED);
-    }
-
-    @Override
-    protected void initItemType() {
-        setItemType(ViewHolderManager.ITEM_TYPE_FOOT_PROMPT);
     }
 
     public String getPrompt() {
@@ -80,6 +76,11 @@ public class FootPromptBean extends AdapterBean {
     //======================= 以 下 是 关 于 条 目 所 需 内 容 ========================================
     //==============================================================================================
 
+    @Override
+    protected void initItemType() {
+        setItemType(ViewHolderManager.ITEM_TYPE_FOOT_PROMPT);
+    }
+
     /**
      * 将数据绘制到ViewHolder上
      *
@@ -87,9 +88,9 @@ public class FootPromptBean extends AdapterBean {
      */
     @Override
     protected void initBindView(final List list) {
-        setBindListener(new AdapterBean.OnBindViewHolderListener() {
+        setViewHolderBindListener(new ViewHolderBindListener() {
             @Override
-            public void onBind(final ViewHolderManager.ViewHolder viewHolder, final int position) {
+            public void onBindViewHolder(final Activity activity, final ViewHolderManager.ViewHolder viewHolder, final int position) {
                 FootPromptViewHolder vh = (FootPromptViewHolder) viewHolder;
                 FootPromptBean bean = (FootPromptBean) list.get(position);
 
@@ -98,7 +99,7 @@ public class FootPromptBean extends AdapterBean {
                 vh.tv_foot_prompt.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        getCallback().onClickCallback(v, position, viewHolder);
+                        getCallback(activity).onClickCallback(v, position, viewHolder);
                     }
                 });
             }
