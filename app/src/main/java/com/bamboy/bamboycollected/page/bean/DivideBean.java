@@ -3,13 +3,14 @@ package com.bamboy.bamboycollected.page.bean;
 import android.app.Activity;
 import android.text.Html;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.base.freedom.listener.ViewHolderBindListener;
 import com.bamboy.bamboycollected.base.freedom.FreedomBean;
 import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
+import com.bamboy.bamboycollected.base.freedom.listener.ViewHolderBindListener;
 
 import java.util.List;
 
@@ -24,6 +25,9 @@ public class DivideBean extends FreedomBean {
 
     private int Pagination;
     private int serialNumber;
+
+    public DivideBean() {
+    }
 
     public DivideBean(int pagination, int serialNumber) {
         Pagination = pagination;
@@ -117,12 +121,14 @@ public class DivideBean extends FreedomBean {
         public TextView tv_pagination;
         public TextView tv_serial_number;
 
-        public DivideLoadItemViewHolder(View itemView) {
-            super(itemView);
+        public DivideLoadItemViewHolder(ViewGroup viewGroup) {
+            // 两个参数，第一个viewGroup不解释，第二个即本ViewHolder对应的LayoutXml
+            super(viewGroup, R.layout.item_divide_load);
 
             rl_root = (RelativeLayout) itemView.findViewById(R.id.rl_root);
             tv_pagination = (TextView) itemView.findViewById(R.id.tv_pagination);
             tv_serial_number = (TextView) itemView.findViewById(R.id.tv_serial_number);
         }
+
     }
 }

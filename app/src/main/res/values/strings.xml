@@ -319,14 +319,14 @@
         打个比方，\n
         假如你的首页有个item，\n
         UI、功能都写好了，\n
-        你的产品说新页面也要有这个item，\n
+        你的老板说新页面也要有这个item，\n
         那你就要把首页的相关代码copy过去，\n
         Adapter里的代码也要copy过去。\n
         这还不算太糟，\n
-        有一天产品说这个item要有新功能，\n
+        有一天老板说这个item要有新功能，\n
         那你是不是首页和新页面都要改？\n
         只有这两个页面那还好说，\n
-        但是你要是有七八十个呢？\n
+        但是你要是有七八个呢？\n
         \n
         这时非约束列表的优势就体现出来了，\n
         只需要改下Bean里的逻辑，\n
@@ -335,48 +335,69 @@
         \n
         非约束列表好用是好用，\n
         不过也有缺点，\n
-        尘少一贯童叟无欺的作风，\n
-        有缺点当然要说出来啦。\n
-        \n
         最大的缺点应该就是不习惯了吧，\n
-        那就先来说下使用步骤：\n
+        其次是性能，\n
+        主要是因为使用了反射的缘故，\n
+        性能当然不能和原生的相比，\n
+        不过相差也不大，\n
+        在这个普遍性能过剩的时代，\n
+        我个人认为，\n
+        性能下降了一点，\n
+        开发效率却提高了，\n
+        还是说得过去的。\n
         \n
-        1、item的Bean要继承FreedomBean，\n
-        并在Bean的构造函数里加个参数，\n
-        类型为Activity，\n
-        并super(activity);\n
+        那下面就来说说增加一个条目的步骤：\n
         \n
-        2、在Bean的类里写个\n
-        ViewHolder内部类，
+        一、\n
+        对应的Bean要继承FreedomBean，\n
+        在initItemType()里setItemType()，\n
+        initBindView()里setBindListener()，\n
+        简单点说，\n
+        就是把普通Adapter里\n
+        onBindViewHolder()的代码挪过来。\n
+        如果需要和Activity交互，\n
+        则Activity实现FreedomCallback接口，\n
+        然后initBindView()里调用\n
+        getCallback().onClickCallback();\n
+        \n
+        例：\n
+        类SingleBtnBean第88行。\n
+        \n
+        二、\n
+        在Bean里写个ViewHolder内部类，\n
         继承ViewHolderManager.ViewHolder，\n
-        其实就是之前Adapter内部的\n
-        ViewHolder类\n
+        和普通的Adapter的内部类差不多，\n
+        不过需要注意的是，\n
+        构造里的参数不一样，\n
+        不是View，\n
+        而是ViewGroup，\n
+        在调用super()方法时，\n
+        除了把ViewGroup传过去以外，\n
+        还要传一个int类型参数，\n
+        即当前ViewHolder对应的LayoutXml，\n
+        这里很简单，\n
+        同学们对照代码很容易就明白了。\n
         \n
-        3、进入ViewHolderManager，\n
+        三、\n
+        进入ViewHolderManager，\n
+        对应你新写的ViewHolder，\n
         增加一个公开静态常量，\n
         只要不与其他的值重复即可，\n
         并put到itemMap里，\n
         key为你刚写的常量，\n
-        value为item的R.layout.item\n
-        \n
-        4、在createViewHolder()里，\n
-        new出来刚刚在Bean里写的内部类。\n
-        \n
-        5、回到Bean，\n
-        initItemType()里setItemType()，\n
-        然后initBindView()里setBindListener()。\n
-        这块儿不好描述，\n
-        对照我的源码即可理解。\n
+        value为刚写的ViewHolder的class.\n
         \n
         然后你就可以欢快的使用啦，\n
         哪个类需要这个Item，\n
         就直接add到mList数据源里，\n
         不需要新写Adapter，\n
-        不需要copy代码，\n
+        不需要重新写代码，\n
         是不是超爽？\n
         \n
         \n
-        尘少后续会在CSDN上发表博客，\n
+        如果觉得这个教程不够清晰，\n
+        没关系，\n
+        后续我会在CSDN上发表博客，\n
         为大家带来更具体更详细的讲解，\n
         请关注尘少的CSDN:\n
         <a href="http://blog.csdn.net/bamboy_">http://blog.csdn.net/bamboy_</a>\n

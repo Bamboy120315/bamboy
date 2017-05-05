@@ -2,18 +2,19 @@ package com.bamboy.bamboycollected.page.bean;
 
 import android.app.Activity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.base.freedom.listener.ViewHolderBindListener;
 import com.bamboy.bamboycollected.base.freedom.FreedomBean;
 import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
+import com.bamboy.bamboycollected.base.freedom.listener.ViewHolderBindListener;
 
 import java.util.List;
 
 /**
  * 列表底部”正在加载“文字提示
- *
+ * <p>
  * Created by Bamboy on 2017/4/11.
  */
 public class FootPromptBean extends FreedomBean {
@@ -112,10 +113,12 @@ public class FootPromptBean extends FreedomBean {
     public static class FootPromptViewHolder extends ViewHolderManager.ViewHolder {
         public TextView tv_foot_prompt;
 
-        public FootPromptViewHolder(View itemView) {
-            super(itemView);
+        public FootPromptViewHolder(ViewGroup viewGroup) {
+            // 两个参数，第一个viewGroup不解释，第二个即本ViewHolder对应的LayoutXml
+            super(viewGroup, R.layout.item_divide_foot_prompt);
 
             tv_foot_prompt = (TextView) itemView.findViewById(R.id.tv_foot_prompt);
         }
+
     }
 }

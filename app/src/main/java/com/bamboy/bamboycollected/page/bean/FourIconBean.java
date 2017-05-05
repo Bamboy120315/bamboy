@@ -2,24 +2,23 @@ package com.bamboy.bamboycollected.page.bean;
 
 import android.app.Activity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.base.freedom.listener.ViewHolderBindListener;
 import com.bamboy.bamboycollected.base.freedom.FreedomBean;
 import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
+import com.bamboy.bamboycollected.base.freedom.listener.ViewHolderBindListener;
 
 import java.util.List;
 
-import static com.bamboy.bamboycollected.base.freedom.ViewHolderManager.ITEM_TYPE_FOUR_ICON;
-
 /**
  * 有四个【图标+文字】按钮的条目的Bean
- *
+ * <p>
  * 没啥用，单纯为了体现非约束列表
- *
+ * <p>
  * Created by Bamboy on 2017/4/18.
  */
 public class FourIconBean extends FreedomBean {
@@ -30,7 +29,7 @@ public class FourIconBean extends FreedomBean {
 
     @Override
     protected void initItemType() {
-        setItemType(ITEM_TYPE_FOUR_ICON);
+        setItemType(ViewHolderManager.ITEM_TYPE_FOUR_ICON);
     }
 
     /**
@@ -89,8 +88,9 @@ public class FourIconBean extends FreedomBean {
         public ImageView iv_sleep;
         public TextView tv_sleep;
 
-        public FourIconViewHolder(View itemView) {
-            super(itemView);
+        public FourIconViewHolder(ViewGroup viewGroup) {
+            // 两个参数，第一个viewGroup不解释，第二个即本ViewHolder对应的LayoutXml
+            super(viewGroup, R.layout.item_four_icon);
 
             // 第一个按钮 --> 最新上架
             rl_fresh = (RelativeLayout) itemView.findViewById(R.id.rl_fresh);

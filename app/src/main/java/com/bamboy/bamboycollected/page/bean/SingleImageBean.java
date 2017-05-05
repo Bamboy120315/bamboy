@@ -2,21 +2,22 @@ package com.bamboy.bamboycollected.page.bean;
 
 import android.app.Activity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.base.freedom.listener.ViewHolderBindListener;
 import com.bamboy.bamboycollected.base.freedom.FreedomBean;
 import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
+import com.bamboy.bamboycollected.base.freedom.listener.ViewHolderBindListener;
 
 import java.util.List;
 
 /**
  * 单个图片的条目的Bean
- *
+ * <p>
  * 没啥用，单纯为了体现非约束列表
- *
+ * <p>
  * Created by Bamboy on 2017/4/18.
  */
 public class SingleImageBean extends FreedomBean {
@@ -24,6 +25,9 @@ public class SingleImageBean extends FreedomBean {
      * 图片链接(这里使用本地图片形式)
      */
     private int img_url;
+
+    public SingleImageBean() {
+    }
 
     public SingleImageBean(int img_url) {
         this.img_url = img_url;
@@ -93,8 +97,9 @@ public class SingleImageBean extends FreedomBean {
         public RelativeLayout rl_single;
         public ImageView iv_single;
 
-        public SingleImageViewHolder(View itemView) {
-            super(itemView);
+        public SingleImageViewHolder(ViewGroup viewGroup) {
+            // 两个参数，第一个viewGroup不解释，第二个即本ViewHolder对应的LayoutXml
+            super(viewGroup, R.layout.item_single_image);
 
             rl_single = (RelativeLayout) itemView.findViewById(R.id.rl_single);
             iv_single = (ImageView) itemView.findViewById(R.id.iv_single);

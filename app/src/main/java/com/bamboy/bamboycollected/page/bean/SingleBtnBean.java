@@ -2,13 +2,14 @@ package com.bamboy.bamboycollected.page.bean;
 
 import android.app.Activity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.base.freedom.listener.ViewHolderBindListener;
 import com.bamboy.bamboycollected.base.freedom.FreedomBean;
 import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
+import com.bamboy.bamboycollected.base.freedom.listener.ViewHolderBindListener;
 
 import java.util.List;
 
@@ -21,6 +22,12 @@ public class SingleBtnBean extends FreedomBean {
 
     private String text;
     private Class startClass;
+
+    /**
+     * 构造函数
+     */
+    public SingleBtnBean() {
+    }
 
     /**
      * 构造函数
@@ -92,8 +99,9 @@ public class SingleBtnBean extends FreedomBean {
         public RelativeLayout rl_single;
         public TextView tv_single;
 
-        public SingleBtnViewHolder(View itemView) {
-            super(itemView);
+        public SingleBtnViewHolder(ViewGroup viewGroup) {
+            // 两个参数，第一个viewGroup不解释，第二个即本ViewHolder对应的LayoutXml
+            super(viewGroup, R.layout.item_single_button);
 
             rl_single = (RelativeLayout) itemView.findViewById(R.id.rl_single);
             tv_single = (TextView) itemView.findViewById(R.id.tv_single);

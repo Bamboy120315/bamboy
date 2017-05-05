@@ -116,7 +116,7 @@ public abstract class BamActivity extends Activity {
      * 初始化View
      * 状态栏 及 介绍页
      * 这些View是本App专用
-     * 去Demo的时候无须搭理此方法
+     * 写Demo的时候无须搭理此方法
      */
     private void initView() {
         rl_title = (RelativeLayout) findViewById(R.id.rl_title);

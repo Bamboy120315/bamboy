@@ -5,20 +5,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.page.bean.DivideBean;
 import com.bamboy.bamboycollected.page.bean.FootPromptBean;
 import com.bamboy.bamboycollected.page.bean.FourIconBean;
 import com.bamboy.bamboycollected.page.bean.SingleBtnBean;
 import com.bamboy.bamboycollected.page.bean.SingleImageBean;
 
+import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * ViewHolder的管理类
  * 用于存放ViewHolder的基类
- * 和 条目类型与相对应的条目XML
+ * 和 条目类型与相对应的Bean类型
  * <p>
  * Created by Bamboy on 2017/4/13.
  */
@@ -47,18 +47,18 @@ public class ViewHolderManager {
     /**
      * 条目类型 和 对应的条目XML
      */
-    private static Map<Integer, Integer> itemMap;
+    private static Map<Integer, Class> itemMap;
 
     /**
      * 加载条目类型，以及对应的条目XML
      */
     static {
         itemMap = new HashMap<>();
-        itemMap.put(ITEM_TYPE_SINGLE_BUTTON, R.layout.item_single_button);
-        itemMap.put(ITEM_TYPE_DIVIDE_LOAD, R.layout.item_divide_load);
-        itemMap.put(ITEM_TYPE_FOOT_PROMPT, R.layout.item_divide_foot_prompt);
-        itemMap.put(ITEM_TYPE_FOUR_ICON, R.layout.item_four_icon);
-        itemMap.put(ITEM_TYPE_SINGLE_IMAGE, R.layout.item_single_image);
+        itemMap.put(ITEM_TYPE_SINGLE_BUTTON, SingleBtnBean.SingleBtnViewHolder.class);
+        itemMap.put(ITEM_TYPE_DIVIDE_LOAD, DivideBean.DivideLoadItemViewHolder.class);
+        itemMap.put(ITEM_TYPE_FOOT_PROMPT, FootPromptBean.FootPromptViewHolder.class);
+        itemMap.put(ITEM_TYPE_FOUR_ICON, FourIconBean.FourIconViewHolder.class);
+        itemMap.put(ITEM_TYPE_SINGLE_IMAGE, SingleImageBean.SingleImageViewHolder.class);
     }
 
     /**
@@ -66,8 +66,8 @@ public class ViewHolderManager {
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public ViewHolder(View itemView) {
-            super(itemView);
+        public ViewHolder(ViewGroup viewGroup, int layoutId) {
+            super(findView(viewGroup, layoutId));
         }
     }
 
@@ -75,29 +75,24 @@ public class ViewHolderManager {
      * 创建ViewHolder
      *
      * @param viewGroup
-     * @param viewType
+     * @param viewType  当前item的类型，即上边的那一堆常量
      * @return
      */
     public static ViewHolder createViewHolder(ViewGroup viewGroup, int viewType) {
-        ViewHolderManager.ViewHolder holder = null;
-        switch (viewType) {
-            case ITEM_TYPE_SINGLE_BUTTON:           // 单个的按钮
-                holder = new SingleBtnBean.SingleBtnViewHolder(findView(viewGroup, itemMap.get(viewType)));
-                break;
-            case ITEM_TYPE_DIVIDE_LOAD:             // 分批加载
-                holder = new DivideBean.DivideLoadItemViewHolder(findView(viewGroup, itemMap.get(viewType)));
-                break;
-            case ITEM_TYPE_FOOT_PROMPT:             // 分批加载底部提示文字
-                holder = new FootPromptBean.FootPromptViewHolder(findView(viewGroup, itemMap.get(viewType)));
-                break;
-            case ITEM_TYPE_FOUR_ICON:               // 四个【图标+文字】的按钮
-                holder = new FourIconBean.FourIconViewHolder(findView(viewGroup, itemMap.get(viewType)));
-                break;
-            case ITEM_TYPE_SINGLE_IMAGE:            // 单个图片
-                holder = new SingleImageBean.SingleImageViewHolder(findView(viewGroup, itemMap.get(viewType)));
-                break;
+        try {
+            // 获取Class对象
+            Class itemClass = itemMap.get(viewType);
+            // 开始反射，获取构造方法
+            Constructor<?> cons[] = itemClass.getConstructors();
+            // 运行方法，获取ViewHolder
+            Object obj = cons[0].newInstance(viewGroup);
+
+            return (ViewHolder) obj;
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return holder;
+        return null;
     }
 
     /**
@@ -113,5 +108,4 @@ public class ViewHolderManager {
         return LayoutInflater.from(viewGroup.getContext())
                 .inflate(itemId, viewGroup, false);
     }
-
 }
