@@ -9,8 +9,8 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_list"
-        android:layoutAnimation="@anim/list_anim_shade_layout"
-        style="@style/recycler_style" />
+        style="@style/recycler_style"
+        android:layoutAnimation="@anim/list_anim_shade_layout" />
 
     <include layout="@layout/include_introduce" />
 

@@ -2,6 +2,8 @@ package com.bamboy.bamboycollected.base.freedom;
 
 import android.app.Activity;
 
+import com.bamboy.bamboycollected.base.freedom.listener.FreedomCallback;
+import com.bamboy.bamboycollected.base.freedom.listener.ViewHolderBindListener;
 import com.bamboy.bamboycollected.utils.UtilBox;
 
 import java.util.List;
@@ -53,9 +55,9 @@ public abstract class FreedomBean {
         if (activity instanceof FreedomCallback) {
             callback = (FreedomCallback) activity;
         } else {
-            UtilBox.getBox().log.e("Activity:[" + activity.getClass() + "]未实现【RecylerCallback】接口！\n" +
+            UtilBox.getBox().log.e("Activity:[" + activity.getClass() + "]未实现【FreedomCallback】接口！\n" +
                     "java.lang.NullPointerException:\n" +
-                    "\t[" + activity.getClass() + "]未实现【RecylerCallback】接口！\n");
+                    "\t[" + activity.getClass() + "]未实现【FreedomCallback】接口！\n");
         }
         return callback;
     }

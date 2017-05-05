@@ -149,7 +149,7 @@ public class BaseGestureUtil {
             // 手指移动
             case MotionEvent.ACTION_MOVE:
                 float nowX = motionEvent.getX();
-                if (false == slideOpen || rootView == null || startX > util.info.phoneWidth / 20) {
+                if (false == slideOpen || rootView == null || startX > util.info.getPhoneWidth() / 20) {
                     return false;
                 }
                 // 计算滑动距离
@@ -167,7 +167,7 @@ public class BaseGestureUtil {
                 if (false == calculateIsFinish()) {     // 不关闭界面，滚回去
                     ObjectAnimator.ofFloat(rootView, "X", rootView.getX(), 0).setDuration(250).start();
                 } else {                                // 关闭界面，滚出去
-                    ObjectAnimator anim = ObjectAnimator.ofFloat(rootView, "X", rootView.getX(), util.info.phoneWidth);
+                    ObjectAnimator anim = ObjectAnimator.ofFloat(rootView, "X", rootView.getX(), util.info.getPhoneWidth());
                     anim.setDuration(250);
                     anim.addListener(new Animator.AnimatorListener() {
                         @Override
@@ -203,7 +203,7 @@ public class BaseGestureUtil {
      */
     private boolean calculateIsFinish() {
         // 判断当前滑动有没有过屏幕的一半
-        if (rootView.getX() < util.info.phoneWidth / 2) {
+        if (rootView.getX() < util.info.getPhoneWidth() / 2) {
             // 左半边
             if (slideSpeed < 0) {
                 // 向右

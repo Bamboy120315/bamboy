@@ -3,6 +3,7 @@
     package="com.bamboy.bamboycollected">
 
     <application
+        android:name=".page.application.BamApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_bamboy"
         android:label="@string/app_name"
@@ -24,35 +25,38 @@
         </activity>
 
         <!-- 主页 -->
-        <activity android:name=".page.main.MainActivity" />
+        <activity android:name=".page.main.MainActivity">
+            <!-- 用于接收压力触控的过滤器-->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="com.bamboy.bamboycollected.page.main"
+                    android:path="/freemod"
+                    android:scheme="flyme_3dtouch" />
+                <data
+                    android:host="com.bamboy.bamboycollected.page.main"
+                    android:path="/blus"
+                    android:scheme="flyme_3dtouch" />
+                <data
+                    android:host="com.bamboy.bamboycollected.page.main"
+                    android:path="/toast"
+                    android:scheme="flyme_3dtouch" />
+                <data
+                    android:host="com.bamboy.bamboycollected.page.main"
+                    android:path="/click"
+                    android:scheme="flyme_3dtouch" />
+            </intent-filter>
+        </activity>
 
         <!-- Toast页 -->
-        <activity android:name=".page.toast.ToastActivity" >
-            <!-- 用于接收压力触控的过滤器-->
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data
-                    android:host="com.bamboy.bamboycollected.page.toast"
-                    android:path="/a1"
-                    android:scheme="flyme_3dtouch" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".page.toast.ToastActivity" />
 
         <!-- 高斯模糊页 -->
-        <activity android:name=".page.blur.BlurActivity" >
-            <!-- 用于接收压力触控的过滤器-->
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data
-                    android:host="com.bamboy.bamboycollected.page.blur"
-                    android:path="/a1"
-                    android:scheme="flyme_3dtouch" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".page.blur.BlurActivity" />
 
         <!-- 自动换行页 -->
         <activity android:name=".page.auto_line.AutoLineActivity" />
@@ -61,32 +65,10 @@
         <activity android:name=".page.divide_load.DivideLoadActivity" />
 
         <!-- 点击动画页 -->
-        <activity android:name=".page.anim_click.AnimClickActivity" >
-            <!-- 用于接收压力触控的过滤器-->
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data
-                    android:host="com.bamboy.bamboycollected.page.anim_click"
-                    android:path="/a1"
-                    android:scheme="flyme_3dtouch" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".page.anim_click.AnimClickActivity" />
 
         <!-- 非约束列表页 -->
-        <activity android:name=".page.freedom.FreedomListActivity">
-            <!-- 用于接收压力触控的过滤器-->
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data
-                    android:host="com.bamboy.bamboycollected.page.freedom"
-                    android:path="/a1"
-                    android:scheme="flyme_3dtouch" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".page.freedom.FreedomListActivity" />
     </application>
 
 </manifest>

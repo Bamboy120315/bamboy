@@ -1,6 +1,8 @@
-package com.bamboy.bamboycollected.base.freedom;
+package com.bamboy.bamboycollected.base.freedom.listener;
 
 import android.app.Activity;
+
+import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
 
 /**
  * 将数据填充到ViewHolder上

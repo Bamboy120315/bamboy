@@ -3,17 +3,19 @@ package com.bamboy.bamboycollected.page.main;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.base.freedom.FreedomAdapter;
-import com.bamboy.bamboycollected.base.freedom.FreedomCallback;
-import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
 import com.bamboy.bamboycollected.base.actiivty.BamActivity;
+import com.bamboy.bamboycollected.base.freedom.FreedomAdapter;
+import com.bamboy.bamboycollected.base.freedom.listener.FreedomCallback;
+import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
 import com.bamboy.bamboycollected.page.anim_click.AnimClickActivity;
 import com.bamboy.bamboycollected.page.auto_line.AutoLineActivity;
 import com.bamboy.bamboycollected.page.bean.SingleBtnBean;
@@ -57,6 +59,12 @@ public class MainActivity extends BamActivity implements FreedomCallback {
 
     @Override
     protected void init() {
+
+        // 初始化手机信息
+        utils.info.initPhoneInfo(this);
+        // 初始化3DPress
+        initFlyme3DPress();
+
         // 关闭当前界面的右滑关闭功能
         openSlideFinish(false);
 
@@ -101,6 +109,41 @@ public class MainActivity extends BamActivity implements FreedomCallback {
                     BamToast.show(MainActivity.this, "该Demo尚未整合\n请耐心等待", BamToast.COLOR_BLUE_SKY);
                 }
                 break;
+        }
+    }
+
+    /**
+     * 初始化3DPress
+     */
+    private void initFlyme3DPress() {
+        Intent intent = getIntent();
+        if (intent != null) {
+            Uri data = intent.getData();
+            if (data != null && TextUtils.equals("flyme_3dtouch", data.getScheme())) {
+                // 进入到这里，
+                // 说明是通过3D Press进来的，
+                // 所以把主页的列表动画取消，
+                // 以免浪费性能。
+                rv_list.setLayoutAnimation(null);
+
+                // 判断是通过桌面菜单的哪一项进来的
+                if (TextUtils.equals("/freemod", data.getPath())) {
+                    startActivity(new Intent(this, FreedomListActivity.class));
+                    return;
+
+                } else if (TextUtils.equals("/blus", data.getPath())) {
+                    startActivity(new Intent(this, BlurActivity.class));
+                    return;
+
+                } else if (TextUtils.equals("/toast", data.getPath())) {
+                    startActivity(new Intent(this, ToastActivity.class));
+                    return;
+
+                } else if (TextUtils.equals("/click", data.getPath())) {
+                    startActivity(new Intent(this, AnimClickActivity.class));
+                    return;
+                }
+            }
         }
     }
 

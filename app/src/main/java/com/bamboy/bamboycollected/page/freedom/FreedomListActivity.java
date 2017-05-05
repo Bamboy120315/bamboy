@@ -7,12 +7,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.base.freedom.FreedomBean;
 import com.bamboy.bamboycollected.page.bean.FourIconBean;
 import com.bamboy.bamboycollected.page.bean.SingleImageBean;
 import com.bamboy.bamboycollected.views.BamToast;
 import com.bamboy.bamboycollected.base.freedom.FreedomAdapter;
-import com.bamboy.bamboycollected.base.freedom.FreedomCallback;
+import com.bamboy.bamboycollected.base.freedom.listener.FreedomCallback;
 import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
 import com.bamboy.bamboycollected.base.actiivty.BamActivity;
 import com.bamboy.bamboycollected.page.bean.SingleBtnBean;

@@ -60,18 +60,14 @@ public class LaunchActivity extends BamActivity {
         //mCountTimer = launchUtil.gteCountTimet((int) (2.7 * 1000), 300);
         mCountTimer = launchUtil.gteCountTimet((int) (0.9 * 1000), 300);
 
+        // 初始化手机信息
+        utils.info.initPhoneInfo(LaunchActivity.this);
+
         // 控件绘制完成后执行
         iv_icon.post(new Runnable() {
             @Override
             public void run() {
-                DisplayMetrics dm = new DisplayMetrics();
-                // 获取屏幕信息
-                getWindowManager().getDefaultDisplay().getMetrics(dm);
-                utils.info.phoneWidth = dm.widthPixels;
-                utils.info.phoneHeigh = dm.heightPixels;
-                utils.info.phoneSDK = android.os.Build.VERSION.SDK_INT;
                 mCountTimer.start();
-                utils.initBox();
             }
         });
     }

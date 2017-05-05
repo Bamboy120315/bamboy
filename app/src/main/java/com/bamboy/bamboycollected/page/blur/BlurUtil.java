@@ -51,7 +51,7 @@ public class BlurUtil {
         // 获取截图的Bitmap
         Bitmap bitmap = utils.ui.getDrawing(mActivity);
 
-        if (utils.info.phoneSDK >= Build.VERSION_CODES.KITKAT && bitmap != null) {
+        if (utils.info.getPhoneSDK() >= Build.VERSION_CODES.KITKAT && bitmap != null) {
             // 将截屏Bitma放入ImageView
             iv_popup_window_back.setImageBitmap(bitmap);
             // 将ImageView进行高斯模糊【25是最高模糊程度】【最后一个参数是蒙上一层颜色，此参数可不填】

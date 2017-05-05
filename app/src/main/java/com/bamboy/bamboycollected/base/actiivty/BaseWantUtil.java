@@ -119,7 +119,7 @@ public class BaseWantUtil {
         // 介绍View的背景
         ImageView iv_introduce_back = (ImageView) rl_introduce.findViewById(R.id.iv_introduce_back);
 
-        if (utils.info.phoneSDK >= Build.VERSION_CODES.KITKAT && bitmap != null) {
+        if (utils.info.getPhoneSDK() >= Build.VERSION_CODES.KITKAT && bitmap != null) {
             // 将截屏Bitma放入ImageView
             iv_introduce_back.setImageBitmap(bitmap);
             // 将ImageView进行高斯模糊【25是最高模糊等级】【最后一个参数是蒙上一层颜色，此参数可不填】
