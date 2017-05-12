@@ -349,21 +349,7 @@
         那下面就来说说增加一个条目的步骤：\n
         \n
         一、\n
-        对应的Bean要继承FreedomBean，\n
-        在initItemType()里setItemType()，\n
-        initBindView()里setBindListener()，\n
-        简单点说，\n
-        就是把普通Adapter里\n
-        onBindViewHolder()的代码挪过来。\n
-        如果需要和Activity交互，\n
-        则Activity实现FreedomCallback接口，\n
-        然后initBindView()里调用\n
-        getCallback().onClickCallback();\n
-        \n
-        例：\n
-        类SingleBtnBean第88行。\n
-        \n
-        二、\n
+        新建一个Bean类，\n
         在Bean里写个ViewHolder内部类，\n
         继承ViewHolderManager.ViewHolder，\n
         和普通的Adapter的内部类差不多，\n
@@ -378,7 +364,7 @@
         这里很简单，\n
         同学们对照代码很容易就明白了。\n
         \n
-        三、\n
+        二、\n
         进入ViewHolderManager，\n
         对应你新写的ViewHolder，\n
         增加一个公开静态常量，\n
@@ -386,6 +372,19 @@
         并put到itemMap里，\n
         key为你刚写的常量，\n
         value为刚写的ViewHolder的class.\n
+        \n
+        三、\n
+        回到Bean，\n
+        继承FreedomBean，\n
+        在initItemType()里setItemType()，\n
+        initBindView()里setBindListener()，\n
+        简单点说，\n
+        就是把普通Adapter里\n
+        onBindViewHolder()的代码挪过来。\n
+        如果需要和Activity交互，\n
+        则Activity实现FreedomCallback接口，\n
+        然后initBindView()里调用\n
+        getCallback().onClickCallback();\n
         \n
         然后你就可以欢快的使用啦，\n
         哪个类需要这个Item，\n
@@ -397,10 +396,10 @@
         \n
         如果觉得这个教程不够清晰，\n
         没关系，\n
-        后续我会在CSDN上发表博客，\n
-        为大家带来更具体更详细的讲解，\n
-        请关注尘少的CSDN:\n
-        <a href="http://blog.csdn.net/bamboy_">http://blog.csdn.net/bamboy_</a>\n
+        我在CSDN上也发表了博客，\n
+        CSDN可以插代码插图片，\n
+        所以看起来更直观：\n
+        <a href="http://blog.csdn.net/bamboy_/article/details/71727461">http://blog.csdn.net/bamboy_/article/details/71727461</a>\n
         \n
     </string>
 
