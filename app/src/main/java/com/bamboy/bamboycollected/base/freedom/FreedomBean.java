@@ -2,8 +2,6 @@ package com.bamboy.bamboycollected.base.freedom;
 
 import android.app.Activity;
 
-import com.bamboy.bamboycollected.base.freedom.listener.FreedomCallback;
-import com.bamboy.bamboycollected.base.freedom.listener.ViewHolderBindListener;
 import com.bamboy.bamboycollected.utils.UtilBox;
 
 import java.util.List;

@@ -10,7 +10,6 @@
     <string name="introduce_foot">
         \n
         \n
-        \n
         如有问题可以联系尘少共同探讨：\n
         QQ：1315166228\n
         但本人QQ只在工作时间使用，\n
@@ -27,7 +26,6 @@
         首先，\n
         谢谢大家关注尘少的Demo合集，\n
         为此深感荣幸。\n
-        \n
         那就容我在此先啰嗦几句，\n
         熟悉尘少的同学都知道，\n
         我是一个很在意UI效果的程序员，\n
@@ -60,7 +58,7 @@
         啰嗦了那么多，\n
         下面开始进入本页技术点正题吧，\n
         \n
-        首先大家好奇的，\n
+        大家首先好奇的，\n
         肯定是有趣的启动效果吧？\n
         Logo在页面活蹦乱跳，\n
         其实实现起来并没有什么难度，\n
@@ -80,6 +78,59 @@
         \n
         感兴趣的同学赶紧试试吧。
     </string>
+
+    <!-- 主页介绍 -->
+    <!--<string name="introduce_main">
+        \n
+        \n
+        首先，\n
+        谢谢大家关注尘少的Demo合集，\n
+        为此深感荣幸。\n
+        \n
+        不难看出，\n
+        这个App和普通的App不一样，\n
+        普通的App是为用户服务，\n
+        而这个，\n
+        是为程序员服务！\n
+        \n
+        IT行业要发展，\n
+        靠的是分享，\n
+        所以，\n
+        我写了这款APP，\n
+        将我的Demo集合到这里，\n
+        尽可能为同学们带来一站式服务。\n
+        \n
+        虽然我一个人的力量势单力薄，\n
+        但是我相信这是一个进步，\n
+        推动分享精神的一小步！\n
+        \n
+        未来还等着我们去改变，\n
+        我们相互共勉，\n
+        一起进步！\n
+        \n
+        啰嗦了那么多，\n
+        下面开始进入本页技术点正题吧，\n
+        \n
+        大家首先好奇的，\n
+        肯定是有趣的启动效果吧？\n
+        Logo在页面活蹦乱跳，\n
+        其实实现起来并没有什么难度，\n
+        \n
+        1、使用透明主题：\n
+        Theme.Translucent.NoTitleBar\n
+        \n
+        2、把启动页的背景颜色去掉\n
+        \n
+        3、放个ImageView，\n
+        写个动画让它跳跳就OK了\n
+        \n
+        怎么样，\n
+        实现起来很简单吧，\n
+        主要是想象力，\n
+        实在不行就找UED的朋友帮帮忙吧。\n
+        \n
+        感兴趣的同学赶紧试试吧。
+    </string>-->
 
     <!-- 自定义Toast介绍 -->
     <string name="introduce_toast">
@@ -346,59 +397,9 @@
         开发效率却提高了，\n
         还是说得过去的。\n
         \n
-        那下面就来说说增加一个条目的步骤：\n
-        \n
-        一、\n
-        新建一个Bean类，\n
-        在Bean里写个ViewHolder内部类，\n
-        继承ViewHolderManager.ViewHolder，\n
-        和普通的Adapter的内部类差不多，\n
-        不过需要注意的是，\n
-        构造里的参数不一样，\n
-        不是View，\n
-        而是ViewGroup，\n
-        在调用super()方法时，\n
-        除了把ViewGroup传过去以外，\n
-        还要传一个int类型参数，\n
-        即当前ViewHolder对应的LayoutXml，\n
-        这里很简单，\n
-        同学们对照代码很容易就明白了。\n
-        \n
-        二、\n
-        进入ViewHolderManager，\n
-        对应你新写的ViewHolder，\n
-        增加一个公开静态常量，\n
-        只要不与其他的值重复即可，\n
-        并put到itemMap里，\n
-        key为你刚写的常量，\n
-        value为刚写的ViewHolder的class.\n
-        \n
-        三、\n
-        回到Bean，\n
-        继承FreedomBean，\n
-        在initItemType()里setItemType()，\n
-        initBindView()里setBindListener()，\n
-        简单点说，\n
-        就是把普通Adapter里\n
-        onBindViewHolder()的代码挪过来。\n
-        如果需要和Activity交互，\n
-        则Activity实现FreedomCallback接口，\n
-        然后initBindView()里调用\n
-        getCallback().onClickCallback();\n
-        \n
-        然后你就可以欢快的使用啦，\n
-        哪个类需要这个Item，\n
-        就直接add到mList数据源里，\n
-        不需要新写Adapter，\n
-        不需要重新写代码，\n
-        是不是超爽？\n
-        \n
-        \n
-        如果觉得这个教程不够清晰，\n
-        没关系，\n
-        我在CSDN上也发表了博客，\n
-        CSDN可以插代码插图片，\n
-        所以看起来更直观：\n
+        如果想进一步了解，\n
+        可以看下本Demo的CSDN，\n
+        获得详解以及使用方法：\n
         <a href="http://blog.csdn.net/bamboy_/article/details/71727461">http://blog.csdn.net/bamboy_/article/details/71727461</a>\n
         \n
     </string>

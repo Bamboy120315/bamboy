@@ -10,7 +10,7 @@ import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.actiivty.BamActivity;
 import com.bamboy.bamboycollected.base.freedom.FreedomAdapter;
 import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
-import com.bamboy.bamboycollected.base.freedom.listener.FreedomCallback;
+import com.bamboy.bamboycollected.base.freedom.FreedomCallback;
 import com.bamboy.bamboycollected.page.bean.FourIconBean;
 import com.bamboy.bamboycollected.page.bean.SingleBtnBean;
 import com.bamboy.bamboycollected.page.bean.SingleImageBean;

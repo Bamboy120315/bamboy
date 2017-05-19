@@ -9,6 +9,7 @@ import android.os.Build;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
@@ -209,14 +210,14 @@ public class UtilAnim {
         ObjectAnimator.ofFloat(view, "alpha", 0, 1).setDuration(duration).start();
 
         try {
-            TextView tv = (TextView) view.findViewById(R.id.tv_introduce);
-            tv.setAlpha(0f);
-            Animator anim_alpha = ObjectAnimator.ofFloat(tv, "alpha", 0, 1);
+            LinearLayout ll_text = (LinearLayout) view.findViewById(R.id.ll_introduce_text);
+            ll_text.setAlpha(0f);
+            Animator anim_alpha = ObjectAnimator.ofFloat(ll_text, "alpha", 0, 1);
             anim_alpha.setStartDelay(duration * 2 / 3);
             anim_alpha.setDuration(duration);
             anim_alpha.start();
 
-            Animator anim_y = ObjectAnimator.ofFloat(tv, "Y", 80, 0);
+            Animator anim_y = ObjectAnimator.ofFloat(ll_text, "Y", 80, 0);
             anim_y.setStartDelay(duration * 2 / 3);
             anim_y.setDuration(duration);
             anim_y.start();
@@ -243,18 +244,18 @@ public class UtilAnim {
     public void hideIntroduce(final View view, final int duration) {
 
         try {
-            TextView tv = (TextView) view.findViewById(R.id.tv_introduce);
-            if (tv == null || tv.getAlpha() != 1) {
+            LinearLayout ll_text = (LinearLayout) view.findViewById(R.id.ll_introduce_text);
+            if (ll_text == null || ll_text.getAlpha() != 1) {
                 return;
             }
 
-            tv.setAlpha(0f);
-            Animator anim_alpha = ObjectAnimator.ofFloat(tv, "alpha", 1, 0);
+            ll_text.setAlpha(0f);
+            Animator anim_alpha = ObjectAnimator.ofFloat(ll_text, "alpha", 1, 0);
             anim_alpha.setDuration(duration);
             anim_alpha.start();
 
-            float tvY = tv.getY();
-            Animator anim_y = ObjectAnimator.ofFloat(tv, "Y", tvY, tvY + 80);
+            float tvY = ll_text.getY();
+            Animator anim_y = ObjectAnimator.ofFloat(ll_text, "Y", tvY, tvY + 80);
             anim_y.setDuration(duration);
             anim_y.start();
         } catch (Exception e) {

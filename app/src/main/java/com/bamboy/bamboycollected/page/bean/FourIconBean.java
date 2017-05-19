@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.freedom.FreedomBean;
 import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
-import com.bamboy.bamboycollected.base.freedom.listener.ViewHolderBindListener;
+import com.bamboy.bamboycollected.base.freedom.ViewHolderBindListener;
 
 import java.util.List;
 

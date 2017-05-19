@@ -159,48 +159,38 @@ public abstract class BamActivity extends Activity {
         } else if (this instanceof MainActivity) {
             iv_back.setVisibility(View.GONE);
             tv_title.setText("主页");
-            tv_introduce.setText(
-                    getString(R.string.introduce_main) +
-                            getString(R.string.introduce_foot));
+            tv_introduce.setText(getString(R.string.introduce_main));
 
         } else if (this instanceof ToastActivity) {
             iv_back.setVisibility(View.VISIBLE);
             tv_title.setText("Toast Demo");
-            tv_introduce.setText(
-                    getString(R.string.introduce_toast) +
-                            getString(R.string.introduce_foot));
+            tv_introduce.setText(getString(R.string.introduce_toast));
 
         } else if (this instanceof BlurActivity) {
             iv_back.setVisibility(View.VISIBLE);
             tv_title.setText("高斯模糊 Demo");
-            tv_introduce.setText(
-                    getString(R.string.introduce_blur) +
-                            getString(R.string.introduce_foot));
+            tv_introduce.setText(getString(R.string.introduce_blur));
 
         } else if (this instanceof AutoLineActivity) {
             iv_back.setVisibility(View.VISIBLE);
             tv_title.setText("自动换行 Demo");
-            tv_introduce.setText(
-                    getString(R.string.introduce_auto_line) +
-                            getString(R.string.introduce_foot));
+            tv_introduce.setText(getString(R.string.introduce_auto_line));
+
         } else if (this instanceof DivideLoadActivity) {
             iv_back.setVisibility(View.VISIBLE);
             tv_title.setText("分批加载 Demo");
-            tv_introduce.setText(
-                    getString(R.string.introduce_divide_load) +
-                            getString(R.string.introduce_foot));
+            tv_introduce.setText(getString(R.string.introduce_divide_load));
+
         } else if (this instanceof AnimClickActivity) {
             iv_back.setVisibility(View.VISIBLE);
             tv_title.setText("点击动画 Demo");
-            tv_introduce.setText(
-                    getString(R.string.introduce_anim_click) +
-                            getString(R.string.introduce_foot));
+            tv_introduce.setText(getString(R.string.introduce_anim_click));
+
         } else if (this instanceof FreedomListActivity) {
             iv_back.setVisibility(View.VISIBLE);
             tv_title.setText("非约束列表 Demo");
-            tv_introduce.setText(
-                    getString(R.string.introduce_freedom) +
-                            getString(R.string.introduce_foot));
+            tv_introduce.setText(getString(R.string.introduce_freedom));
+
         }
     }
 

@@ -22,7 +22,9 @@
         android:scrollbars="vertical">
 
         <LinearLayout
+            android:id="@+id/ll_introduce_text"
             android:layout_width="match_parent"
+            android:orientation="vertical"
             android:layout_height="match_parent"
             android:paddingLeft="15dp"
             android:paddingRight="15dp">
@@ -33,7 +35,15 @@
                 android:layout_height="wrap_content"
                 android:autoLink="web"
                 android:textColor="@color/colorBlue"
-                android:textIsSelectable="true"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_introduce_foot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:textColor="@color/colorBlue"
+                android:text="@string/introduce_foot"
                 android:textSize="18sp" />
 
         </LinearLayout>

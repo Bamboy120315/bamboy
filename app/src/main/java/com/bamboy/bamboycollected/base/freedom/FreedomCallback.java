@@ -1,8 +1,6 @@
-package com.bamboy.bamboycollected.base.freedom.listener;
+package com.bamboy.bamboycollected.base.freedom;
 
 import android.view.View;
-
-import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
 
 /**
  * RecylerView回调
