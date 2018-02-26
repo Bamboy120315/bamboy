@@ -2,13 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite">
+    android:background="@color/colorWhite"
+    android:translationZ="@dimen/title_bar_translation_z">
 
     <include layout="@layout/include_title_bar" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_freedom"
-        style="@style/recycler_style"/>
+        style="@style/recycler_style" />
 
     <include layout="@layout/include_introduce" />
 </RelativeLayout>

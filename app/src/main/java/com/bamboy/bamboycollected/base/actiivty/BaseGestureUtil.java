@@ -34,6 +34,10 @@ public class BaseGestureUtil {
      */
     private float slideSpeed = 0;
     /**
+     * 最小透明度
+     */
+    private float leastAlpha = 0.4f;
+    /**
      * 根View
      */
     private View rootView;
@@ -156,6 +160,8 @@ public class BaseGestureUtil {
                 float move = nowX > startX ? nowX - startX : 0;
                 // 更新界面位置
                 rootView.setX(move);
+                // 更新界面透明度
+                rootView.setAlpha(1 - (move / (leastAlpha * 10) / (float) util.info.getPhoneWidth()));
                 return true;
 
             // 手指抬起
@@ -166,7 +172,9 @@ public class BaseGestureUtil {
 
                 if (false == calculateIsFinish()) {     // 不关闭界面，滚回去
                     ObjectAnimator.ofFloat(rootView, "X", rootView.getX(), 0).setDuration(250).start();
+                    ObjectAnimator.ofFloat(rootView, "alpha", rootView.getAlpha(), 1).setDuration(250).start();
                 } else {                                // 关闭界面，滚出去
+                    ObjectAnimator.ofFloat(rootView, "alpha", rootView.getAlpha(), leastAlpha).setDuration(250).start();
                     ObjectAnimator anim = ObjectAnimator.ofFloat(rootView, "X", rootView.getX(), util.info.getPhoneWidth());
                     anim.setDuration(250);
                     anim.addListener(new Animator.AnimatorListener() {

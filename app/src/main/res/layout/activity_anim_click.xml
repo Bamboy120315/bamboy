@@ -2,15 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite">
+    android:background="@color/colorWhite"
+    android:translationZ="@dimen/title_bar_translation_z">
 
     <include layout="@layout/include_title_bar" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
-        android:layout_below="@+id/rl_title">
+        android:layout_below="@+id/rl_title"
+        android:scrollbars="none">
 
         <RelativeLayout
             android:layout_width="match_parent"
