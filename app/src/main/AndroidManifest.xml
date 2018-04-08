@@ -26,7 +26,8 @@
 
         <!-- 主页 -->
         <activity android:name=".page.main.MainActivity">
-            <!-- 用于接收压力触控的过滤器-->
+
+            <!-- 用于接收压力触控的过滤器 -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -69,6 +70,9 @@
 
         <!-- 非约束列表页 -->
         <activity android:name=".page.freedom.FreedomListActivity" />
+
+        <!-- 节点进度条页 -->
+        <activity android:name=".page.noun_progress.NounProgressActivity" />
     </application>
 
 </manifest>

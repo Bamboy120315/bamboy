@@ -404,4 +404,31 @@
         \n
     </string>
 
+    <!-- 非约束列表介绍 -->
+    <string name="introduce_noun_progress">
+        \n
+        \n
+        之前公司项目需要一个带节点的进度条，\n
+        本来想偷个懒从网上找一个， \n
+        结果找了几个都不满意。\n
+        \n
+        要不然就是用遮罩原理， \n
+        要不然就是用图片拼接， \n
+        这样的话缺点很明显， \n
+        实现方式Low就先不说， \n
+        颜色、节点尺寸、节点数量全都不可控，\n
+        要不然就是不能控制精准进度。\n
+        \n
+        于是我就自己写了一个， \n
+        完全用Canvas画出来的， \n
+        所以颜色、节点数量、尺寸全都是可随意控制的，\n
+        还顺手加上了监听。\n
+        \n
+        \n
+        如果想进一步了解，\n
+        可以看下本Demo的CSDN，\n
+        获得详解以及使用方法：\n
+        <a href="https://blog.csdn.net/bamboy_/article/details/79825006">https://blog.csdn.net/bamboy_/article/details/79825006</a>\n
+    </string>
+
 </resources>

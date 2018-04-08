@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NounProgressBar">
+        <!-- 节点数量 -->
+        <attr name="nounCount" format="integer" />
+
+        <!-- 节点高度 -->
+        <attr name="heightNoun" format="integer" />
+
+        <!-- 线的高度 -->
+        <attr name="heightProgress" format="integer" />
+
+        <!-- 进度的最大值 -->
+        <attr name="progressMax" format="integer" />
+
+        <!-- 完成的进度条的颜色 -->
+        <attr name="colorFinished" format="color" />
+
+        <!-- 未完成的进度条的颜色 -->
+        <attr name="colorUnfinished" format="color" />
+    </declare-styleable>
+</resources>

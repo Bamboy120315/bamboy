@@ -22,6 +22,7 @@ import com.bamboy.bamboycollected.page.bean.SingleBtnBean;
 import com.bamboy.bamboycollected.page.blur.BlurActivity;
 import com.bamboy.bamboycollected.page.divide_load.DivideLoadActivity;
 import com.bamboy.bamboycollected.page.freedom.FreedomListActivity;
+import com.bamboy.bamboycollected.page.noun_progress.NounProgressActivity;
 import com.bamboy.bamboycollected.page.toast.ToastActivity;
 import com.bamboy.bamboycollected.views.BamToast;
 
@@ -78,6 +79,7 @@ public class MainActivity extends BamActivity implements FreedomCallback {
         mList = new ArrayList<>();
 
         mList.add(new SingleBtnBean("★★★ 非约束列表 Demo  ", FreedomListActivity.class));
+        mList.add(new SingleBtnBean("【New】节点进度条 Demo", NounProgressActivity.class));
         mList.add(new SingleBtnBean("分批加载 Demo", DivideLoadActivity.class));
         mList.add(new SingleBtnBean("高斯模糊 Demo", BlurActivity.class));
         mList.add(new SingleBtnBean("点击动画 Demo", AnimClickActivity.class));
