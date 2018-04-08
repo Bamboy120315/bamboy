@@ -75,7 +75,7 @@ public class LaunchUtil {
         rl_title.setVisibility(View.VISIBLE);
 
         // icon降下
-        iv_icon.setImageResource(R.drawable.ic_bamboy);
+        iv_icon.setImageResource(R.drawable.icon_eye_open);
         ObjectAnimator.ofFloat(iv_icon, "Y", location[1], location[1] + iv_icon.getY()).setDuration(400).start();
 
         // 白色背景展示
@@ -125,7 +125,7 @@ public class LaunchUtil {
 
         if (open) {
             // 降落
-            iv_icon.setImageResource(R.drawable.ic_bamboy);
+            iv_icon.setImageResource(R.drawable.icon_eye_open);
             ObjectAnimator.ofFloat(iv_icon, "Y", y, y + value).setDuration(stageTimer).start();
         } else {
             // 起跳

@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_bamboy" />
+        android:src="@drawable/icon_eye_open" />
 
     <View
         android:id="@+id/vi_back"
