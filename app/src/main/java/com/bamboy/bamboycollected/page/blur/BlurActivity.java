@@ -88,21 +88,13 @@ public class BlurActivity extends BamActivity implements View.OnClickListener {
         }
     }
 
-    /**
-     * 按键监听
-     *
-     * @param keyCode
-     * @param event
-     * @return
-     */
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (rl_popup_window.getVisibility() == View.VISIBLE) {
-                blurUtil.clickClosePopupWindow(rl_popup_window, iv_popup_window_back);
-                return false;
-            }
+    @Override
+    public void finish() {
+        if (rl_popup_window.getVisibility() == View.VISIBLE) {
+            blurUtil.clickClosePopupWindow(rl_popup_window, iv_popup_window_back);
+            return;
         }
-        return super.onKeyDown(keyCode, event);
-    }
 
+        super.finish();
+    }
 }

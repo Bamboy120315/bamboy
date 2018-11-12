@@ -2,206 +2,211 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
-    android:translationZ="@dimen/title_bar_translation_z">
+    android:background="@color/colorWhite">
 
     <include layout="@layout/include_title_bar" />
 
-    <ScrollView
+    <RelativeLayout
+        android:id="@+id/rl_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/rl_title"
-        android:fillViewport="true"
-        android:scrollbars="none">
+        android:layout_below="@+id/rl_title">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:fillViewport="true"
+            android:scrollbars="none">
 
-            <com.bamboy.bamboycollected.views.clickanimview.BamButton
-                android:id="@+id/btn_toast_red"
-                style="@style/single_btn_style"
-                android:layout_marginTop="16dp"
-                android:text="显示红色Toast" />
-
-            <com.bamboy.bamboycollected.views.clickanimview.BamButton
-                android:id="@+id/btn_toast_blue"
-                style="@style/single_btn_style"
-                android:text="显示蓝色Toast" />
-
-            <com.bamboy.bamboycollected.views.clickanimview.BamButton
-                android:id="@+id/btn_toast_green"
-                style="@style/single_btn_style"
-                android:text="显示绿色Toast" />
-
-            <com.bamboy.bamboycollected.views.clickanimview.BamButton
-                android:id="@+id/btn_toast_black"
-                style="@style/single_btn_style"
-                android:text="显示黑色Toast" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:text="自定义颜色:"
-                android:textColor="@color/colorBlue"
-                android:textSize="18sp" />
-
-            <!-- A -->
             <LinearLayout
-                style="@style/view_style"
-                android:orientation="horizontal">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.bamboy.bamboycollected.views.clickanimview.BamButton
+                    android:id="@+id/btn_toast_red"
+                    style="@style/single_btn_style"
+                    android:layout_marginTop="16dp"
+                    android:text="显示红色Toast" />
+
+                <com.bamboy.bamboycollected.views.clickanimview.BamButton
+                    android:id="@+id/btn_toast_blue"
+                    style="@style/single_btn_style"
+                    android:text="显示蓝色Toast" />
+
+                <com.bamboy.bamboycollected.views.clickanimview.BamButton
+                    android:id="@+id/btn_toast_green"
+                    style="@style/single_btn_style"
+                    android:text="显示绿色Toast" />
+
+                <com.bamboy.bamboycollected.views.clickanimview.BamButton
+                    android:id="@+id/btn_toast_black"
+                    style="@style/single_btn_style"
+                    android:text="显示黑色Toast" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:gravity="center_vertical"
-                    android:text="A:"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="30dp"
+                    android:text="自定义颜色:"
                     android:textColor="@color/colorBlue"
                     android:textSize="18sp" />
 
-                <SeekBar
-                    android:id="@+id/sb_color_a"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_weight="1"
-                    android:max="255"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:progress="255"
-                    android:progressDrawable="@drawable/seekbar_style"
-                    android:thumb="@drawable/seekbar_thumb" />
+                <!-- A -->
+                <LinearLayout
+                    style="@style/view_style"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tv_color_value_a"
-                    android:layout_width="40dp"
-                    android:layout_height="25dp"
-                    android:gravity="right|center_vertical"
-                    android:text="255"
-                    android:textColor="@color/colorBlue"
-                    android:textSize="18sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:gravity="center_vertical"
+                        android:text="A:"
+                        android:textColor="@color/colorBlue"
+                        android:textSize="18sp" />
+
+                    <SeekBar
+                        android:id="@+id/sb_color_a"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:max="255"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:progress="255"
+                        android:progressDrawable="@drawable/seekbar_style"
+                        android:thumb="@drawable/seekbar_thumb" />
+
+                    <TextView
+                        android:id="@+id/tv_color_value_a"
+                        android:layout_width="40dp"
+                        android:layout_height="25dp"
+                        android:gravity="right|center_vertical"
+                        android:text="255"
+                        android:textColor="@color/colorBlue"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <!-- R -->
+                <LinearLayout
+                    style="@style/view_style"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:gravity="center_vertical"
+                        android:text="R:"
+                        android:textColor="@color/colorBlue"
+                        android:textSize="18sp" />
+
+                    <SeekBar
+                        android:id="@+id/sb_color_r"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:max="255"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/seekbar_style"
+                        android:thumb="@drawable/seekbar_thumb" />
+
+                    <TextView
+                        android:id="@+id/tv_color_value_r"
+                        android:layout_width="40dp"
+                        android:layout_height="25dp"
+                        android:gravity="right|center_vertical"
+                        android:text="0"
+                        android:textColor="@color/colorBlue"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+
+                <!-- G -->
+                <LinearLayout
+                    style="@style/view_style"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:gravity="center_vertical"
+                        android:text="G:"
+                        android:textColor="@color/colorBlue"
+                        android:textSize="18sp" />
+
+                    <SeekBar
+                        android:id="@+id/sb_color_g"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:max="255"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:progress="102"
+                        android:progressDrawable="@drawable/seekbar_style"
+                        android:thumb="@drawable/seekbar_thumb" />
+
+                    <TextView
+                        android:id="@+id/tv_color_value_g"
+                        android:layout_width="40dp"
+                        android:layout_height="25dp"
+                        android:gravity="right|center_vertical"
+                        android:text="102"
+                        android:textColor="@color/colorBlue"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <!-- B -->
+                <LinearLayout
+                    style="@style/view_style"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:gravity="center_vertical"
+                        android:text="B:"
+                        android:textColor="@color/colorBlue"
+                        android:textSize="18sp" />
+
+                    <SeekBar
+                        android:id="@+id/sb_color_b"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:max="255"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:progress="204"
+                        android:progressDrawable="@drawable/seekbar_style"
+                        android:thumb="@drawable/seekbar_thumb" />
+
+                    <TextView
+                        android:id="@+id/tv_color_value_b"
+                        android:layout_width="40dp"
+                        android:layout_height="25dp"
+                        android:gravity="right|center_vertical"
+                        android:text="204"
+                        android:textColor="@color/colorBlue"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <com.bamboy.bamboycollected.views.clickanimview.BamButton
+                    android:id="@+id/btn_toast_custom"
+                    style="@style/single_btn_style"
+                    android:layout_marginBottom="50dp"
+                    android:text="显示自定义Toast" />
+
             </LinearLayout>
-
-            <!-- R -->
-            <LinearLayout
-                style="@style/view_style"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:gravity="center_vertical"
-                    android:text="R:"
-                    android:textColor="@color/colorBlue"
-                    android:textSize="18sp" />
-
-                <SeekBar
-                    android:id="@+id/sb_color_r"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_weight="1"
-                    android:max="255"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:progress="0"
-                    android:progressDrawable="@drawable/seekbar_style"
-                    android:thumb="@drawable/seekbar_thumb" />
-
-                <TextView
-                    android:id="@+id/tv_color_value_r"
-                    android:layout_width="40dp"
-                    android:layout_height="25dp"
-                    android:gravity="right|center_vertical"
-                    android:text="0"
-                    android:textColor="@color/colorBlue"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-
-            <!-- G -->
-            <LinearLayout
-                style="@style/view_style"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:gravity="center_vertical"
-                    android:text="G:"
-                    android:textColor="@color/colorBlue"
-                    android:textSize="18sp" />
-
-                <SeekBar
-                    android:id="@+id/sb_color_g"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_weight="1"
-                    android:max="255"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:progress="102"
-                    android:progressDrawable="@drawable/seekbar_style"
-                    android:thumb="@drawable/seekbar_thumb" />
-
-                <TextView
-                    android:id="@+id/tv_color_value_g"
-                    android:layout_width="40dp"
-                    android:layout_height="25dp"
-                    android:gravity="right|center_vertical"
-                    android:text="102"
-                    android:textColor="@color/colorBlue"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <!-- B -->
-            <LinearLayout
-                style="@style/view_style"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:gravity="center_vertical"
-                    android:text="B:"
-                    android:textColor="@color/colorBlue"
-                    android:textSize="18sp" />
-
-                <SeekBar
-                    android:id="@+id/sb_color_b"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_weight="1"
-                    android:max="255"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:progress="204"
-                    android:progressDrawable="@drawable/seekbar_style"
-                    android:thumb="@drawable/seekbar_thumb" />
-
-                <TextView
-                    android:id="@+id/tv_color_value_b"
-                    android:layout_width="40dp"
-                    android:layout_height="25dp"
-                    android:gravity="right|center_vertical"
-                    android:text="204"
-                    android:textColor="@color/colorBlue"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <com.bamboy.bamboycollected.views.clickanimview.BamButton
-                android:id="@+id/btn_toast_custom"
-                style="@style/single_btn_style"
-                android:layout_marginBottom="50dp"
-                android:text="显示自定义Toast" />
-
-        </LinearLayout>
-    </ScrollView>
+        </ScrollView>
+    </RelativeLayout>
 
     <include layout="@layout/include_introduce" />
 </RelativeLayout>

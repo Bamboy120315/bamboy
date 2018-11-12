@@ -15,22 +15,19 @@
             android:name="android.3dtouch.launcher_menu"
             android:resource="@xml/launcher_menu" />
 
-        <!-- 启动页 -->
-        <activity android:name=".page.launch.LaunchActivity">
+        <!-- 主页 -->
+        <activity android:name=".page.main.MainActivity"
+            android:screenOrientation="portrait">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- 主页 -->
-        <activity android:name=".page.main.MainActivity">
 
             <!-- 用于接收压力触控的过滤器 -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
@@ -54,25 +51,32 @@
         </activity>
 
         <!-- Toast页 -->
-        <activity android:name=".page.toast.ToastActivity" />
+        <activity android:name=".page.toast.ToastActivity"
+            android:screenOrientation="portrait" />
 
         <!-- 高斯模糊页 -->
-        <activity android:name=".page.blur.BlurActivity" />
+        <activity android:name=".page.blur.BlurActivity"
+            android:screenOrientation="portrait" />
 
         <!-- 自动换行页 -->
-        <activity android:name=".page.auto_line.AutoLineActivity" />
+        <activity android:name=".page.auto_line.AutoLineActivity"
+            android:screenOrientation="portrait" />
 
         <!-- 分批加载页 -->
-        <activity android:name=".page.divide_load.DivideLoadActivity" />
+        <activity android:name=".page.divide_load.DivideLoadActivity"
+            android:screenOrientation="portrait" />
 
         <!-- 点击动画页 -->
-        <activity android:name=".page.anim_click.AnimClickActivity" />
+        <activity android:name=".page.anim_click.AnimClickActivity"
+            android:screenOrientation="portrait" />
 
         <!-- 非约束列表页 -->
-        <activity android:name=".page.freedom.FreedomListActivity" />
+        <activity android:name=".page.freedom.FreedomListActivity"
+            android:screenOrientation="portrait" />
 
         <!-- 节点进度条页 -->
-        <activity android:name=".page.noun_progress.NounProgressActivity" />
+        <activity android:name=".page.noun_progress.NounProgressActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

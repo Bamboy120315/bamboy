@@ -1,6 +1,7 @@
 package com.bamboy.bamboycollected.page.anim_click;
 
 import android.os.Bundle;
+import android.view.Window;
 
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.actiivty.BamActivity;
@@ -16,6 +17,7 @@ public class AnimClickActivity extends BamActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anim_click);
+
     }
 
     @Override

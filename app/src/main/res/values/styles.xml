@@ -1,22 +1,14 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="@android:style/Theme.Translucent.NoTitleBar"></style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
 
-    <!--
-    发现在某些4.4的机型，
-    比如基于Android4.4的阿里云OS上，
-    从MainActivity跳到NewActivity，
-    NewActivity进行右滑的时候，
-    看到的不是MainActivity，
-    而是手机桌面。
+        <item name="android:windowBackground">@color/colorWhite</item>
 
-    所以给MainActivity单独设置一个Style，
-    继承于其他Activity使用的Style
-    里边只需要加一个android:windowIsTranslucent = false属性就好了
-    -->
-    <style name="MainTheme" parent="@style/AppTheme">
-        <item name="android:windowIsTranslucent">false</item>
+        <!-- 避免 Button 上的英文字符强制转为大写 -->
+        <item name="android:textAllCaps">false</item>
     </style>
 
     <style name="btn_style" parent="@style/view_style">

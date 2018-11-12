@@ -148,37 +148,4 @@ public class MainActivity extends BamActivity implements FreedomCallback {
             }
         }
     }
-
-    @Override
-    public void finish() {
-        // 如果动画正在执行，则不重新执行动画
-        if (0 != rl_title.getY()) {
-            return;
-        }
-        // 白色背景展示
-        ObjectAnimator.ofFloat(rv_list, "Y", rv_list.getY(), rv_list.getY() + rv_list.getHeight()).setDuration(300).start();
-
-        // titleBar展示
-        ObjectAnimator anim = ObjectAnimator.ofFloat(rl_title, "Y", rl_title.getY(), 0 - rl_title.getHeight());
-        anim.setDuration(300);
-        anim.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                MainActivity.super.finish(R.anim.act_shade_in, R.anim.act_shade_out);
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-            }
-        });
-        anim.start();
-    }
 }

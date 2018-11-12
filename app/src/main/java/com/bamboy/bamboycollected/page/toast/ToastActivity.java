@@ -1,8 +1,11 @@
 package com.bamboy.bamboycollected.page.toast;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ValueAnimator;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
@@ -50,6 +53,11 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
      */
     private Button btn_toast_custom;
 
+    /**
+     * 显示自定义Toast按钮
+     */
+//    private Button btn_jianbian;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +79,34 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
         tv_color_value_b = (TextView) findViewById(R.id.tv_color_value_b);
 
         btn_toast_custom = (Button) findViewById(R.id.btn_toast_custom);
+
+        /*btn_jianbian = (Button) findViewById(R.id.btn_jianbian);
+        btn_jianbian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int startColor = Color.argb(255, 0, 102, 204);
+                int endColor = Color.argb(255, 244, 164, 96);
+
+                ValueAnimator vAnim = ValueAnimator.ofInt(startColor, endColor);
+                vAnim.setRepeatCount(ValueAnimator.INFINITE);
+                vAnim.setDuration(2000);
+                vAnim.setEvaluator(new ArgbEvaluator());
+                vAnim.setRepeatMode(ValueAnimator.REVERSE);
+                vAnim.setInterpolator(new LinearInterpolator());
+                vAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animation) {
+                        int color = (int) animation.getAnimatedValue();
+                        int r = Color.red(color);
+                        int g = Color.green(color);
+                        int b = Color.blue(color);
+                        btn_jianbian.setBackgroundColor(color);
+                        btn_jianbian.setText("色值：r:" + r + " g:" + g + " b:" + b);
+                    }
+                });
+                vAnim.start();
+            }
+        });*/
     }
 
     @Override
@@ -135,9 +171,10 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
 
     /**
      * 获取颜色值
+     *
      * @return
      */
-    private int getColor(){
+    private int getColor() {
         int a = Integer.parseInt(tv_color_value_a.getText().toString());
         int r = Integer.parseInt(tv_color_value_r.getText().toString());
         int g = Integer.parseInt(tv_color_value_g.getText().toString());

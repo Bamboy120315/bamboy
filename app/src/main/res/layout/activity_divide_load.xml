@@ -2,14 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
-    android:translationZ="@dimen/title_bar_translation_z">
+    android:background="@color/colorWhite">
 
     <include layout="@layout/include_title_bar" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_divide_load"
-        style="@style/recycler_style" />
+    <RelativeLayout
+        android:id="@+id/rl_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_title">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_divide_load"
+            style="@style/recycler_style" />
+    </RelativeLayout>
 
     <include layout="@layout/include_introduce" />
 </RelativeLayout>

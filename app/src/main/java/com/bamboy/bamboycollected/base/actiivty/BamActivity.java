@@ -17,7 +17,6 @@ import com.bamboy.bamboycollected.page.auto_line.AutoLineActivity;
 import com.bamboy.bamboycollected.page.blur.BlurActivity;
 import com.bamboy.bamboycollected.page.divide_load.DivideLoadActivity;
 import com.bamboy.bamboycollected.page.freedom.FreedomListActivity;
-import com.bamboy.bamboycollected.page.launch.LaunchActivity;
 import com.bamboy.bamboycollected.page.main.MainActivity;
 import com.bamboy.bamboycollected.page.noun_progress.NounProgressActivity;
 import com.bamboy.bamboycollected.page.toast.ToastActivity;
@@ -38,7 +37,7 @@ public abstract class BamActivity extends Activity {
     /**
      * 触摸工具类
      */
-    private BaseGestureUtil mGestureUtil;
+    private UtilBaseGesture mUtilGesture;
     /**
      * 必备工具类
      */
@@ -83,6 +82,12 @@ public abstract class BamActivity extends Activity {
      */
     protected TextView tv_introduce;
 
+    /**
+     * Activity的Layout的根View
+     * 【滑动过程中会移动的View】
+     */
+    private View moveView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,7 +100,7 @@ public abstract class BamActivity extends Activity {
         super.setContentView(layoutResID);
 
         // 手势工具类
-        mGestureUtil = new BaseGestureUtil(this);
+        mUtilGesture = new UtilBaseGesture(this);
         // 必备工具类
         mWantUtil = new BaseWantUtil(this);
 
@@ -147,19 +152,19 @@ public abstract class BamActivity extends Activity {
                 }
             });
         }
+
+        // 设置只移动TitleBar以下的内容
+        moveView = findViewById(R.id.rl_root);
+        setMoveView(moveView);
     }
 
     /**
      * 处理View内容
      */
     private void initViewContent() {
-        if (this instanceof LaunchActivity) {
+        if (this instanceof MainActivity) {
             iv_back.setVisibility(View.GONE);
-            tv_title.setText("主页");
-
-        } else if (this instanceof MainActivity) {
-            iv_back.setVisibility(View.GONE);
-            tv_title.setText("主页");
+            tv_title.setText("Bamboy合集");
             tv_introduce.setText(getString(R.string.introduce_main));
 
         } else if (this instanceof ToastActivity) {
@@ -248,30 +253,6 @@ public abstract class BamActivity extends Activity {
         return super.onKeyDown(keyCode, event);
     }
 
-    /**
-     * 绑定手势
-     */
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-
-        mGestureUtil.getGestureDetector().onTouchEvent(ev);
-
-        if (mGestureUtil.motionEvent(ev)) {
-            return true;
-        }
-
-        return super.dispatchTouchEvent(ev);
-    }
-
-    /**
-     * 开启滑动关闭界面
-     *
-     * @param open
-     */
-    protected void openSlideFinish(boolean open) {
-        mGestureUtil.openSlideFinish(open);
-    }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -294,6 +275,64 @@ public abstract class BamActivity extends Activity {
 
     protected abstract void init();
 
+    //==============================================================================================
+    //======================= 以 下 是 关 于 手 势 右 滑 关 闭 ========================================
+    //==============================================================================================
+    /**
+     * 绑定手势
+     */
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (null != mUtilGesture && mUtilGesture.motionEvent(ev)) {
+            return true;
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
+    /**
+     * 开启滑动关闭界面
+     *
+     * @param open
+     */
+    protected void openSlideFinish(boolean open) {
+        if (mUtilGesture == null) {
+            return;
+        }
+        mUtilGesture.openSlideFinish(open);
+    }
+
+    /**
+     * 抬起关闭
+     *
+     * @param upFinish 【true：手指抬起后再关闭页面】
+     *                 【false：进度条圆满就立刻关闭页面】
+     */
+    public void setUpFinish(boolean upFinish) {
+        if (mUtilGesture == null) {
+            return;
+        }
+        mUtilGesture.setUpFinish(upFinish);
+    }
+
+    /**
+     * 设置进度条颜色
+     */
+    public void setProgressColor(int color) {
+        if (mUtilGesture != null)
+            mUtilGesture.setProgressColor(color);
+    }
+
+    /**
+     * 滑动View
+     * 【滑动过程中会移动的View】
+     */
+    public void setMoveView(View SlideView) {
+        mUtilGesture.setRootView(SlideView);
+    }
+
+
+    //==============================================================================================
+    //======================= 以 下 是 关 于 界 面 跳 转 动 画 ========================================
+    //==============================================================================================
     /**
      * 打开新Activity
      *
@@ -345,6 +384,11 @@ public abstract class BamActivity extends Activity {
      * @param animOut 当前Activity退出的动画
      */
     public void finish(int animIn, int animOut) {
+        if (rl_introduce != null && rl_introduce.getVisibility() == View.VISIBLE) {
+            hideIntroduce(rl_introduce);
+            return;
+        }
+
         super.finish();
         overridePendingTransition(animIn, animOut);
     }
@@ -358,6 +402,11 @@ public abstract class BamActivity extends Activity {
         if (isAnim) {
             finish(R.anim.act_left_in, R.anim.act_right_out);
         } else {
+            if (rl_introduce != null && rl_introduce.getVisibility() == View.VISIBLE) {
+                hideIntroduce(rl_introduce);
+                return;
+            }
+
             super.finish();
         }
     }

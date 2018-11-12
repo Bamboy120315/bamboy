@@ -2,31 +2,36 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
-    android:translationZ="@dimen/title_bar_translation_z">
+    android:background="@color/colorWhite">
 
     <include layout="@layout/include_title_bar" />
 
-    <com.bamboy.bamboycollected.views.clickanimview.BamButton
-        android:id="@+id/btn_add"
-        style="@style/single_btn_style"
-        android:layout_below="@+id/rl_title"
-        android:layout_marginTop="16dp"
-        android:text="添加Item" />
-
-    <ScrollView
+    <RelativeLayout
+        android:id="@+id/rl_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/btn_add"
-        android:scrollbars="none">
+        android:layout_below="@+id/rl_title">
 
-        <com.bamboy.bamboycollected.views.BamAutoLineList
-            android:id="@+id/bal_list"
+        <com.bamboy.bamboycollected.views.clickanimview.BamButton
+            android:id="@+id/btn_add"
+            style="@style/single_btn_style"
+            android:layout_marginTop="16dp"
+            android:text="添加Item" />
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp" />
-    </ScrollView>
+            android:layout_below="@+id/btn_add"
+            android:scrollbars="none">
+
+            <com.bamboy.bamboycollected.views.BamAutoLineList
+                android:id="@+id/bal_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp" />
+        </ScrollView>
+    </RelativeLayout>
 
     <include layout="@layout/include_introduce" />
 </RelativeLayout>
