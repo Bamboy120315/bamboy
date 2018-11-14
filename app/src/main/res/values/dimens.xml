@@ -3,5 +3,6 @@
     <dimen name="window_backdrop_translation_z">40px</dimen>
     <dimen name="window_content_translation_z">45px</dimen>
     <dimen name="button_translation_z">10px</dimen>
+    <dimen name="item_translation_z">20px</dimen>
     <dimen name="toast_translation_z">20px</dimen>
 </resources>

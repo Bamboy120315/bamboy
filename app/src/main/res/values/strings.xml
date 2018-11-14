@@ -7,14 +7,21 @@
     <string name="title_bamboy_toast">自定义Toast</string>
     <string name="title_bamboy_anim_click">点击动画</string>
 
-    <string name="introduce_foot">
+    <string name="slidingshut_git_str">GitHub地址：\nhttps://github.com/Bamboy120315/SlidingShut.git</string>
+    <string name="slidingshut_csdn_str">CSDN地址: \nhttps://blog.csdn.net/bamboy_/article/details/83863260
         \n
         \n
         如有问题欢迎加入技术探讨QQ群：\n
-        569614530\n
+        569614530\n</string>
+
+    <string name="introduce_foot">
+        \n
         \n
         git地址：\n
         <a href="https://github.com/Bamboy120315/bamboy.git">https://github.com/Bamboy120315/bamboy.git</a>\n
+        \n
+        如有问题欢迎加入技术探讨QQ群：\n
+        569614530\n
     </string>
 
     <!-- 主页介绍 -->
@@ -77,6 +84,11 @@
         兼容SDK 27，\n
         无须透明主题。\n
         详情链接：https://blog.csdn.net/bamboy_/article/details/83863260\n
+        \n
+        \n
+        \n
+        CSDN地址：\n
+        <a href="https://blog.csdn.net/bamboy_">https://blog.csdn.net/bamboy_</a>
     </string>
 
     <!-- 自定义Toast介绍 -->

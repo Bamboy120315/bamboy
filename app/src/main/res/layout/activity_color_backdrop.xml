@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <!-- 标题栏 -->
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 状态栏填充View -->
+        <View
+            android:id="@+id/view_filling"
+            android:layout_width="1dp"
+            android:layout_height="0dp" />
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/view_filling"
+            android:layout_marginLeft="8dp"
+            android:padding="8dp"
+            android:src="@drawable/icon_back" />
+
+        <!-- 标题 -->
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@+id/view_filling"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="自定义进度条颜色"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/tv_title"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:alpha="0.5"
+            android:background="@color/colorWhite" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_title">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:lineSpacingMultiplier="1.2"
+                android:text="为了扩展性和兼容彩色背景的情况\n进度条颜支持随意自定义\n通过以下方法设置："
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/radius_background"
+                android:lineSpacingMultiplier="1.2"
+                android:padding="8dp"
+                android:text="int color = ContextCompat.getColor(context, R.color.white);\n\nsetProgressColor(color);"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:autoLink="web"
+                android:lineSpacingMultiplier="1.2"
+                android:text="@string/slidingshut_git_str"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
+                android:autoLink="web"
+                android:lineSpacingMultiplier="1.2"
+                android:text="@string/slidingshut_csdn_str"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

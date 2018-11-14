@@ -117,7 +117,12 @@ public class BaseWantUtil {
         Bitmap bitmap = UtilBox.getBox().ui.getDrawing(mActivity);
 
         // 介绍View的背景
-        ImageView iv_introduce_back = (ImageView) rl_introduce.findViewById(R.id.iv_introduce_back);
+        ImageView iv_introduce_back = null;
+        try {
+            iv_introduce_back = (ImageView) rl_introduce.findViewById(R.id.iv_introduce_back);
+        } catch (Exception e) {
+            return;
+        }
 
         if (utils.info.getPhoneSDK() >= Build.VERSION_CODES.KITKAT && bitmap != null) {
             // 将截屏Bitma放入ImageView

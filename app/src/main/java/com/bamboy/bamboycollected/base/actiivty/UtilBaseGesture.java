@@ -9,6 +9,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bamboy.bamboycollected.utils.UtilBox;
+
 /**
  * BamActivity触摸工具类
  * <p/>
@@ -86,8 +88,8 @@ public class UtilBaseGesture {
         rootGroup = (ViewGroup) activity.findViewById(android.R.id.content);
         rootView = rootGroup.getChildAt(0);
 
-        int width = activity.getWindowManager().getDefaultDisplay().getWidth();
-        int height = activity.getWindowManager().getDefaultDisplay().getHeight();
+        int width = UtilBox.getBox().info.getPhoneWidth();
+        int height = UtilBox.getBox().info.getPhoneHeigh();
 
         mScreenWidth = Math.min(width, height);
         maxMove = (int) (mScreenWidth * 0.06);

@@ -9,6 +9,8 @@
 
         <!-- 避免 Button 上的英文字符强制转为大写 -->
         <item name="android:textAllCaps">false</item>
+
+        <item name="android:textColorLink">@color/colorAccent</item>
     </style>
 
     <style name="btn_style" parent="@style/view_style">

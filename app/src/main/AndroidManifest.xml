@@ -77,6 +77,14 @@
         <!-- 节点进度条页 -->
         <activity android:name=".page.noun_progress.NounProgressActivity"
             android:screenOrientation="portrait" />
+
+        <!-- 右滑关闭 -->
+        <activity android:name=".page.slidingshut.SlidingShutActivity" />
+        <activity android:name=".page.slidingshut.AssignViewActivity" />
+        <activity android:name=".page.slidingshut.ColorBackdropActivity" />
+        <activity android:name=".page.slidingshut.InterceptFinishActivity" />
+        <activity android:name=".page.slidingshut.StartInstantlyActivity" />
+        <activity android:name=".page.slidingshut.UpFinishActivity" />
     </application>
 
 </manifest>
