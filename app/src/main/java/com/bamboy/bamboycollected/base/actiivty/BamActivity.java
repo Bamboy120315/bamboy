@@ -19,12 +19,6 @@ import com.bamboy.bamboycollected.page.divide_load.DivideLoadActivity;
 import com.bamboy.bamboycollected.page.freedom.FreedomListActivity;
 import com.bamboy.bamboycollected.page.main.MainActivity;
 import com.bamboy.bamboycollected.page.noun_progress.NounProgressActivity;
-import com.bamboy.bamboycollected.page.slidingshut.AssignViewActivity;
-import com.bamboy.bamboycollected.page.slidingshut.ColorBackdropActivity;
-import com.bamboy.bamboycollected.page.slidingshut.InterceptFinishActivity;
-import com.bamboy.bamboycollected.page.slidingshut.SlidingShutActivity;
-import com.bamboy.bamboycollected.page.slidingshut.StartInstantlyActivity;
-import com.bamboy.bamboycollected.page.slidingshut.UpFinishActivity;
 import com.bamboy.bamboycollected.page.toast.ToastActivity;
 import com.bamboy.bamboycollected.utils.UtilBox;
 

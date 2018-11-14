@@ -8,10 +8,10 @@ import com.bamboy.bamboycollected.base.actiivty.BamActivity;
 
 /**
  * 点击动画Activity
- *
+ * <p>
  * Created by Bamboy on 2017/4/17.
  */
-public class AnimClickActivity extends BamActivity{
+public class AnimClickActivity extends BamActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

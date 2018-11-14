@@ -24,8 +24,7 @@
             android:layout_height="50dp"
             android:layout_below="@+id/view_filling"
             android:padding="8dp"
-            android:src="@drawable/icon_back"
-            android:visibility="gone" />
+            android:src="@drawable/icon_back" />
 
         <!-- 标题 -->
         <TextView
