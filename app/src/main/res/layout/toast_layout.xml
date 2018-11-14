@@ -1,25 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/toast_back"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="13dp">
 
-    <RelativeLayout
-        android:id="@+id/toast_layout"
+    <ImageView
+        android:id="@+id/toast_img"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/toast_y" />
+
+    <TextView
+        android:id="@+id/toast_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="50dp"
-        android:padding="10dp"
-        android:translationZ="@dimen/toast_translation_z">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:text="加入购物车失败"
+        android:textColor="@color/colorWhite"
+        android:textSize="17sp" />
 
-        <TextView
-            android:id="@+id/toast_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center"
-            android:text="jhkjhjkh"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
-
-    </RelativeLayout>
-</RelativeLayout>
+    <TextView
+        android:id="@+id/toast_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="12sp"
+        android:visibility="gone" />
+</LinearLayout>

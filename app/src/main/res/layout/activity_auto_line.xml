@@ -24,7 +24,7 @@
             android:layout_below="@+id/btn_add"
             android:scrollbars="none">
 
-            <com.bamboy.bamboycollected.views.BamAutoLineList
+            <com.bamboy.bamboycollected.page.auto_line.BamAutoLineList
                 android:id="@+id/bal_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

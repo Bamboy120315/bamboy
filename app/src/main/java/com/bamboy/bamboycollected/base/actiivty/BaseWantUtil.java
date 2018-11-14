@@ -119,7 +119,7 @@ public class BaseWantUtil {
         // 介绍View的背景
         ImageView iv_introduce_back = null;
         try {
-            iv_introduce_back = (ImageView) rl_introduce.findViewById(R.id.iv_introduce_back);
+            iv_introduce_back = rl_introduce.findViewById(R.id.iv_introduce_back);
         } catch (Exception e) {
             return;
         }

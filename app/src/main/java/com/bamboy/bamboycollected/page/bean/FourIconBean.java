@@ -93,24 +93,24 @@ public class FourIconBean extends FreedomBean {
             super(viewGroup, R.layout.item_four_icon);
 
             // 第一个按钮 --> 最新上架
-            rl_fresh = (RelativeLayout) itemView.findViewById(R.id.rl_fresh);
-            iv_fresh = (ImageView) itemView.findViewById(R.id.iv_fresh);
-            tv_fresh = (TextView) itemView.findViewById(R.id.tv_fresh);
+            rl_fresh = itemView.findViewById(R.id.rl_fresh);
+            iv_fresh = itemView.findViewById(R.id.iv_fresh);
+            tv_fresh = itemView.findViewById(R.id.tv_fresh);
 
             // 第二个按钮 --> 热门精选
-            rl_hot = (RelativeLayout) itemView.findViewById(R.id.rl_hot);
-            iv_hot = (ImageView) itemView.findViewById(R.id.iv_hot);
-            tv_hot = (TextView) itemView.findViewById(R.id.tv_hot);
+            rl_hot = itemView.findViewById(R.id.rl_hot);
+            iv_hot = itemView.findViewById(R.id.iv_hot);
+            tv_hot = itemView.findViewById(R.id.tv_hot);
 
             // 第三个按钮 --> 重温经典
-            rl_classic = (RelativeLayout) itemView.findViewById(R.id.rl_classic);
-            iv_classic = (ImageView) itemView.findViewById(R.id.iv_classic);
-            tv_classic = (TextView) itemView.findViewById(R.id.tv_classic);
+            rl_classic = itemView.findViewById(R.id.rl_classic);
+            iv_classic = itemView.findViewById(R.id.iv_classic);
+            tv_classic = itemView.findViewById(R.id.tv_classic);
 
             // 第四个按钮 --> 睡前小酌
-            rl_sleep = (RelativeLayout) itemView.findViewById(R.id.rl_sleep);
-            iv_sleep = (ImageView) itemView.findViewById(R.id.iv_sleep);
-            tv_sleep = (TextView) itemView.findViewById(R.id.tv_sleep);
+            rl_sleep = itemView.findViewById(R.id.rl_sleep);
+            iv_sleep = itemView.findViewById(R.id.iv_sleep);
+            tv_sleep = itemView.findViewById(R.id.tv_sleep);
         }
 
     }

@@ -40,8 +40,8 @@ public class BaseSlidingShutActivity extends Activity {
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
 
-        rl_title = (RelativeLayout) findViewById(R.id.rl_title);
-        iv_back = (ImageView) findViewById(R.id.iv_back);
+        rl_title = findViewById(R.id.rl_title);
+        iv_back = findViewById(R.id.iv_back);
 
         /**
          * 如果是Android 4.4 以上，就兼容沉浸式

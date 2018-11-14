@@ -50,13 +50,13 @@ public class BlurActivity extends BamActivity implements View.OnClickListener {
 
     @Override
     protected void findView() {
-        btn_blur_img = (Button) findViewById(R.id.btn_blur_img);
-        iv_head_portrait = (ImageView) findViewById(R.id.iv_head_portrait);
-        btn_blur_popup_window = (Button) findViewById(R.id.btn_blur_popup_window);
+        btn_blur_img = findViewById(R.id.btn_blur_img);
+        iv_head_portrait = findViewById(R.id.iv_head_portrait);
+        btn_blur_popup_window = findViewById(R.id.btn_blur_popup_window);
 
-        iv_popup_window_back = (ImageView) findViewById(R.id.iv_popup_window_back);
-        btn_close_popup_window = (Button) findViewById(R.id.btn_close_popup_window);
-        rl_popup_window = (RelativeLayout) findViewById(R.id.rl_popup_window);
+        iv_popup_window_back = findViewById(R.id.iv_popup_window_back);
+        btn_close_popup_window = findViewById(R.id.btn_close_popup_window);
+        rl_popup_window = findViewById(R.id.rl_popup_window);
     }
 
     @Override

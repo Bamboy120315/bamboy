@@ -41,11 +41,11 @@ public class NounProgressActivity extends BamActivity {
 
     @Override
     protected void findView() {
-        noun_progress = (NounProgressBar) findViewById(R.id.noun_progress);
-        tv_value = (TextView) findViewById(R.id.tv_value);
-        sb_progress = (SeekBar) findViewById(R.id.sb_progress);
-        btn_retreat = (Button) findViewById(R.id.btn_retreat);
-        btn_advance = (Button) findViewById(R.id.btn_advance);
+        noun_progress = findViewById(R.id.noun_progress);
+        tv_value = findViewById(R.id.tv_value);
+        sb_progress = findViewById(R.id.sb_progress);
+        btn_retreat = findViewById(R.id.btn_retreat);
+        btn_advance = findViewById(R.id.btn_advance);
     }
 
     @Override

@@ -1,7 +1,5 @@
 package com.bamboy.bamboycollected.page.main;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,7 +23,7 @@ import com.bamboy.bamboycollected.page.freedom.FreedomListActivity;
 import com.bamboy.bamboycollected.page.noun_progress.NounProgressActivity;
 import com.bamboy.bamboycollected.page.slidingshut.SlidingShutActivity;
 import com.bamboy.bamboycollected.page.toast.ToastActivity;
-import com.bamboy.bamboycollected.views.BamToast;
+import com.bamboy.bamboycollected.page.toast.bamtoast.BamToast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +50,7 @@ public class MainActivity extends BamActivity implements FreedomCallback {
 
     @Override
     protected void findView() {
-        rv_list = (RecyclerView) findViewById(R.id.rv_list);
+        rv_list = findViewById(R.id.rv_list);
     }
 
     @Override
@@ -110,7 +108,7 @@ public class MainActivity extends BamActivity implements FreedomCallback {
                     Intent intent = new Intent(MainActivity.this, bean.getStartClass());
                     MainActivity.this.startActivity(intent);
                 } else {
-                    BamToast.show(MainActivity.this, "该Demo尚未整合\n请耐心等待", BamToast.COLOR_BLUE_SKY);
+                    BamToast.showText(MainActivity.this, "该Demo尚未整合\n请耐心等待");
                 }
                 break;
         }

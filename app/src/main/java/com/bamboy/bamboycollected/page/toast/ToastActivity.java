@@ -1,19 +1,18 @@
 package com.bamboy.bamboycollected.page.toast;
 
-import android.animation.ArgbEvaluator;
-import android.animation.ValueAnimator;
-import android.graphics.Color;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
 import android.widget.Button;
-import android.widget.RelativeLayout;
-import android.widget.SeekBar;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.actiivty.BamActivity;
-import com.bamboy.bamboycollected.views.BamToast;
+import com.bamboy.bamboycollected.page.toast.bamtoast.BamToast;
+
+import android.provider.Settings;
 
 /**
  * 自定义Toast
@@ -21,42 +20,36 @@ import com.bamboy.bamboycollected.views.BamToast;
  * Created by Bamboy on 2017/3/29.
  */
 public class ToastActivity extends BamActivity implements View.OnClickListener {
-    /**
-     * 介绍容器
-     */
-    private RelativeLayout rl_introduce;
-    private TextView tv_introduce;
 
     /**
-     * 控制条 A
+     * 显示纯文本Toast
      */
-    private SeekBar sb_color_a;
-    private TextView tv_color_value_a;
+    private Button tv_text;
     /**
-     * 控制条 R
+     * 显示文字+对号Toast
      */
-    private SeekBar sb_color_r;
-    private TextView tv_color_value_r;
+    private Button tv_text_y;
     /**
-     * 控制条 G
+     * 显示文字+叉号Toast
      */
-    private SeekBar sb_color_g;
-    private TextView tv_color_value_g;
+    private Button tv_text_n;
     /**
-     * 控制条 B
+     * 显示长时间纯文字Toast
      */
-    private SeekBar sb_color_b;
-    private TextView tv_color_value_b;
+    private Button tv_text_l;
+    /**
+     * 显示长时间文字+对号Toast
+     */
+    private Button tv_text_y_l;
+    /**
+     * 显示长时间文字+叉号Toast
+     */
+    private Button tv_text_n_l;
 
     /**
-     * 显示自定义Toast按钮
+     * 【开启/关闭】通知权限
      */
-    private Button btn_toast_custom;
-
-    /**
-     * 显示自定义Toast按钮
-     */
-//    private Button btn_jianbian;
+    private Button tv_notification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,121 +59,82 @@ public class ToastActivity extends BamActivity implements View.OnClickListener {
 
     @Override
     protected void findView() {
-        sb_color_a = (SeekBar) findViewById(R.id.sb_color_a);
-        tv_color_value_a = (TextView) findViewById(R.id.tv_color_value_a);
+        tv_text = findViewById(R.id.tv_text);
+        tv_text_y = findViewById(R.id.tv_text_y);
+        tv_text_n = findViewById(R.id.tv_text_n);
+        tv_text_l = findViewById(R.id.tv_text_l);
+        tv_text_y_l = findViewById(R.id.tv_text_y_l);
+        tv_text_n_l = findViewById(R.id.tv_text_n_l);
 
-        sb_color_r = (SeekBar) findViewById(R.id.sb_color_r);
-        tv_color_value_r = (TextView) findViewById(R.id.tv_color_value_r);
-
-        sb_color_g = (SeekBar) findViewById(R.id.sb_color_g);
-        tv_color_value_g = (TextView) findViewById(R.id.tv_color_value_g);
-
-        sb_color_b = (SeekBar) findViewById(R.id.sb_color_b);
-        tv_color_value_b = (TextView) findViewById(R.id.tv_color_value_b);
-
-        btn_toast_custom = (Button) findViewById(R.id.btn_toast_custom);
-
-        /*btn_jianbian = (Button) findViewById(R.id.btn_jianbian);
-        btn_jianbian.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int startColor = Color.argb(255, 0, 102, 204);
-                int endColor = Color.argb(255, 244, 164, 96);
-
-                ValueAnimator vAnim = ValueAnimator.ofInt(startColor, endColor);
-                vAnim.setRepeatCount(ValueAnimator.INFINITE);
-                vAnim.setDuration(2000);
-                vAnim.setEvaluator(new ArgbEvaluator());
-                vAnim.setRepeatMode(ValueAnimator.REVERSE);
-                vAnim.setInterpolator(new LinearInterpolator());
-                vAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                    @Override
-                    public void onAnimationUpdate(ValueAnimator animation) {
-                        int color = (int) animation.getAnimatedValue();
-                        int r = Color.red(color);
-                        int g = Color.green(color);
-                        int b = Color.blue(color);
-                        btn_jianbian.setBackgroundColor(color);
-                        btn_jianbian.setText("色值：r:" + r + " g:" + g + " b:" + b);
-                    }
-                });
-                vAnim.start();
-            }
-        });*/
+        tv_notification = findViewById(R.id.tv_notification);
     }
 
     @Override
     protected void setListener() {
-        findViewById(R.id.btn_toast_red).setOnClickListener(this);
-        findViewById(R.id.btn_toast_blue).setOnClickListener(this);
-        findViewById(R.id.btn_toast_green).setOnClickListener(this);
-        findViewById(R.id.btn_toast_black).setOnClickListener(this);
-        findViewById(R.id.btn_toast_custom).setOnClickListener(this);
+        tv_text.setOnClickListener(this);
+        tv_text_y.setOnClickListener(this);
+        tv_text_n.setOnClickListener(this);
+        tv_text_l.setOnClickListener(this);
+        tv_text_y_l.setOnClickListener(this);
+        tv_text_n_l.setOnClickListener(this);
 
-        SeekBar.OnSeekBarChangeListener seekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                ((TextView) seekBar.getTag()).setText("" + progress);
-                btn_toast_custom.setBackgroundColor(getColor());
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-        };
-
-        sb_color_a.setOnSeekBarChangeListener(seekBarChangeListener);
-        sb_color_r.setOnSeekBarChangeListener(seekBarChangeListener);
-        sb_color_g.setOnSeekBarChangeListener(seekBarChangeListener);
-        sb_color_b.setOnSeekBarChangeListener(seekBarChangeListener);
-
+        tv_notification.setOnClickListener(this);
     }
 
     @Override
     protected void init() {
-        sb_color_a.setTag(tv_color_value_a);
-        sb_color_r.setTag(tv_color_value_r);
-        sb_color_g.setTag(tv_color_value_g);
-        sb_color_b.setTag(tv_color_value_b);
+
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_toast_red:
-                BamToast.show(this, "红色Toast", BamToast.COLOR_RED);
+            // 显示纯文本Toast
+            case R.id.tv_text:
+                BamToast.showText(this, "这是纯文本Toast");
                 break;
-            case R.id.btn_toast_blue:
-                BamToast.show(this, "蓝色Toast", BamToast.COLOR_BLUE);
+
+            // 显示文字+对号Toast
+            case R.id.tv_text_y:
+                BamToast.showText(this, "这是带对号Toast", true);
                 break;
-            case R.id.btn_toast_green:
-                BamToast.show(this, "绿色Toast", BamToast.COLOR_GREEN);
+
+            // 显示文字+叉号Toast
+            case R.id.tv_text_n:
+                BamToast.showText(this, "这是带叉号Toast", false);
                 break;
-            case R.id.btn_toast_black:
-                BamToast.show(this, "黑色Toast");
+
+            // 显示长时间纯文字Toast
+            case R.id.tv_text_l:
+                BamToast.showText(this, "这是纯文本 长时间Toast", Toast.LENGTH_LONG);
                 break;
-            case R.id.btn_toast_custom:
-                BamToast.show(this, "自定义颜色Toast", getColor());
+
+            // 显示长时间文字+对号Toast
+            case R.id.tv_text_y_l:
+                BamToast.showText(this, "这是带对号 长时间Toast", Toast.LENGTH_LONG, true);
+                break;
+
+            // 显示长时间文字+叉号Toast
+            case R.id.tv_text_n_l:
+                BamToast.showText(this, "这是带叉号 长时间Toast", Toast.LENGTH_LONG, false);
+                break;
+
+            // 【开启/关闭】通知权限
+            case R.id.tv_notification:
+                // 跳转【通知管理页面】
+                Intent localIntent = new Intent();
+                localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                if (Build.VERSION.SDK_INT >= 9) {
+                    localIntent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+                    localIntent.setData(Uri.fromParts("package", getPackageName(), null));
+                } else if (Build.VERSION.SDK_INT <= 8) {
+                    localIntent.setAction(Intent.ACTION_VIEW);
+                    localIntent.setClassName("com.android.settings", "com.android.setting.InstalledAppDetails");
+                    localIntent.putExtra("com.android.settings.ApplicationPkgName", getPackageName());
+                }
+                startActivity(localIntent);
                 break;
         }
-    }
-
-    /**
-     * 获取颜色值
-     *
-     * @return
-     */
-    private int getColor() {
-        int a = Integer.parseInt(tv_color_value_a.getText().toString());
-        int r = Integer.parseInt(tv_color_value_r.getText().toString());
-        int g = Integer.parseInt(tv_color_value_g.getText().toString());
-        int b = Integer.parseInt(tv_color_value_b.getText().toString());
-
-        return Color.argb(a, r, g, b);
     }
 
 }

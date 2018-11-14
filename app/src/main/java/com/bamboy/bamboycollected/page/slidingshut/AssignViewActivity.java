@@ -24,7 +24,7 @@ public class AssignViewActivity extends BaseSlidingShutActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assign_view);
 
-        rl_root = (RelativeLayout) findViewById(R.id.rl_root);
+        rl_root = findViewById(R.id.rl_root);
 
         // 指定只移动TitleBar以下的内容
         setMoveView(rl_root);

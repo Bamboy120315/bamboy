@@ -102,8 +102,8 @@ public class SingleImageBean extends FreedomBean {
             // 两个参数，第一个viewGroup不解释，第二个即本ViewHolder对应的LayoutXml
             super(viewGroup, R.layout.item_single_image);
 
-            rl_single = (RelativeLayout) itemView.findViewById(R.id.rl_single);
-            iv_single = (ImageView) itemView.findViewById(R.id.iv_single);
+            rl_single = itemView.findViewById(R.id.rl_single);
+            iv_single = itemView.findViewById(R.id.iv_single);
         }
     }
 }

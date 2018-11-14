@@ -13,7 +13,7 @@ import com.bamboy.bamboycollected.base.freedom.FreedomCallback;
 import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
 import com.bamboy.bamboycollected.page.bean.DivideBean;
 import com.bamboy.bamboycollected.page.bean.FootPromptBean;
-import com.bamboy.bamboycollected.views.BamToast;
+import com.bamboy.bamboycollected.page.toast.bamtoast.BamToast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +49,7 @@ public class DivideLoadActivity extends BamActivity implements FreedomCallback {
 
     @Override
     protected void findView() {
-        rv_divide_load = (RecyclerView) findViewById(R.id.rv_divide_load);
+        rv_divide_load = findViewById(R.id.rv_divide_load);
     }
 
     @Override
@@ -196,7 +196,7 @@ public class DivideLoadActivity extends BamActivity implements FreedomCallback {
 
             case R.id.rl_root:
                 DivideBean bean = (DivideBean) mList.get(position);
-                BamToast.show(
+                BamToast.showText(
                         this,
                         "点击了第" + bean.getPagination() + "页的第" + bean.getSerialNumber() + "个");
                 break;

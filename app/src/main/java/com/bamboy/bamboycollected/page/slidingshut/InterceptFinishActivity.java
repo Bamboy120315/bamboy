@@ -37,8 +37,8 @@ public class InterceptFinishActivity extends BaseSlidingShutActivity {
         setContentView(R.layout.activity_intercept_finish);
 
         view_background = findViewById(R.id.view_background);
-        tv_menu = (TextView) findViewById(R.id.tv_menu);
-        btn_open_menu = (Button) findViewById(R.id.btn_open_menu);
+        tv_menu = findViewById(R.id.tv_menu);
+        btn_open_menu = findViewById(R.id.btn_open_menu);
 
         // 打开菜单按钮点击事件
         btn_open_menu.setOnClickListener(new View.OnClickListener() {

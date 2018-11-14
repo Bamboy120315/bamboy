@@ -125,9 +125,9 @@ public class DivideBean extends FreedomBean {
             // 两个参数，第一个viewGroup不解释，第二个即本ViewHolder对应的LayoutXml
             super(viewGroup, R.layout.item_divide_load);
 
-            rl_root = (RelativeLayout) itemView.findViewById(R.id.rl_root);
-            tv_pagination = (TextView) itemView.findViewById(R.id.tv_pagination);
-            tv_serial_number = (TextView) itemView.findViewById(R.id.tv_serial_number);
+            rl_root = itemView.findViewById(R.id.rl_root);
+            tv_pagination = itemView.findViewById(R.id.tv_pagination);
+            tv_serial_number = itemView.findViewById(R.id.tv_serial_number);
         }
 
     }

@@ -125,13 +125,13 @@ public abstract class BamActivity extends Activity {
      * 写Demo的时候无须搭理此方法
      */
     private void initView() {
-        rl_title = (RelativeLayout) findViewById(R.id.rl_title);
-        iv_back = (ImageView) findViewById(R.id.iv_back);
-        tv_title = (TextView) findViewById(R.id.tv_title);
-        iv_introduce = (ImageView) findViewById(R.id.iv_introduce);
-        iv_introduce_close = (ImageView) findViewById(R.id.iv_introduce_close);
-        rl_introduce = (RelativeLayout) findViewById(R.id.rl_introduce);
-        tv_introduce = (TextView) findViewById(R.id.tv_introduce);
+        rl_title = findViewById(R.id.rl_title);
+        iv_back = findViewById(R.id.iv_back);
+        tv_title = findViewById(R.id.tv_title);
+        iv_introduce = findViewById(R.id.iv_introduce);
+        iv_introduce_close = findViewById(R.id.iv_introduce_close);
+        rl_introduce = findViewById(R.id.rl_introduce);
+        tv_introduce = findViewById(R.id.tv_introduce);
 
         // 设置titleBar
         setImmerseTitleBar(rl_title);

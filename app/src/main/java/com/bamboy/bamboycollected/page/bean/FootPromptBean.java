@@ -117,7 +117,7 @@ public class FootPromptBean extends FreedomBean {
             // 两个参数，第一个viewGroup不解释，第二个即本ViewHolder对应的LayoutXml
             super(viewGroup, R.layout.item_divide_foot_prompt);
 
-            tv_foot_prompt = (TextView) itemView.findViewById(R.id.tv_foot_prompt);
+            tv_foot_prompt = itemView.findViewById(R.id.tv_foot_prompt);
         }
 
     }

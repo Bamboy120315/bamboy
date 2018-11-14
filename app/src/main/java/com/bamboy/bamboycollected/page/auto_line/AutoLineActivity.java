@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.actiivty.BamActivity;
-import com.bamboy.bamboycollected.views.BamAutoLineList;
 
 /**
  * 自动换行 Demo
@@ -34,8 +33,8 @@ public class AutoLineActivity extends BamActivity implements View.OnClickListene
 
     @Override
     protected void findView() {
-        btn_add = (Button) findViewById(R.id.btn_add);
-        bal_list = (BamAutoLineList) findViewById(R.id.bal_list);
+        btn_add = findViewById(R.id.btn_add);
+        bal_list = findViewById(R.id.bal_list);
     }
 
     @Override
@@ -69,7 +68,7 @@ public class AutoLineActivity extends BamActivity implements View.OnClickListene
         // 实例化一个View，以放到List里
         View item = getLayoutInflater().inflate(R.layout.item_auto_line, null);
         // 设置View里的文本值
-        ((TextView) item.findViewById(R.id.tv_item)).setText(randomText());
+        ((TextView)item.findViewById(R.id.tv_item)).setText(randomText());
 
         // 动画，如果需要可以打开，不需要则关闭
         if (true) {

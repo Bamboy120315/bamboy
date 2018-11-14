@@ -9,12 +9,12 @@ import android.view.View;
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.actiivty.BamActivity;
 import com.bamboy.bamboycollected.base.freedom.FreedomAdapter;
-import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
 import com.bamboy.bamboycollected.base.freedom.FreedomCallback;
+import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
 import com.bamboy.bamboycollected.page.bean.FourIconBean;
 import com.bamboy.bamboycollected.page.bean.SingleBtnBean;
 import com.bamboy.bamboycollected.page.bean.SingleImageBean;
-import com.bamboy.bamboycollected.views.BamToast;
+import com.bamboy.bamboycollected.page.toast.bamtoast.BamToast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +47,7 @@ public class FreedomListActivity extends BamActivity implements FreedomCallback 
 
     @Override
     protected void findView() {
-        rv_divide_load = (RecyclerView) findViewById(R.id.rv_freedom);
+        rv_divide_load = findViewById(R.id.rv_freedom);
     }
 
     @Override
@@ -76,33 +76,7 @@ public class FreedomListActivity extends BamActivity implements FreedomCallback 
         mList.add(new FourIconBean());
         mList.add(new FourIconBean());
         mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
-        mList.add(new FourIconBean());
+        mList.add(new SingleBtnBean("条目样式 1", null));
         mList.add(new FourIconBean());
         mList.add(new FourIconBean());
         mList.add(new FourIconBean());
@@ -110,6 +84,19 @@ public class FreedomListActivity extends BamActivity implements FreedomCallback 
         mList.add(new FourIconBean());
         mList.add(new FourIconBean());
         mList.add(new SingleBtnBean("条目样式 1", null));
+        mList.add(new SingleImageBean(R.drawable.picture));
+        mList.add(new FourIconBean());
+        mList.add(new SingleBtnBean("条目样式 1", null));
+        mList.add(new SingleImageBean(R.drawable.picture));
+        mList.add(new FourIconBean());
+        mList.add(new SingleBtnBean("条目样式 1", null));
+        mList.add(new SingleImageBean(R.drawable.picture));
+        mList.add(new FourIconBean());
+        mList.add(new SingleBtnBean("条目样式 1", null));
+        mList.add(new FourIconBean());
+        mList.add(new FourIconBean());
+        mList.add(new FourIconBean());
+        mList.add(new FourIconBean());
         mList.add(new SingleBtnBean("条目样式 1", null));
         mList.add(new SingleImageBean(R.drawable.picture));
         mList.add(new FourIconBean());
@@ -129,15 +116,8 @@ public class FreedomListActivity extends BamActivity implements FreedomCallback 
         mList.add(new SingleBtnBean("条目样式 1", null));
         mList.add(new SingleImageBean(R.drawable.picture));
         mList.add(new FourIconBean());
-        mList.add(new SingleBtnBean("条目样式 1", null));
-        mList.add(new SingleBtnBean("条目样式 1", null));
-        mList.add(new SingleImageBean(R.drawable.picture));
         mList.add(new FourIconBean());
-        mList.add(new SingleBtnBean("条目样式 1", null));
-        mList.add(new SingleImageBean(R.drawable.picture));
         mList.add(new FourIconBean());
-        mList.add(new SingleBtnBean("条目样式 1", null));
-        mList.add(new SingleImageBean(R.drawable.picture));
         mList.add(new FourIconBean());
         mList.add(new SingleBtnBean("条目样式 1", null));
         mList.add(new SingleBtnBean("条目样式 1", null));
@@ -146,12 +126,21 @@ public class FreedomListActivity extends BamActivity implements FreedomCallback 
         mList.add(new SingleBtnBean("条目样式 1", null));
         mList.add(new SingleImageBean(R.drawable.picture));
         mList.add(new FourIconBean());
+        mList.add(new FourIconBean());
+        mList.add(new FourIconBean());
+        mList.add(new FourIconBean());
+        mList.add(new FourIconBean());
         mList.add(new SingleBtnBean("条目样式 1", null));
         mList.add(new SingleImageBean(R.drawable.picture));
         mList.add(new FourIconBean());
         mList.add(new SingleBtnBean("条目样式 1", null));
         mList.add(new SingleBtnBean("条目样式 1", null));
         mList.add(new SingleImageBean(R.drawable.picture));
+        mList.add(new FourIconBean());
+        mList.add(new FourIconBean());
+        mList.add(new FourIconBean());
+        mList.add(new FourIconBean());
+        mList.add(new FourIconBean());
         mList.add(new FourIconBean());
         mList.add(new SingleBtnBean("条目样式 1", null));
         mList.add(new SingleImageBean(R.drawable.picture));
@@ -169,22 +158,22 @@ public class FreedomListActivity extends BamActivity implements FreedomCallback 
     public void onClickCallback(View view, int position, ViewHolderManager.ViewHolder holder) {
         switch (view.getId()) {
             case R.id.rl_single:
-                BamToast.show(this, "点击了条目样式 1");
+                BamToast.showText(this, "点击了条目样式 1");
                 break;
             case R.id.rl_fresh:
-                BamToast.show(this, "点击了最新上架");
+                BamToast.showText(this, "点击了最新上架");
                 break;
             case R.id.rl_hot:
-                BamToast.show(this, "点击了热门精选");
+                BamToast.showText(this, "点击了热门精选");
                 break;
             case R.id.rl_classic:
-                BamToast.show(this, "点击了重温经典");
+                BamToast.showText(this, "点击了重温经典");
                 break;
             case R.id.rl_sleep:
-                BamToast.show(this, "点击了睡前小酌");
+                BamToast.showText(this, "点击了睡前小酌");
                 break;
             case R.id.iv_single:
-                BamToast.show(this, "点击了单个图片");
+                BamToast.showText(this, "点击了单个图片");
                 break;
         }
     }
