@@ -26,8 +26,8 @@
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_height="match_parent"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp">
+            android:paddingLeft="13dp"
+            android:paddingRight="13dp">
 
             <TextView
                 android:id="@+id/tv_introduce"
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:autoLink="web"
                 android:textColor="@color/colorBlue"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tv_introduce_foot"
@@ -44,7 +44,7 @@
                 android:autoLink="web"
                 android:textColor="@color/colorBlue"
                 android:text="@string/introduce_foot"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
         </LinearLayout>
     </ScrollView>

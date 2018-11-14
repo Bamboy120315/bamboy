@@ -66,9 +66,9 @@
         详情链接：https://blog.csdn.net/bamboy_/article/details/54342079\n
         \n
         6、Toast（近期会更新，无视通知权限）\n
-        近期会更新，\n
-        更新后即使没有通知权限也可以弹出Toast，\n
-        敬请期待。\n
+        BamToast全新升级，\n
+        即使没有通知权限也可以弹出Toast，\n
+        \n
         详情链接：https://blog.csdn.net/bamboy_/article/details/54952174\n
         \n
         7、View自动换行\n
@@ -95,32 +95,62 @@
     <string name="introduce_toast">
         \n
         \n
-        注：\n
+        ━━━━━━━━━━━━━━━━━\n
+        名词介绍：\n
         \n
-        本Demo为BamboyToast的2.0版本\n
+        BToast：\n
+        本人之前写的自定义Toast。\n
         \n
-        与1.0版区别在于：\n
-        1.0只有黑色背景，\n
-        且支持对号或叉号动画提示；\n
-        对1.0版本感兴趣的同学，\n
-        可以点击链接浏览CSDN：\n
-        <a href="http://blog.csdn.net/bamboy_/article/details/54952174">http://blog.csdn.net/bamboy_/article/details/54952174</a>\n
-        而2.0版本则增加了背景颜色，\n
-        利用颜色来体现警示程度，\n
-        如：错误提示可以用红色，\n
-        正确提示可以用蓝色等等……\n
+        EToast：\n
+        网上一个大神写的，\n
+        可以在没有通知权限的情况下弹出的Toast。\n
         \n
-        而此2.0版本中，\n
-        支持两种背景方式，\n
-        一种是由XML形式，\n
-        好处是可以自定义背景样式，\n
-        缺点是每种颜色都要写个XML\n
-        如：\nBamToast.show(this, "红色Toast", BamToast.COLOR_RED);\n
+        BamToast：\n
+        EToast + BToast。\n
+        ━━━━━━━━━━━━━━━━━\n
         \n
-        一种是直接设置颜色，\n
-        好处是不需要写那么多XML\n
-        缺点是背景只能是方形的。\n
-        如：\nBamToast.show(this, "自定义颜色Toast", 0xFF0066CC);
+        正常Toast在用户关闭了通知权限后就无法弹出了，\n
+        BamToast解决了这个问题，\n
+        方案采用网上的EToast + BToast。\n
+        \n
+        实现很简单，\n
+        判断通知权限，\n
+        如果有通知权限，\n
+        就正常使用BToast，\n
+        否则使用EToast。\n
+        \n
+        至于EToast在未打开通知权限也能弹出的原理，\n
+        其实很简单，\n
+        通知权限未获取时，\n
+        Toast其实还是正常绘制的，\n
+        只是由于权限问题无法显示而已，\n
+        EToast则是通过getView()，\n
+        获取了绘制但未显示的Toast，\n
+        然后将其在Activity中显示出来。\n
+        \n
+        那么和原本的Toast有什么区别呢？\n
+        \n
+        1、原生Toast在显示和退出时有渐变动画，\n
+        EToast没有，\n
+        所以视觉上稍稍欠佳，\n
+        不过没事，\n
+        BamToast的图标是有动画的，\n
+        一定程度上有所弥补。\n
+        \n
+        2、原生的Toast是系统级的，\n
+        所以Activity离开也能正常显示，\n
+        而EToast是基于Activity的，\n
+        所以若Activity离开，\n
+        Toast也会随之离开。\n
+        \n
+        3、因为EToast是基于Activity的，\n
+        所以必须要使用本类的Context,\n
+        不能使用getApplicationContext()，\n
+        切记！\n
+        \n
+        本Demo近期会同步到CSDN。\n
+        敬请期待。
+        \n
     </string>
 
     <!-- 高斯模糊介绍 -->

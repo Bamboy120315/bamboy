@@ -49,9 +49,8 @@ Bamboy Demo 合集
 详情链接：[Bamboy酷炫点击效果](https://blog.csdn.net/bamboy_/article/details/54342079)  
   
 ### 6、Toast（近期会更新，无视通知权限）  
-近期会更新，  
-更新后即使没有通知权限也可以弹出Toast，  
-敬请期待。  
+BamToast全新升级，  
+即使没有通知权限也可以弹出Toast。  
   
 ![Bamboy自定义Toast](https://img-blog.csdn.net/20170209183501183?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYmFtYm95Xw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)  
 详情链接：[Bamboy自定义Toast](https://blog.csdn.net/bamboy_/article/details/54952174) 
