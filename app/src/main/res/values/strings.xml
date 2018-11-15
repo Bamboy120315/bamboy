@@ -122,26 +122,26 @@
         至于EToast在未打开通知权限也能弹出的原理，\n
         其实很简单，\n
         通知权限未获取时，\n
-        Toast其实还是正常绘制的，\n
+        BToast其实还是正常绘制的，\n
         只是由于权限问题无法显示而已，\n
         EToast则是通过getView()，\n
         获取了绘制但未显示的Toast，\n
         然后将其在Activity中显示出来。\n
         \n
-        那么和原本的Toast有什么区别呢？\n
+        那么和BToast有什么区别呢？\n
         \n
-        1、原生Toast在显示和退出时有渐变动画，\n
+        1、BToast在显示和退出时有渐变动画，\n
         EToast没有，\n
         所以视觉上稍稍欠佳，\n
         不过没事，\n
         BamToast的图标是有动画的，\n
         一定程度上有所弥补。\n
         \n
-        2、原生的Toast是系统级的，\n
+        2、BToast是系统级的，\n
         所以Activity离开也能正常显示，\n
         而EToast是基于Activity的，\n
         所以若Activity离开，\n
-        Toast也会随之离开。\n
+        EToast也会随之离开。\n
         \n
         3、因为EToast是基于Activity的，\n
         所以必须要使用本类的Context,\n

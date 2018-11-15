@@ -12,8 +12,6 @@ import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.actiivty.BamActivity;
 import com.bamboy.bamboycollected.page.toast.bamtoast.BamToast;
 
-import android.provider.Settings;
-
 /**
  * 自定义Toast
  * <p>
