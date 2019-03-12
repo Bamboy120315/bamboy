@@ -1,5 +1,6 @@
 package com.bamboy.bamboycollected.base.actiivty;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.view.View;
@@ -20,13 +21,13 @@ import com.bamboy.bamboycollected.utils.UtilBox;
  */
 public class BaseWantUtil {
 
-    private BamActivity mActivity;
+    private Activity mActivity;
     /**
      * 工具箱
      */
     public UtilBox utils;
 
-    public BaseWantUtil(BamActivity activity) {
+    public BaseWantUtil(Activity activity) {
         mActivity = activity;
         utils = UtilBox.getBox();
     }

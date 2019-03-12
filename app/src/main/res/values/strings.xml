@@ -148,9 +148,6 @@
         不能使用getApplicationContext()，\n
         切记！\n
         \n
-        本Demo近期会同步到CSDN。\n
-        敬请期待。
-        \n
     </string>
 
     <!-- 高斯模糊介绍 -->
@@ -393,7 +390,7 @@
         \n
     </string>
 
-    <!-- 非约束列表介绍 -->
+    <!-- 节点进度条介绍 -->
     <string name="introduce_noun_progress">
         \n
         \n
@@ -418,6 +415,38 @@
         可以看下本Demo的CSDN，\n
         获得详解以及使用方法：\n
         <a href="https://blog.csdn.net/bamboy_/article/details/79825006">https://blog.csdn.net/bamboy_/article/details/79825006</a>\n
+    </string>
+
+    <!-- 物流卡片介绍 -->
+    <string name="introduce_express_card">
+        新版的京东和淘宝有一个交互感觉不错，\n
+        待收货订单会有类似探探那样的卡片效果，\n
+        滑动查看下一条物流的信息，\n
+        近期UI部门说要做这个效果，\n
+        于是我就写了这个Demo，\n
+        和大家交流一下。\n
+        \n
+        本Demo使用的是ViewPager+Fragment的实现方式，\n
+        只是给ViewPager增加了Transformer，\n
+        本Demo内置了三种切换效果： \n
+        · 层叠(京东) \n
+        · 缩放 \n
+        · 风车(淘宝)  \n
+        \n
+        三种出场动画： \n
+        · 逐一 \n
+        · 展开 \n
+        · 旋转
+        \n
+        如果想进一步了解，\n
+        可以看下本Demo的CSDN：\n
+        <a href="https://blog.csdn.net/bamboy_/article/details/88415267">https://blog.csdn.net/bamboy_/article/details/88415267</a>\n
+        \n
+        git地址：\n
+        <a href="https://github.com/Bamboy120315/ExpressCard">https://github.com/Bamboy120315/ExpressCard</a>\n
+        \n
+        如有问题欢迎加入技术探讨QQ群：\n
+        569614530\n
     </string>
 
 </resources>

@@ -85,6 +85,10 @@
         <activity android:name=".page.slidingshut.InterceptFinishActivity" />
         <activity android:name=".page.slidingshut.StartInstantlyActivity" />
         <activity android:name=".page.slidingshut.UpFinishActivity" />
+
+        <!-- 物流卡片 -->
+        <activity android:name=".page.expresscard.ExpressCardActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -1,9 +1,11 @@
 package com.bamboy.bamboycollected.base.actiivty;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,27 +14,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
-import com.bamboy.bamboycollected.page.anim_click.AnimClickActivity;
-import com.bamboy.bamboycollected.page.auto_line.AutoLineActivity;
-import com.bamboy.bamboycollected.page.blur.BlurActivity;
-import com.bamboy.bamboycollected.page.divide_load.DivideLoadActivity;
-import com.bamboy.bamboycollected.page.freedom.FreedomListActivity;
-import com.bamboy.bamboycollected.page.main.MainActivity;
-import com.bamboy.bamboycollected.page.noun_progress.NounProgressActivity;
-import com.bamboy.bamboycollected.page.toast.ToastActivity;
+import com.bamboy.bamboycollected.page.expresscard.ExpressCardActivity;
 import com.bamboy.bamboycollected.utils.UtilBox;
 
 /**
- * Activity 基类
- * <p/>
- * 右滑关闭
- * 沉浸式
- * 先显示后加载
- * 工具箱
- * <p/>
- * Created by Bamboy on 2017/3/24.
+ * Created by liushaochen on 2019/3/12.
  */
-public abstract class BamActivity extends Activity {
+
+public abstract class BamFragmentActivity extends FragmentActivity {
 
     /**
      * 触摸工具类
@@ -51,6 +40,7 @@ public abstract class BamActivity extends Activity {
      * 工具箱
      */
     public UtilBox utils = UtilBox.getBox();
+
 
     /**
      * 标题栏
@@ -88,8 +78,8 @@ public abstract class BamActivity extends Activity {
     private View moveView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        super.onCreate(savedInstanceState, persistentState);
 
         isCreate = true;
     }
@@ -146,7 +136,7 @@ public abstract class BamActivity extends Activity {
                     RelativeLayout.LayoutParams params =
                             (RelativeLayout.LayoutParams) iv_introduce_close.getLayoutParams();
 
-                    int height = utils.ui.getBarHeight(BamActivity.this);
+                    int height = utils.ui.getBarHeight(BamFragmentActivity.this);
                     params.setMargins(-1, height, -1, -1);
                 }
             });
@@ -162,46 +152,10 @@ public abstract class BamActivity extends Activity {
      * 处理View内容
      */
     private void initViewContent() {
-        if (this instanceof MainActivity) {
-            iv_back.setVisibility(View.GONE);
-            tv_title.setText("Bamboy合集");
-            tv_introduce.setText(getString(R.string.introduce_main));
-
-        } else if (this instanceof ToastActivity) {
+        if (this instanceof ExpressCardActivity) {
             iv_back.setVisibility(View.VISIBLE);
-            tv_title.setText("Toast Demo");
-            tv_introduce.setText(getString(R.string.introduce_toast));
-
-        } else if (this instanceof BlurActivity) {
-            iv_back.setVisibility(View.VISIBLE);
-            tv_title.setText("高斯模糊 Demo");
-            tv_introduce.setText(getString(R.string.introduce_blur));
-
-        } else if (this instanceof AutoLineActivity) {
-            iv_back.setVisibility(View.VISIBLE);
-            tv_title.setText("自动换行 Demo");
-            tv_introduce.setText(getString(R.string.introduce_auto_line));
-
-        } else if (this instanceof DivideLoadActivity) {
-            iv_back.setVisibility(View.VISIBLE);
-            tv_title.setText("分批加载 Demo");
-            tv_introduce.setText(getString(R.string.introduce_divide_load));
-
-        } else if (this instanceof AnimClickActivity) {
-            iv_back.setVisibility(View.VISIBLE);
-            tv_title.setText("点击动画 Demo");
-            tv_introduce.setText(getString(R.string.introduce_anim_click));
-
-        } else if (this instanceof FreedomListActivity) {
-            iv_back.setVisibility(View.VISIBLE);
-            tv_title.setText("非约束列表 Demo");
-            tv_introduce.setText(getString(R.string.introduce_freedom));
-
-        } else if (this instanceof NounProgressActivity) {
-            iv_back.setVisibility(View.VISIBLE);
-            tv_title.setText("节点进度条 Demo");
-            tv_introduce.setText(getString(R.string.introduce_noun_progress));
-
+            iv_introduce.setVisibility(View.GONE);
+            tv_title.setText("物流卡片");
         }
     }
 
@@ -286,7 +240,11 @@ public abstract class BamActivity extends Activity {
         if (null != mUtilGesture && mUtilGesture.motionEvent(ev)) {
             return true;
         }
-        return super.dispatchTouchEvent(ev);
+        try {
+            return super.dispatchTouchEvent(ev);
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     /**
@@ -392,8 +350,6 @@ public abstract class BamActivity extends Activity {
         }
 
         super.finish();
-        if (false == this instanceof MainActivity)
-            overridePendingTransition(animIn, animOut);
     }
 
     /**
@@ -436,5 +392,4 @@ public abstract class BamActivity extends Activity {
     protected void hideIntroduce(View rl_introduce) {
         mWantUtil.hideIntroduce(rl_introduce);
     }
-
 }
