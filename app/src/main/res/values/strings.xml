@@ -85,6 +85,19 @@
         无须透明主题。\n
         详情链接：https://blog.csdn.net/bamboy_/article/details/83863260\n
         \n
+        9、物流卡片\n
+        使用ViewPager+Fragment的实现方式，\n
+        只是给ViewPager增加了Transformer，\n
+        内置三种切换效果：\n
+        \t\t· 层叠(京东)\n
+        \t\t· 缩放\n
+        \t\t· 风车(淘宝)\n
+        三种出场动画：\n
+        \t\t· 逐一\n
+        \t\t· 展开\n
+        \t\t· 旋转\n
+        详情链接：https://blog.csdn.net/bamboy_/article/details/88415267\n
+        \n
         \n
         \n
         CSDN地址：\n

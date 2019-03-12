@@ -74,7 +74,7 @@ Android 8.0禁止非全屏的Activity使用透明主题，
 ![Bamboy右滑关闭](https://img-blog.csdnimg.cn/20181108162141217.gif)  
 详情链接：[Bamboy右滑关闭](https://blog.csdn.net/bamboy_/article/details/83863260) 
 
-### 8、物流卡片
+### 9、物流卡片
 使用ViewPager+Fragment的实现方式，  
 只是给ViewPager增加了Transformer，  
 内置三种切换效果：  
