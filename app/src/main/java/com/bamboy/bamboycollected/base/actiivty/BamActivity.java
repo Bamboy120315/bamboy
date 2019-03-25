@@ -20,6 +20,7 @@ import com.bamboy.bamboycollected.page.freedom.FreedomListActivity;
 import com.bamboy.bamboycollected.page.main.MainActivity;
 import com.bamboy.bamboycollected.page.noun_progress.NounProgressActivity;
 import com.bamboy.bamboycollected.page.toast.ToastActivity;
+import com.bamboy.bamboycollected.page.viewflipper.ViewFlipperActivity;
 import com.bamboy.bamboycollected.utils.UtilBox;
 
 /**
@@ -184,7 +185,7 @@ public abstract class BamActivity extends Activity {
 
         } else if (this instanceof DivideLoadActivity) {
             iv_back.setVisibility(View.VISIBLE);
-            tv_title.setText("分批加载 Demo");
+            tv_title.setText("无感分页 Demo");
             tv_introduce.setText(getString(R.string.introduce_divide_load));
 
         } else if (this instanceof AnimClickActivity) {
@@ -201,6 +202,11 @@ public abstract class BamActivity extends Activity {
             iv_back.setVisibility(View.VISIBLE);
             tv_title.setText("节点进度条 Demo");
             tv_introduce.setText(getString(R.string.introduce_noun_progress));
+
+        } else if (this instanceof ViewFlipperActivity) {
+            iv_back.setVisibility(View.VISIBLE);
+            tv_title.setText("信息滚动 Demo");
+            tv_introduce.setText(getString(R.string.introduce_flipper));
 
         }
     }

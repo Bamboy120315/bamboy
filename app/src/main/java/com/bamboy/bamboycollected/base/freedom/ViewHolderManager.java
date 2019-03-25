@@ -10,6 +10,7 @@ import com.bamboy.bamboycollected.page.bean.FootPromptBean;
 import com.bamboy.bamboycollected.page.bean.FourIconBean;
 import com.bamboy.bamboycollected.page.bean.SingleBtnBean;
 import com.bamboy.bamboycollected.page.bean.SingleImageBean;
+import com.bamboy.bamboycollected.page.bean.TitleBean;
 
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
@@ -43,6 +44,10 @@ public class ViewHolderManager {
      * 条目类型 --> 单个图片
      */
     public static final int ITEM_TYPE_SINGLE_IMAGE = 5;
+    /**
+     * 条目类型 --> 标题
+     */
+    public static final int ITEM_TYPE_TITLE = 6;
 
     /**
      * 条目类型 和 对应的条目XML
@@ -59,6 +64,7 @@ public class ViewHolderManager {
         itemMap.put(ITEM_TYPE_FOOT_PROMPT, FootPromptBean.FootPromptViewHolder.class);
         itemMap.put(ITEM_TYPE_FOUR_ICON, FourIconBean.FourIconViewHolder.class);
         itemMap.put(ITEM_TYPE_SINGLE_IMAGE, SingleImageBean.SingleImageViewHolder.class);
+        itemMap.put(ITEM_TYPE_TITLE, TitleBean.TitleViewHolder.class);
     }
 
     /**

@@ -90,7 +90,15 @@ Android 8.0禁止非全屏的Activity使用透明主题，
 ![物流卡片](https://img-blog.csdnimg.cn/20190312160712140.gif)  
 详情链接：[Bamboy物流卡片](https://blog.csdn.net/bamboy_/article/details/88415267) 
   
-
+  
+### 10、信息滚动ViewFlipperDemo
+类似淘宝、京东、今日头条的信息滚动效果。  
+使用原生控件，  
+性能高，稳定性好，  
+除了最经典的动画外，  
+本人又写了六个效果。  
+![信息滚动](https://img-blog.csdnimg.cn/20190325154153421.gif)  
+详情链接：[Bamboy信息滚动](https://blog.csdn.net/bamboy_/article/details/88793011)   
 
 
 

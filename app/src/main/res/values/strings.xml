@@ -462,4 +462,19 @@
         569614530\n
     </string>
 
+    <!-- 信息滚动介绍 -->
+    <string name="introduce_flipper">
+        \n
+        \n
+        ViewFlipperDemo，\n
+        类似淘宝、京东、今日头条的信息滚动效果。\n
+        使用原生控件，\n
+        性能高，稳定性好，\n
+        除了最经典的动画外，\n
+        本人又写了六个效果。\n
+        \n
+        本Demo的CSDN：\n
+        <a href="https://blog.csdn.net/bamboy_/article/details/88793011">https://blog.csdn.net/bamboy_/article/details/88793011</a>
+    </string>
+
 </resources>

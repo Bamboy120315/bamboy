@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <include layout="@layout/include_title_bar" />
+
+    <RelativeLayout
+        android:id="@+id/rl_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_title">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="向上："
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <ViewFlipper
+                    android:id="@+id/vf_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoStart="true"
+                    android:background="#EEE"
+                    android:flipInterval="3000"
+                    android:inAnimation="@anim/anim_flipper_up_in"
+                    android:outAnimation="@anim/anim_flipper_up_out" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="16dp"
+                    android:text="向上 and 缩放："
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <ViewFlipper
+                    android:id="@+id/vf_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoStart="true"
+                    android:background="#EEE"
+                    android:flipInterval="3000"
+                    android:inAnimation="@anim/anim_flipper_up_scale_in"
+                    android:outAnimation="@anim/anim_flipper_up_scale_out" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="16dp"
+                    android:text="向上 and 层叠："
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <ViewFlipper
+                    android:id="@+id/vf_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoStart="true"
+                    android:background="#EEE"
+                    android:flipInterval="3000"
+                    android:inAnimation="@anim/anim_flipper_up_stack_in"
+                    android:outAnimation="@anim/anim_flipper_up_stack_out" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="16dp"
+                    android:text="风车："
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <ViewFlipper
+                    android:id="@+id/vf_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoStart="true"
+                    android:background="#EEE"
+                    android:flipInterval="3000"
+                    android:inAnimation="@anim/anim_flipper_up_rotate_in"
+                    android:outAnimation="@anim/anim_flipper_up_rotate_out" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="16dp"
+                    android:text="向左："
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <ViewFlipper
+                    android:id="@+id/vf_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoStart="true"
+                    android:background="#EEE"
+                    android:flipInterval="3000"
+                    android:inAnimation="@anim/anim_flipper_left_in"
+                    android:outAnimation="@anim/anim_flipper_left_out" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="16dp"
+                    android:text="向左 and 挤压："
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <ViewFlipper
+                    android:id="@+id/vf_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoStart="true"
+                    android:background="#EEE"
+                    android:flipInterval="3000"
+                    android:inAnimation="@anim/anim_flipper_left_pressing_in"
+                    android:outAnimation="@anim/anim_flipper_left_pressing_out" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="16dp"
+                    android:text="向左 and 缩放："
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <ViewFlipper
+                    android:id="@+id/vf_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoStart="true"
+                    android:background="#EEE"
+                    android:flipInterval="3000"
+                    android:inAnimation="@anim/anim_flipper_left_scale_in"
+                    android:outAnimation="@anim/anim_flipper_left_scale_out" />
+
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+    <include layout="@layout/include_introduce" />
+</RelativeLayout>

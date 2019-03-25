@@ -89,6 +89,11 @@
         <!-- 物流卡片 -->
         <activity android:name=".page.expresscard.ExpressCardActivity"
             android:screenOrientation="portrait" />
+
+        <!-- 物流卡片 -->
+        <activity android:name=".page.viewflipper.ViewFlipperActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

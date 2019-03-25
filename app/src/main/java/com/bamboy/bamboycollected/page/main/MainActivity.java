@@ -12,11 +12,13 @@ import android.view.View;
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.actiivty.BamActivity;
 import com.bamboy.bamboycollected.base.freedom.FreedomAdapter;
+import com.bamboy.bamboycollected.base.freedom.FreedomBean;
 import com.bamboy.bamboycollected.base.freedom.FreedomCallback;
 import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
 import com.bamboy.bamboycollected.page.anim_click.AnimClickActivity;
 import com.bamboy.bamboycollected.page.auto_line.AutoLineActivity;
 import com.bamboy.bamboycollected.page.bean.SingleBtnBean;
+import com.bamboy.bamboycollected.page.bean.TitleBean;
 import com.bamboy.bamboycollected.page.blur.BlurActivity;
 import com.bamboy.bamboycollected.page.divide_load.DivideLoadActivity;
 import com.bamboy.bamboycollected.page.expresscard.ExpressCardActivity;
@@ -25,6 +27,7 @@ import com.bamboy.bamboycollected.page.noun_progress.NounProgressActivity;
 import com.bamboy.bamboycollected.page.slidingshut.SlidingShutActivity;
 import com.bamboy.bamboycollected.page.toast.ToastActivity;
 import com.bamboy.bamboycollected.page.toast.bamtoast.BamToast;
+import com.bamboy.bamboycollected.page.viewflipper.ViewFlipperActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +42,7 @@ import java.util.List;
  */
 public class MainActivity extends BamActivity implements FreedomCallback {
 
-    private List<SingleBtnBean> mList;
+    private List<FreedomBean> mList;
     private FreedomAdapter mAdapter;
     private RecyclerView rv_list;
 
@@ -78,11 +81,17 @@ public class MainActivity extends BamActivity implements FreedomCallback {
     private void initList() {
         mList = new ArrayList<>();
 
-        mList.add(new SingleBtnBean("★★★ 非约束列表 Demo  ", FreedomListActivity.class));
-        mList.add(new SingleBtnBean("【New】物流卡片 Demo", ExpressCardActivity.class));
-        mList.add(new SingleBtnBean("【New】右滑关闭 Demo", SlidingShutActivity.class));
+        mList.add(new TitleBean("最受欢迎Demo："));
+        mList.add(new SingleBtnBean("非约束列表 Demo  ", FreedomListActivity.class));
+        mList.add(new SingleBtnBean("右滑关闭 Demo", SlidingShutActivity.class));
+        mList.add(new SingleBtnBean("无感分页 Demo", DivideLoadActivity.class));
+
+        mList.add(new TitleBean("最新Demo："));
+        mList.add(new SingleBtnBean("信息滚动 Demo", ViewFlipperActivity.class));
+        mList.add(new SingleBtnBean("物流卡片 Demo", ExpressCardActivity.class));
+
+        mList.add(new TitleBean("Bamboy经典："));
         mList.add(new SingleBtnBean("节点进度条 Demo", NounProgressActivity.class));
-        mList.add(new SingleBtnBean("分批加载 Demo", DivideLoadActivity.class));
         mList.add(new SingleBtnBean("高斯模糊 Demo", BlurActivity.class));
         mList.add(new SingleBtnBean("点击动画 Demo", AnimClickActivity.class));
         mList.add(new SingleBtnBean("Toast Demo", ToastActivity.class));
@@ -103,9 +112,12 @@ public class MainActivity extends BamActivity implements FreedomCallback {
      */
     @Override
     public void onClickCallback(View view, int position, ViewHolderManager.ViewHolder holder) {
-        SingleBtnBean bean = mList.get(position);
         switch (view.getId()) {
             case R.id.rl_single:
+                if (false == mList.get(position) instanceof SingleBtnBean) {
+                    break;
+                }
+                SingleBtnBean bean = (SingleBtnBean) mList.get(position);
                 if (bean.getStartClass() != null) {
                     Intent intent = new Intent(MainActivity.this, bean.getStartClass());
                     MainActivity.this.startActivity(intent);
