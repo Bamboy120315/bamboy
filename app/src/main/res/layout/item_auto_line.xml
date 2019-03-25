@@ -12,12 +12,12 @@
     <ImageView
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:src="@drawable/icon_introduce_blue" />
+        android:src="@drawable/icon_android" />
 
     <TextView
         android:id="@+id/tv_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorBlue"
+        android:textColor="@color/colorPrimary"
         android:textSize="14sp" />
 </com.bamboy.bamboycollected.views.clickanimview.BamLinearLayout>

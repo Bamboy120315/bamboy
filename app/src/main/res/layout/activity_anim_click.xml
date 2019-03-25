@@ -30,7 +30,7 @@
                     android:background="@drawable/border"
                     android:padding="30dp"
                     android:text="TextView"
-                    android:textColor="@color/colorBlue"
+                    android:textColor="@color/colorPrimary"
                     android:translationZ="@dimen/button_translation_z" />
 
                 <com.bamboy.bamboycollected.views.clickanimview.BamButton
@@ -100,7 +100,7 @@
                         android:layout_gravity="center_horizontal"
                         android:shadowColor="#FFFFFF"
                         android:text="这是LinearLayout"
-                        android:textColor="@color/colorBlue"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="18sp" />
 
                     <ImageView

@@ -3,7 +3,7 @@
     android:id="@+id/rl_title"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="@color/colorBlue"
+    android:background="@color/colorPrimary"
     android:elevation="1dp"
     android:translationZ="@dimen/title_bar_translation_z">
 

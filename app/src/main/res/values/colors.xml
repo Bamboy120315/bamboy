@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">@color/colorBlue</color>
-    <color name="colorAccent">#08E</color>
+    <color name="colorPrimary">#009E96</color>
+    <color name="colorAccent">#FF51BBB5</color>
 
     <color name="colorWhite">#FFF</color>
     <color name="colorWhite_t8">#8FFF</color>
+    <color name="colorWhite_tA">#AFFF</color>
     <color name="colorWhite_tD">#D8FFFFFF</color>
     <color name="colorBlack">#000</color>
     <color name="colorBlack_t8">#8000</color>

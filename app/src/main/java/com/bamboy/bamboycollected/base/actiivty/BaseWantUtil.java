@@ -130,7 +130,7 @@ public class BaseWantUtil {
             iv_introduce_back.setImageBitmap(bitmap);
             // 将ImageView进行高斯模糊【25是最高模糊等级】【最后一个参数是蒙上一层颜色，此参数可不填】
             // 如果需要更高的模糊程度，可以将此行代码写两遍
-            utils.bitmap.blurImageView(mActivity, iv_introduce_back, 25, mActivity.getResources().getColor(R.color.colorWhite_t8));
+            utils.bitmap.blurImageView(mActivity, iv_introduce_back, 25, mActivity.getResources().getColor(R.color.colorWhite_tA));
         } else {
             // 获取的Bitmap为null时，用半透明代替
             iv_introduce_back.setBackgroundColor(mActivity.getResources().getColor(R.color.colorWhite_tD));

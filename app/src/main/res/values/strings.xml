@@ -28,7 +28,7 @@
     <string name="introduce_main">
         \n
         \n
-        Bamboy Demo 合集\n
+        Bamboy Demo 合集 v2.0\n
         是将Bamboy几乎所有的Demo整合起来\n
         方便朋友们查找Demo\n
         \n
@@ -97,6 +97,14 @@
         \t\t· 展开\n
         \t\t· 旋转\n
         详情链接：https://blog.csdn.net/bamboy_/article/details/88415267\n
+        \n
+        10、信息滚动ViewFlipperDemo\n
+        类似淘宝、京东、今日头条的信息滚动效果。\n
+        使用原生控件，\n
+        性能高，稳定性好，\n
+        除了最经典的动画外，\n
+        本人又写了六个效果。\n
+        详情链接：https://blog.csdn.net/bamboy_/article/details/88793011\n
         \n
         \n
         \n

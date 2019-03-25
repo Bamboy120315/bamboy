@@ -42,7 +42,7 @@
             android:layout_margin="10dp"
             android:autoLink="web"
             android:text="@string/introduce_express_card"
-            android:textColor="@color/colorBlue"
+            android:textColor="@color/colorPrimary"
             android:textIsSelectable="true"
             android:textSize="15sp" />
 

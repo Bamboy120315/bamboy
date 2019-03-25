@@ -11,7 +11,7 @@
         android:id="@+id/iv_introduce_back"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBlue_t" />
+        android:background="@color/colorPrimary" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:autoLink="web"
-                android:textColor="@color/colorBlue"
+                android:textColor="@color/colorPrimary"
                 android:textSize="15sp" />
 
             <TextView
@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:autoLink="web"
-                android:textColor="@color/colorBlue"
+                android:textColor="@color/colorPrimary"
                 android:text="@string/introduce_foot"
                 android:textSize="15sp" />
 
@@ -56,6 +56,6 @@
         android:layout_alignParentRight="true"
         android:padding="12dp"
         android:alpha="0.7"
-        android:src="@drawable/icon_introduce_blue" />
+        android:src="@drawable/icon_android" />
 
 </RelativeLayout>

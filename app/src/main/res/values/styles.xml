@@ -20,7 +20,7 @@
 
     <style name="single_btn_style" parent="@style/btn_style">
         <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:background">@color/colorBlue</item>
+        <item name="android:background">@color/colorPrimary</item>
     </style>
 
     <!-- 与Btn相同演示的Layout里面的文字样式 -->
@@ -58,7 +58,7 @@
     <style name="line_dividing_horizontal">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1px</item>
-        <item name="android:background">@color/colorBlue</item>
+        <item name="android:background">@color/colorPrimary</item>
     </style>
 
 </resources>

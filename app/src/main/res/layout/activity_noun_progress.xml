@@ -21,7 +21,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
-            app:colorFinished="@color/colorBlue"
+            app:colorFinished="@color/colorPrimary"
             app:colorUnfinished="@color/colorGrey"
             app:heightNoun="50"
             app:heightProgress="25"
@@ -40,7 +40,6 @@
         <!-- 直接控制进度条的SeekBar -->
         <SeekBar
             android:id="@+id/sb_progress"
-            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="25dp"
             android:layout_below="@+id/tv_value"
@@ -50,9 +49,7 @@
             android:layout_marginTop="16dp"
             android:max="100"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:progressDrawable="@drawable/seekbar_style"
-            android:thumb="@drawable/seekbar_thumb" />
+            android:paddingRight="10dp" />
 
         <!-- 控制进度条【后退】的按钮 -->
         <com.bamboy.bamboycollected.views.clickanimview.BamButton
