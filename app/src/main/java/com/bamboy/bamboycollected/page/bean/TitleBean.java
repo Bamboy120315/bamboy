@@ -1,6 +1,6 @@
 package com.bamboy.bamboycollected.page.bean;
 
-import android.app.Activity;
+import android.content.Context;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -8,6 +8,7 @@ import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.freedom.FreedomBean;
 import com.bamboy.bamboycollected.base.freedom.ViewHolderBindListener;
 import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
+import com.bamboy.bamboycollected.base.freedom.manager.ManagerBamboy;
 
 import java.util.List;
 
@@ -52,7 +53,7 @@ public class TitleBean extends FreedomBean {
      */
     @Override
     protected void initItemType() {
-        setItemType(ViewHolderManager.ITEM_TYPE_TITLE);
+        setItemType(ManagerBamboy.ITEM_TYPE_TITLE);
     }
 
     /**
@@ -64,7 +65,7 @@ public class TitleBean extends FreedomBean {
     public void initBindView(final List list) {
         setViewHolderBindListener(new ViewHolderBindListener() {
             @Override
-            public void onBindViewHolder(final Activity activity, final ViewHolderManager.ViewHolder viewHolder, final int position) {
+            public void onBindViewHolder(Context context, ViewHolderManager.ViewHolder viewHolder, int position) {
                 TitleViewHolder vh = (TitleViewHolder) viewHolder;
                 final TitleBean bean = (TitleBean) list.get(position);
                 vh.tv_title.setText(bean.getText());

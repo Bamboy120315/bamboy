@@ -5,12 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bamboy.bamboycollected.page.bean.DivideBean;
-import com.bamboy.bamboycollected.page.bean.FootPromptBean;
-import com.bamboy.bamboycollected.page.bean.FourIconBean;
-import com.bamboy.bamboycollected.page.bean.SingleBtnBean;
-import com.bamboy.bamboycollected.page.bean.SingleImageBean;
-import com.bamboy.bamboycollected.page.bean.TitleBean;
+import com.bamboy.bamboycollected.base.freedom.manager.ManagerA;
+import com.bamboy.bamboycollected.base.freedom.manager.ManagerB;
+import com.bamboy.bamboycollected.base.freedom.manager.ManagerBamboy;
+import com.bamboy.bamboycollected.base.freedom.manager.ManagerC;
 
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
@@ -20,34 +18,10 @@ import java.util.Map;
  * ViewHolder的管理类
  * 用于存放ViewHolder的基类
  * 和 条目类型与相对应的Bean类型
- * <p>
+ * <p/>
  * Created by Bamboy on 2017/4/13.
  */
 public class ViewHolderManager {
-    /**
-     * 条目类型 --> 单个的按钮
-     */
-    public static final int ITEM_TYPE_SINGLE_BUTTON = 1;
-    /**
-     * 条目类型 --> 分批加载
-     */
-    public static final int ITEM_TYPE_DIVIDE_LOAD = 2;
-    /**
-     * 条目类型 --> 分批加载底部提示文字
-     */
-    public static final int ITEM_TYPE_FOOT_PROMPT = 3;
-    /**
-     * 条目类型 --> 四个【图标+文字】的按钮
-     */
-    public static final int ITEM_TYPE_FOUR_ICON = 4;
-    /**
-     * 条目类型 --> 单个图片
-     */
-    public static final int ITEM_TYPE_SINGLE_IMAGE = 5;
-    /**
-     * 条目类型 --> 标题
-     */
-    public static final int ITEM_TYPE_TITLE = 6;
 
     /**
      * 条目类型 和 对应的条目XML
@@ -59,12 +33,19 @@ public class ViewHolderManager {
      */
     static {
         itemMap = new HashMap<>();
-        itemMap.put(ITEM_TYPE_SINGLE_BUTTON, SingleBtnBean.SingleBtnViewHolder.class);
-        itemMap.put(ITEM_TYPE_DIVIDE_LOAD, DivideBean.DivideLoadItemViewHolder.class);
-        itemMap.put(ITEM_TYPE_FOOT_PROMPT, FootPromptBean.FootPromptViewHolder.class);
-        itemMap.put(ITEM_TYPE_FOUR_ICON, FourIconBean.FourIconViewHolder.class);
-        itemMap.put(ITEM_TYPE_SINGLE_IMAGE, SingleImageBean.SingleImageViewHolder.class);
-        itemMap.put(ITEM_TYPE_TITLE, TitleBean.TitleViewHolder.class);
+
+        // 添加开发人员Bamboy所创建的item集合
+        itemMap.putAll(ManagerBamboy.getManager().getMap());
+
+        // 添加第一个开发人员所创建的item集合
+        itemMap.putAll(ManagerA.getManager().getMap());
+
+        // 添加第二个开发人员所创建的item集合
+        itemMap.putAll(ManagerB.getManager().getMap());
+
+        // 添加第三个开发人员所创建的item集合
+        itemMap.putAll(ManagerC.getManager().getMap());
+
     }
 
     /**
@@ -103,7 +84,7 @@ public class ViewHolderManager {
 
     /**
      * 获取View
-     * <p>
+     * <p/>
      * Ps：简化createViewHolder里的代码
      *
      * @param viewGroup

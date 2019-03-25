@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 四周带边框的背景白色 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 线条属性 -->
+    <stroke
+        android:width="0.3dp"
+        android:color="@color/colorPrimary" />
+
+    <!-- 背景色 -->
+    <solid android:color="@color/colorWhite" />
+
+</shape>

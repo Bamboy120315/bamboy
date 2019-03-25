@@ -1,14 +1,16 @@
 package com.bamboy.bamboycollected.page.bean;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.freedom.FreedomBean;
-import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
 import com.bamboy.bamboycollected.base.freedom.ViewHolderBindListener;
+import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
+import com.bamboy.bamboycollected.base.freedom.manager.ManagerBamboy;
 
 import java.util.List;
 
@@ -79,7 +81,7 @@ public class FootPromptBean extends FreedomBean {
 
     @Override
     protected void initItemType() {
-        setItemType(ViewHolderManager.ITEM_TYPE_FOOT_PROMPT);
+        setItemType(ManagerBamboy.ITEM_TYPE_FOOT_PROMPT);
     }
 
     /**
@@ -91,7 +93,7 @@ public class FootPromptBean extends FreedomBean {
     protected void initBindView(final List list) {
         setViewHolderBindListener(new ViewHolderBindListener() {
             @Override
-            public void onBindViewHolder(final Activity activity, final ViewHolderManager.ViewHolder viewHolder, final int position) {
+            public void onBindViewHolder(final Context context, final ViewHolderManager.ViewHolder viewHolder, final int position) {
                 FootPromptViewHolder vh = (FootPromptViewHolder) viewHolder;
                 FootPromptBean bean = (FootPromptBean) list.get(position);
 
@@ -100,7 +102,7 @@ public class FootPromptBean extends FreedomBean {
                 vh.tv_foot_prompt.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        getCallback(activity).onClickCallback(v, position, viewHolder);
+                        getCallback(context).onClickCallback(v, position, viewHolder);
                     }
                 });
             }

@@ -1,34 +1,35 @@
 package com.bamboy.bamboycollected.base.freedom;
 
-import android.app.Activity;
-import android.support.v7.widget.GridLayoutManager;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.ViewGroup;
+
+import com.bamboy.bamboycollected.utils.UtilBox;
 
 import java.util.List;
 
 /**
  * RecyclerView的Adapter
- * <p>
+ * <p/>
  * 由于使用插件式列表，
  * 在开发过程中，
  * 本类基本不需要改动
- * <p>
+ * <p/>
  * Created by Bamboy on 2017/4/11.
  */
 public class FreedomAdapter extends RecyclerView.Adapter<ViewHolderManager.ViewHolder> {
+    UtilBox utils = UtilBox.getBox();
 
     private List<FreedomBean> mList;
-    private Activity mActivity;
+    private Context mContext;
 
     /**
      * Adapter 构造
      *
      * @param list
      */
-    public FreedomAdapter(Activity activity, List list) {
-        mActivity = activity;
+    public FreedomAdapter(Context context, List list) {
+        mContext = context;
         mList = list;
     }
 
@@ -39,61 +40,69 @@ public class FreedomAdapter extends RecyclerView.Adapter<ViewHolderManager.ViewH
 
     @Override
     public void onBindViewHolder(ViewHolderManager.ViewHolder viewHolder, int position) {
+        if (utils.want.isNull(mList)) {
+            return;
+        }
+
+        if (position >= mList.size()) {
+            return;
+        }
+
         FreedomBean bean = mList.get(position);
         if (bean.getViewHolderBindListener() == null) {
             bean.initBindView(mList);
         }
-        bean.bindViewHolder(mActivity, viewHolder, position);
+        bean.bindViewHolder(mContext, viewHolder, position);
     }
 
     @Override
     public int getItemCount() {
+        if (utils.want.isNull(mList)) {
+            return 0;
+        }
+
         return mList.size();
     }
 
     @Override
     public int getItemViewType(int position) {
-        return mList.get(position).getItemType();
-    }
-
-    /**
-     * 瀑布流模式
-     *
-     * @param holder
-     */
-    @Override
-    public void onViewAttachedToWindow(ViewHolderManager.ViewHolder holder) {
-        super.onViewAttachedToWindow(holder);
-        // 处理瀑布流模式 最后的 item 占整行
-        if (holder.getLayoutPosition() == getItemCount() - 1) {
-            ViewGroup.LayoutParams lp = holder.itemView.getLayoutParams();
-            if (lp != null && lp instanceof StaggeredGridLayoutManager.LayoutParams) {
-                StaggeredGridLayoutManager.LayoutParams p = (StaggeredGridLayoutManager.LayoutParams) lp;
-                p.setFullSpan(true);
+        int defaultItem = 0;//ManagerA.ITEM_TYPE_DEFALT;
+        try {
+            if (utils.want.isNull(mList)) {
+                return defaultItem;
             }
+
+            if (position >= mList.size()) {
+                return defaultItem;
+            }
+
+            return mList.get(position).getItemType();
+        } catch (Exception e) {
+            utils.want.showException(e);
+            return defaultItem;
+        } catch (Error e) {
+            utils.want.showException(e);
+            return defaultItem;
         }
     }
 
-    /**
-     * 网格布局模式
-     *
-     * @param recyclerView
-     */
-    @Override
-    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
-        // 处理网格布局模式 最后的 item 占整行
-        final RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
-        if (layoutManager instanceof GridLayoutManager) {
-            GridLayoutManager gridManager = ((GridLayoutManager) layoutManager);
-            final GridLayoutManager.SpanSizeLookup spanSizeLookup = gridManager.getSpanSizeLookup();
-            final int lastSpanCount = gridManager.getSpanCount();
-            gridManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-                @Override
-                public int getSpanSize(int position) {
-                    return position == getItemCount() - 1 ? lastSpanCount :
-                            (spanSizeLookup == null ? 1 : spanSizeLookup.getSpanSize(position));
-                }
-            });
+    public int getSpanSize(int spanCount, int position) {
+        try {
+            if (utils.want.isNull(mList)) {
+                return 1;
+            }
+
+            if (position >= mList.size()) {
+                return 1;
+            }
+
+            return mList.get(position).getSpanSize(spanCount);
+        } catch (Exception e) {
+            utils.want.showException(e);
+            return 1;
+        } catch (Error e) {
+            utils.want.showException(e);
+            return 1;
         }
     }
 

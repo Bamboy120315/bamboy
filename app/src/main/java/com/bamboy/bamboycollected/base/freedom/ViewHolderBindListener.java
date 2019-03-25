@@ -1,6 +1,6 @@
 package com.bamboy.bamboycollected.base.freedom;
 
-import android.app.Activity;
+import android.content.Context;
 
 /**
  * 将数据填充到ViewHolder上
@@ -11,9 +11,9 @@ public interface ViewHolderBindListener {
     /**
      * 将数据填充到ViewHolder上
      *
-     * @param activity
+     * @param context
      * @param viewHolder ViewHolder
-     * @param position 索引值
+     * @param position   索引值
      */
-    void onBindViewHolder(Activity activity, ViewHolderManager.ViewHolder viewHolder, int position);
+    void onBindViewHolder(Context context, ViewHolderManager.ViewHolder viewHolder, int position);
 }

@@ -1,6 +1,6 @@
 package com.bamboy.bamboycollected.page.bean;
 
-import android.app.Activity;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -9,8 +9,9 @@ import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.freedom.FreedomBean;
-import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
 import com.bamboy.bamboycollected.base.freedom.ViewHolderBindListener;
+import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
+import com.bamboy.bamboycollected.base.freedom.manager.ManagerBamboy;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class FourIconBean extends FreedomBean {
 
     @Override
     protected void initItemType() {
-        setItemType(ViewHolderManager.ITEM_TYPE_FOUR_ICON);
+        setItemType(ManagerBamboy.ITEM_TYPE_FOUR_ICON);
     }
 
     /**
@@ -41,7 +42,7 @@ public class FourIconBean extends FreedomBean {
     protected void initBindView(List list) {
         setViewHolderBindListener(new ViewHolderBindListener() {
             @Override
-            public void onBindViewHolder(final Activity activity, ViewHolderManager.ViewHolder viewHolder, final int position) {
+            public void onBindViewHolder(final Context context, ViewHolderManager.ViewHolder viewHolder, final int position) {
                 final FourIconViewHolder vh = (FourIconViewHolder) viewHolder;
 
                 /**
@@ -50,7 +51,7 @@ public class FourIconBean extends FreedomBean {
                 View.OnClickListener onClick = new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        getCallback(activity).onClickCallback(v, position, vh);
+                        getCallback(context).onClickCallback(v, position, vh);
                     }
                 };
 
@@ -58,7 +59,6 @@ public class FourIconBean extends FreedomBean {
                 vh.rl_hot.setOnClickListener(onClick);
                 vh.rl_classic.setOnClickListener(onClick);
                 vh.rl_sleep.setOnClickListener(onClick);
-
             }
         });
     }

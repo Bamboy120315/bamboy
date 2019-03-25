@@ -118,6 +118,17 @@ public class UtilWant {
      *
      * @param e
      */
+    public void showException(Error e) {
+        if (BuildConfig.DEBUG) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 打印错误日志【非打包模式下才会打印】
+     *
+     * @param e
+     */
     public void showException(Exception e) {
         if (BuildConfig.DEBUG) {
             e.printStackTrace();

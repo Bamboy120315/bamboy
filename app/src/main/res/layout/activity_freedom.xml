@@ -13,7 +13,7 @@
         android:layout_below="@+id/rl_title">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_freedom"
+            android:id="@+id/recycler"
             style="@style/recycler_style" />
     </RelativeLayout>
 

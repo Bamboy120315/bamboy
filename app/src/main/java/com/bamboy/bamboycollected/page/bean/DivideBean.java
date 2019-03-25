@@ -1,6 +1,6 @@
 package com.bamboy.bamboycollected.page.bean;
 
-import android.app.Activity;
+import android.content.Context;
 import android.text.Html;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,8 +9,9 @@ import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.freedom.FreedomBean;
-import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
 import com.bamboy.bamboycollected.base.freedom.ViewHolderBindListener;
+import com.bamboy.bamboycollected.base.freedom.ViewHolderManager;
+import com.bamboy.bamboycollected.base.freedom.manager.ManagerBamboy;
 
 import java.util.List;
 
@@ -57,7 +58,7 @@ public class DivideBean extends FreedomBean {
 
     @Override
     protected void initItemType() {
-        setItemType(ViewHolderManager.ITEM_TYPE_DIVIDE_LOAD);
+        setItemType(ManagerBamboy.ITEM_TYPE_DIVIDE_LOAD);
     }
 
     /**
@@ -69,7 +70,7 @@ public class DivideBean extends FreedomBean {
     protected void initBindView(final List list) {
         setViewHolderBindListener(new ViewHolderBindListener() {
             @Override
-            public void onBindViewHolder(final Activity activity, ViewHolderManager.ViewHolder viewHolder, final int position) {
+            public void onBindViewHolder(final Context context, ViewHolderManager.ViewHolder viewHolder, final int position) {
                 final DivideLoadItemViewHolder vh = (DivideLoadItemViewHolder) viewHolder;
                 DivideBean bean = (DivideBean) list.get(position);
 
@@ -84,19 +85,19 @@ public class DivideBean extends FreedomBean {
                 switch (bean.getPagination() % 5) {
                     case 1:
                     default:
-                        vh.tv_pagination.setBackgroundColor(activity.getResources().getColor(R.color.colorBlue));
+                        vh.tv_pagination.setBackgroundColor(context.getResources().getColor(R.color.colorBlue));
                         break;
                     case 2:
-                        vh.tv_pagination.setBackgroundColor(activity.getResources().getColor(R.color.colorBrownDark));
+                        vh.tv_pagination.setBackgroundColor(context.getResources().getColor(R.color.colorBrownDark));
                         break;
                     case 3:
-                        vh.tv_pagination.setBackgroundColor(activity.getResources().getColor(R.color.colorOrange));
+                        vh.tv_pagination.setBackgroundColor(context.getResources().getColor(R.color.colorOrange));
                         break;
                     case 4:
-                        vh.tv_pagination.setBackgroundColor(activity.getResources().getColor(R.color.colorGreenTeg));
+                        vh.tv_pagination.setBackgroundColor(context.getResources().getColor(R.color.colorGreenTeg));
                         break;
                     case 0:
-                        vh.tv_pagination.setBackgroundColor(activity.getResources().getColor(R.color.colorRed));
+                        vh.tv_pagination.setBackgroundColor(context.getResources().getColor(R.color.colorRed));
                         break;
                 }
 
@@ -106,7 +107,7 @@ public class DivideBean extends FreedomBean {
                 vh.rl_root.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        getCallback(activity).onClickCallback(v, position, vh);
+                        getCallback(context).onClickCallback(v, position, vh);
                     }
                 });
             }

@@ -1,8 +1,7 @@
 package com.bamboy.bamboycollected.base.freedom;
 
-import android.app.Activity;
-
-import com.bamboy.bamboycollected.utils.UtilBox;
+import android.content.Context;
+import android.util.Log;
 
 import java.util.List;
 
@@ -40,6 +39,15 @@ public abstract class FreedomBean {
         this.itemType = itemType;
     }
 
+    /**
+     * 当前条目占屏幕的几分之一
+     * @param spanCount 分割总数
+     * @return
+     */
+    public int getSpanSize(int spanCount) {
+        return spanCount / 1;
+    }
+
     public ViewHolderBindListener getViewHolderBindListener() {
         return viewHolderBindListener;
     }
@@ -48,21 +56,21 @@ public abstract class FreedomBean {
         this.viewHolderBindListener = viewHolderBindListener;
     }
 
-    public FreedomCallback getCallback(Activity activity) {
+    public FreedomCallback getCallback(Context context) {
         FreedomCallback callback = null;
-        if (activity instanceof FreedomCallback) {
-            callback = (FreedomCallback) activity;
+        if (context instanceof FreedomCallback) {
+            callback = (FreedomCallback) context;
         } else {
-            UtilBox.getBox().log.e("Activity:[" + activity.getClass() + "]未实现【FreedomCallback】接口！\n" +
+            Log.e("FreedomError","Activity:[" + context.getClass() + "]未实现【FreedomCallback】接口！\n" +
                     "java.lang.NullPointerException:\n" +
-                    "\t[" + activity.getClass() + "]未实现【FreedomCallback】接口！\n");
+                    "\t[" + context.getClass() + "]未实现【FreedomCallback】接口！\n");
         }
         return callback;
     }
 
-    public void bindViewHolder(Activity activity, ViewHolderManager.ViewHolder viewHolder, int position) {
+    public void bindViewHolder(Context context, ViewHolderManager.ViewHolder viewHolder, int position) {
         if (viewHolderBindListener != null) {
-            viewHolderBindListener.onBindViewHolder(activity, viewHolder, position);
+            viewHolderBindListener.onBindViewHolder(context, viewHolder, position);
         }
     }
 
