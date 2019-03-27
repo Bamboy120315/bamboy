@@ -10,8 +10,10 @@ Bamboy Demo 合集
 ### 1、非约束列表（近期会更新）  
 插件化RecyclerView，  
 又称万能适配器。  
-近期会更新，  
-更好的兼容单列与多列混合的情况。
+  
+v2.0 更新：  
+- 支持团队开发  
+- 支持单列多列混合模式
   
 ![Bamboy非约束列表](https://img-blog.csdn.net/20170512150002689?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYmFtYm95Xw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)  
 详情链接：[Bamboy非约束列表](https://blog.csdn.net/bamboy_/article/details/71727461)  

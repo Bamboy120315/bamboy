@@ -1,8 +1,12 @@
 package com.bamboy.bamboycollected.page.expresscard;
 
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.view.animation.OvershootInterpolator;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.actiivty.BamFragmentActivity;
@@ -86,6 +90,8 @@ public class ExpressCardActivity extends BamFragmentActivity implements View.OnC
         int offscreen = mTransformer.setTransformerType(CardTransformer.ANIM_TYPE_STACK);
         // 设置ViewPager的预加载数量
         vp_card.setOffscreenPageLimit(offscreen);
+
+        initBtn();
     }
 
 
@@ -185,6 +191,168 @@ public class ExpressCardActivity extends BamFragmentActivity implements View.OnC
             CardFragment fragment4 = new CardFragment();
             fragment4.setExpress(express4);
             mList.add(fragment4);
+        }
+    }
+
+    // =============================================================================================
+    // =========================== 以下是按钮显示动画相关，与本Demo无关 ================================
+    // =============================================================================================
+
+    /**
+     * 出场效果按钮容器
+     */
+    private RelativeLayout rl_show_card;
+    /**
+     * 出场效果按钮容器中的箭头
+     */
+    private ImageView iv_show_card_arrow;
+    /**
+     * 切换效果按钮容器
+     */
+    private RelativeLayout rl_change;
+    /**
+     * 切换效果按钮容器中的箭头
+     */
+    private ImageView iv_change_arrow;
+
+    /**
+     * 初始化按钮
+     */
+    private void initBtn() {
+        rl_show_card = findViewById(R.id.rl_show_card);
+        iv_show_card_arrow = findViewById(R.id.iv_show_card_arrow);
+        rl_change = findViewById(R.id.rl_change);
+        iv_change_arrow = findViewById(R.id.iv_change_arrow);
+
+        // 点击事件
+        rl_show_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 改变显示状态
+                changeBtnsShowType(rl_show_card, iv_show_card_arrow);
+            }
+        });
+        // 点击事件
+        rl_change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 改变显示状态
+                changeBtnsShowType(rl_change, iv_change_arrow);
+            }
+        });
+
+        // 隐藏按钮
+        rl_show_card.post(new Runnable() {
+            @Override
+            public void run() {
+                iv_show_card_arrow.setRotation(180);
+                hideBtns(rl_show_card, iv_show_card_arrow, 500);
+            }
+        });
+
+        // 隐藏按钮
+        rl_change.post(new Runnable() {
+            @Override
+            public void run() {
+                iv_change_arrow.setRotation(180);
+                hideBtns(rl_change, iv_change_arrow, 540);
+            }
+        });
+    }
+
+    /**
+     * 改变显示状态
+     *
+     * @param rl
+     * @param arrow
+     */
+    private void changeBtnsShowType(RelativeLayout rl, ImageView arrow) {
+        if (rl == null) {
+            return;
+        }
+
+        float ty = rl.getTranslationY();
+
+        if (ty == 0) {
+            hideBtns(rl, arrow);
+        } else {
+            showBtns(rl, arrow);
+        }
+    }
+
+    /**
+     * 显示按钮
+     *
+     * @param rl
+     * @param arrow
+     */
+    private void showBtns(RelativeLayout rl, ImageView arrow) {
+        ObjectAnimator animTy = ObjectAnimator.ofFloat(
+                rl,
+                "translationY",
+                rl.getTranslationY(),
+                0);
+        animTy.setDuration(500);
+        animTy.setInterpolator(new OvershootInterpolator(1.5f));
+        animTy.start();
+
+        if (arrow != null) {
+            ObjectAnimator animRotation = ObjectAnimator.ofFloat(
+                    arrow,
+                    "rotation",
+                    arrow.getRotation(),
+                    180);
+            animRotation.setDuration(500);
+            animRotation.setInterpolator(new OvershootInterpolator(1.5f));
+            animRotation.start();
+        }
+    }
+
+    /**
+     * 隐藏按钮
+     *
+     * @param rl
+     * @param arrow
+     */
+    private void hideBtns(RelativeLayout rl, ImageView arrow) {
+        hideBtns(rl, arrow, 0);
+    }
+
+    /**
+     * 隐藏按钮
+     *
+     * @param rl
+     * @param arrow
+     * @param startDelay 延迟时间
+     */
+    private void hideBtns(RelativeLayout rl, ImageView arrow, int startDelay) {
+
+        int arrowHeight = 0;
+        if (arrow != null) {
+            arrowHeight = arrow.getHeight();
+        }
+        int ty = rl.getHeight() - arrowHeight - rl.getPaddingTop();
+
+        ObjectAnimator animTy = ObjectAnimator.ofFloat(
+                rl,
+                "translationY",
+                rl.getTranslationY(),
+                ty);
+        animTy.setStartDelay(startDelay);
+        animTy.setDuration(500);
+        animTy.setInterpolator(new OvershootInterpolator(1.5f));
+        animTy.start();
+
+        if (arrow != null) {
+            ObjectAnimator animRotation = ObjectAnimator.ofFloat(
+                    arrow,
+                    "rotation",
+                    arrow.getRotation(),
+                    0);
+            animRotation.setStartDelay(startDelay);
+            animRotation.setDuration(500);
+            animRotation.setInterpolator(new OvershootInterpolator(1.5f));
+            animRotation.start();
         }
     }
 

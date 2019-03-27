@@ -11,141 +11,156 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/rl_title">
 
-        <ScrollView
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_card"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="40dp"
+            android:clipChildren="true"
+            android:overScrollMode="never" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/ll_console"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
 
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/vp_card"
-                    android:layout_width="match_parent"
-                    android:layout_height="470dp"
-                    android:clipChildren="true"
-                    android:overScrollMode="never" />
+            <com.bamboy.bamboycollected.views.clickanimview.BamRelativeLayout
+                android:id="@+id/rl_show_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:background="@color/colorWhite_tD"
+                android:padding="10dp"
+                android:translationZ="@dimen/item_translation_z">
 
-                <LinearLayout
-                    android:id="@+id/ll_console"
+                <TextView
+                    android:id="@+id/tv_show_card_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="出场效果："
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/iv_show_card_arrow"
+                    android:layout_width="18dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/tv_show_card_title"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/tv_show_card_title"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_arrow_up" />
+
+                <com.bamboy.bamboycollected.views.clickanimview.BamButton
+                    android:id="@+id/btn_show_card_inproperorder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/vp_card"
-                    android:orientation="horizontal">
+                    android:layout_below="@+id/tv_show_card_title"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="2dp"
+                    android:text="逐一效果"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp" />
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                <com.bamboy.bamboycollected.views.clickanimview.BamButton
+                    android:id="@+id/btn_show_card_unfold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btn_show_card_inproperorder"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorPrimary"
+                    android:text="展开效果"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="14dp"
-                            android:text="出场效果："
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="14sp" />
+                <com.bamboy.bamboycollected.views.clickanimview.BamButton
+                    android:id="@+id/btn_show_card_rotation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btn_show_card_unfold"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorPrimary"
+                    android:text="旋转效果"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp" />
 
-                        <com.bamboy.bamboycollected.views.clickanimview.BamButton
-                            android:id="@+id/btn_show_card_inproperorder"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/btn_show_card"
-                            android:padding="2dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@color/colorPrimary"
-                            android:text="逐一效果"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="14sp" />
+            </com.bamboy.bamboycollected.views.clickanimview.BamRelativeLayout>
 
-                        <com.bamboy.bamboycollected.views.clickanimview.BamButton
-                            android:id="@+id/btn_show_card_unfold"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/btn_show_card_stack"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@color/colorPrimary"
-                            android:text="展开效果"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="14sp" />
+            <com.bamboy.bamboycollected.views.clickanimview.BamRelativeLayout
+                android:id="@+id/rl_change"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:background="@color/colorWhite_tD"
+                android:padding="10dp"
+                android:translationZ="@dimen/item_translation_z">
 
-                        <com.bamboy.bamboycollected.views.clickanimview.BamButton
-                            android:id="@+id/btn_show_card_rotation"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@color/colorPrimary"
-                            android:text="旋转效果"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/tv_change_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="切换效果："
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
 
-                    </LinearLayout>
+                <ImageView
+                    android:id="@+id/iv_change_arrow"
+                    android:layout_width="18dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/tv_change_title"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/tv_change_title"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_arrow_up" />
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                <com.bamboy.bamboycollected.views.clickanimview.BamButton
+                    android:id="@+id/btn_change_stack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_change_title"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorPrimary"
+                    android:text="层叠效果"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="14dp"
-                            android:text="切换效果："
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="14sp" />
+                <com.bamboy.bamboycollected.views.clickanimview.BamButton
+                    android:id="@+id/btn_change_scale"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btn_change_stack"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorPrimary"
+                    android:text="缩放效果"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp" />
 
-                        <com.bamboy.bamboycollected.views.clickanimview.BamButton
-                            android:id="@+id/btn_change_stack"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@color/colorPrimary"
-                            android:text="层叠效果"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="14sp" />
+                <com.bamboy.bamboycollected.views.clickanimview.BamButton
+                    android:id="@+id/btn_change_windmill"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btn_change_scale"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorPrimary"
+                    android:text="风车效果"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp" />
 
-                        <com.bamboy.bamboycollected.views.clickanimview.BamButton
-                            android:id="@+id/btn_change_scale"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/btn_show_card"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@color/colorPrimary"
-                            android:text="缩放效果"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="14sp" />
+            </com.bamboy.bamboycollected.views.clickanimview.BamRelativeLayout>
 
-                        <com.bamboy.bamboycollected.views.clickanimview.BamButton
-                            android:id="@+id/btn_change_windmill"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/btn_show_card_stack"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@color/colorPrimary"
-                            android:text="风车效果"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="14sp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </RelativeLayout>
-        </ScrollView>
+        </LinearLayout>
     </RelativeLayout>
 
 </RelativeLayout>
