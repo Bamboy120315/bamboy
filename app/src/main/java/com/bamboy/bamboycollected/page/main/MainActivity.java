@@ -23,7 +23,7 @@ import com.bamboy.bamboycollected.page.blur.BlurActivity;
 import com.bamboy.bamboycollected.page.divide_load.DivideLoadActivity;
 import com.bamboy.bamboycollected.page.expresscard.ExpressCardActivity;
 import com.bamboy.bamboycollected.page.freedom.FreedomListActivity;
-import com.bamboy.bamboycollected.page.noun_progress.NounProgressActivity;
+import com.bamboy.bamboycollected.page.progress.ProgressActivity;
 import com.bamboy.bamboycollected.page.slidingshut.SlidingShutActivity;
 import com.bamboy.bamboycollected.page.toast.ToastActivity;
 import com.bamboy.bamboycollected.page.toast.bamtoast.BamToast;
@@ -87,11 +87,11 @@ public class MainActivity extends BamActivity implements FreedomCallback {
         mList.add(new SingleBtnBean("无感分页 Demo", DivideLoadActivity.class));
 
         mList.add(new TitleBean("最新Demo："));
+        mList.add(new SingleBtnBean("进度条 Demo", ProgressActivity.class));
         mList.add(new SingleBtnBean("信息滚动 Demo", ViewFlipperActivity.class));
         mList.add(new SingleBtnBean("物流卡片 Demo", ExpressCardActivity.class));
 
         mList.add(new TitleBean("Bamboy经典："));
-        mList.add(new SingleBtnBean("节点进度条 Demo", NounProgressActivity.class));
         mList.add(new SingleBtnBean("高斯模糊 Demo", BlurActivity.class));
         mList.add(new SingleBtnBean("点击动画 Demo", AnimClickActivity.class));
         mList.add(new SingleBtnBean("Toast Demo", ToastActivity.class));

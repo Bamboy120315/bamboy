@@ -49,7 +49,7 @@
                     android:layout_centerHorizontal="true"
                     android:background="@color/colorWhite"
                     android:scaleType="fitXY"
-                    android:src="@drawable/picture"
+                    android:src="@drawable/picture_b"
                     android:translationZ="@dimen/button_translation_z" />
 
                 <com.bamboy.bamboycollected.views.clickanimview.BamRelativeLayout
@@ -68,7 +68,7 @@
                         android:layout_centerHorizontal="true"
                         android:background="#FFFFFF"
                         android:scaleType="fitXY"
-                        android:src="@drawable/picture" />
+                        android:src="@drawable/picture_b" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -109,7 +109,7 @@
                         android:layout_centerInParent="true"
                         android:background="#FFFFFF"
                         android:scaleType="fitXY"
-                        android:src="@drawable/picture" />
+                        android:src="@drawable/picture_b" />
 
                 </com.bamboy.bamboycollected.views.clickanimview.BamLinearLayout>
 

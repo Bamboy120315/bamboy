@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/include_title_bar" />
+
+    <RelativeLayout
+        android:id="@+id/rl_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_title"
+        android:padding="16dp">
+
+        <!-- 节点进度条 -->
+        <com.bamboy.bamboycollected.page.progress.progress.NounProgressBar
+            android:id="@+id/noun_progress"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            app:colorFinished="@color/colorPrimary"
+            app:colorUnfinished="@color/colorGrey"
+            app:lineHeight="25px"
+            app:nounCount="5"
+            app:nounHeight="50"
+            app:progress="43"
+            app:progressMax="100" />
+
+        <!-- 进度条监听指示文字 -->
+        <TextView
+            android:id="@+id/tv_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/noun_progress"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
+
+        <!-- 直接控制进度条的SeekBar -->
+        <SeekBar
+            android:id="@+id/sb_progress"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/tv_value"
+            android:layout_marginTop="10dp"
+            android:max="100"
+            android:progress="43" />
+
+        <LinearLayout
+            android:id="@+id/ll_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sb_progress"
+            android:layout_marginTop="10dp">
+
+            <!-- 控制进度条【后退】的按钮 -->
+            <com.bamboy.bamboycollected.views.clickanimview.BamButton
+                android:id="@+id/btn_retreat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:padding="5dp"
+                android:text="后退"
+                android:textColor="@color/colorWhite" />
+
+            <!-- 控制进度条【前进】的按钮 -->
+            <com.bamboy.bamboycollected.views.clickanimview.BamButton
+                android:id="@+id/btn_advance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:padding="5dp"
+                android:text="前进"
+                android:textColor="@color/colorWhite" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_btn"
+            android:layout_margin="10dp"
+            android:text="@string/progress_introduce_noun"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp" />
+    </RelativeLayout>
+</RelativeLayout>

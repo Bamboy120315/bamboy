@@ -1,4 +1,6 @@
-package com.bamboy.bamboycollected.page.noun_progress;
+package com.bamboy.bamboycollected.page.progress.progress;
+
+import com.bamboy.bamboycollected.page.progress.progress.BaseProgress;
 
 /**
  * 进度改变时的监听
@@ -13,5 +15,5 @@ public interface OnProgressListener {
      * @param progressBar
      * @param progress
      */
-    void onProgress(NounProgressBar progressBar, int progress);
+    void onProgress(BaseProgress progressBar, int progress);
 }

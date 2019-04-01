@@ -1,4 +1,4 @@
-package com.bamboy.bamboycollected.page.noun_progress;
+package com.bamboy.bamboycollected.page.progress;
 
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
@@ -9,9 +9,11 @@ import android.widget.TextView;
 
 import com.bamboy.bamboycollected.R;
 import com.bamboy.bamboycollected.base.actiivty.BamActivity;
+import com.bamboy.bamboycollected.page.progress.progress.BaseProgress;
+import com.bamboy.bamboycollected.page.progress.progress.NounProgressBar;
+import com.bamboy.bamboycollected.page.progress.progress.OnProgressListener;
 
-public class NounProgressActivity extends BamActivity {
-
+public class ActNoun extends BamActivity {
     /**
      * 节点进度条
      */
@@ -36,7 +38,7 @@ public class NounProgressActivity extends BamActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_noun_progress);
+        setContentView(R.layout.activity_p_noun);
     }
 
     @Override
@@ -50,11 +52,10 @@ public class NounProgressActivity extends BamActivity {
 
     @Override
     protected void setListener() {
-
         // 设置进度条的监听器
         noun_progress.setProgressListener(new OnProgressListener() {
             @Override
-            public void onProgress(NounProgressBar progressBar, int progress) {
+            public void onProgress(BaseProgress progressBar, int progress) {
                 // 显示进度
                 tv_value.setText("监听：" + progress + "/" + progressBar.getProgressMax());
             }
@@ -87,7 +88,7 @@ public class NounProgressActivity extends BamActivity {
                             noun_progress,
                             "progress",
                             noun_progress.getProgress(),
-                            noun_progress.getProgress() - 23)
+                            noun_progress.getProgress() - 29)
                             .setDuration(250)
                             .start();
                 }
@@ -105,17 +106,17 @@ public class NounProgressActivity extends BamActivity {
                                     noun_progress,
                                     "progress",
                                     noun_progress.getProgress(),
-                                    noun_progress.getProgress() + 23)
+                                    noun_progress.getProgress() + 29)
                             .setDuration(250)
                             .start();
                 }
             }
         });
-
     }
 
     @Override
     protected void init() {
-
+        tv_title.setText("节点进度条Demo");
+        iv_introduce.setVisibility(View.GONE);
     }
 }

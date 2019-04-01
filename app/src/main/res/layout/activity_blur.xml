@@ -29,7 +29,7 @@
                     style="@style/view_style"
                     android:layout_height="210dp"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/picture" />
+                    android:src="@drawable/picture_b" />
 
                 <com.bamboy.bamboycollected.views.clickanimview.BamButton
                     android:id="@+id/btn_blur_img"

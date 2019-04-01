@@ -18,7 +18,7 @@ import com.bamboy.bamboycollected.page.blur.BlurActivity;
 import com.bamboy.bamboycollected.page.divide_load.DivideLoadActivity;
 import com.bamboy.bamboycollected.page.freedom.FreedomListActivity;
 import com.bamboy.bamboycollected.page.main.MainActivity;
-import com.bamboy.bamboycollected.page.noun_progress.NounProgressActivity;
+import com.bamboy.bamboycollected.page.progress.ProgressActivity;
 import com.bamboy.bamboycollected.page.toast.ToastActivity;
 import com.bamboy.bamboycollected.page.viewflipper.ViewFlipperActivity;
 import com.bamboy.bamboycollected.utils.UtilBox;
@@ -166,7 +166,7 @@ public abstract class BamActivity extends Activity {
         if (this instanceof MainActivity) {
             iv_back.setVisibility(View.GONE);
             tv_title.setText("Bamboy合集");
-            tv_introduce.setText(getString(R.string.introduce_main));
+            tv_introduce.setText("\n\nBamboy Demo 合集 v" + utils.want.getVersion(this) + "，\n" + getString(R.string.introduce_main));
 
         } else if (this instanceof ToastActivity) {
             iv_back.setVisibility(View.VISIBLE);
@@ -198,9 +198,9 @@ public abstract class BamActivity extends Activity {
             tv_title.setText("非约束列表 Demo");
             tv_introduce.setText(getString(R.string.introduce_freedom));
 
-        } else if (this instanceof NounProgressActivity) {
+        } else if (this instanceof ProgressActivity) {
             iv_back.setVisibility(View.VISIBLE);
-            tv_title.setText("节点进度条 Demo");
+            tv_title.setText("进度条 Demo");
             tv_introduce.setText(getString(R.string.introduce_noun_progress));
 
         } else if (this instanceof ViewFlipperActivity) {

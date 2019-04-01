@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <include layout="@layout/include_title_bar" />
+
+    <RelativeLayout
+        android:id="@+id/rl_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_title">
+
+        <!-- 节点进度条 -->
+        <com.bamboy.bamboycollected.views.clickanimview.BamButton
+            android:id="@+id/btn_noun"
+            style="@style/single_btn_style"
+            android:text="节点进度条" />
+
+        <!-- 圆形进度条 -->
+        <com.bamboy.bamboycollected.views.clickanimview.BamButton
+            android:id="@+id/btn_slope"
+            style="@style/single_btn_style"
+            android:layout_below="@+id/btn_noun"
+            android:text="圆形进度条" />
+
+        <!-- 移动数字进度条 -->
+        <com.bamboy.bamboycollected.views.clickanimview.BamButton
+            android:id="@+id/btn_movenumber"
+            style="@style/single_btn_style"
+            android:layout_below="@+id/btn_slope"
+            android:text="移动数字进度条" />
+
+        <!-- 后续更新 -->
+        <com.bamboy.bamboycollected.views.clickanimview.BamButton
+            android:id="@+id/btn_update"
+            style="@style/single_btn_style"
+            android:layout_below="@+id/btn_movenumber"
+            android:text="后续更新…" />
+
+    </RelativeLayout>
+
+    <include layout="@layout/include_introduce" />
+
+</RelativeLayout>

@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.app.NotificationManagerCompat;
 import android.view.inputmethod.InputMethodManager;
@@ -177,6 +179,23 @@ public class UtilWant {
             }
         } else {
             return true;
+        }
+    }
+
+    /**
+     * 获取当前版本号
+     *
+     * @return 版本号
+     */
+    public String getVersion(Context context) {
+        try {
+            PackageManager manager = context.getPackageManager();
+            PackageInfo info = manager.getPackageInfo(context.getPackageName(), 0);
+            String version = info.versionName;
+            return version;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
         }
     }
 }

@@ -1,22 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <attr name="progress" format="integer" />
+    <attr name="progressMax" format="integer" />
+    <!-- 线的高度 默认值 25 -->
+    <attr name="lineHeight" format="dimension" />
+    <!-- 完成的进度条的颜色 默认值 0xFF009E96 -->
+    <attr name="colorFinished" format="color" />
+    <!-- 未完成的进度条的颜色 默认值 0xFFDDDDDD -->
+    <attr name="colorUnfinished" format="color" />
+
+    <!-- ================================= 以下是 节点进度条 属性 ================================= -->
+    <!-- 节点进度条-->
     <declare-styleable name="NounProgressBar">
-        <!-- 节点数量 -->
+        <!-- 节点数量 默认值 5-->
         <attr name="nounCount" format="integer" />
 
-        <!-- 节点高度 -->
-        <attr name="heightNoun" format="integer" />
+        <!-- 节点高度 默认值 50 -->
+        <attr name="nounHeight" format="integer" />
 
-        <!-- 线的高度 -->
-        <attr name="heightProgress" format="integer" />
+        <!-- 线的高度 默认值 25 -->
+        <attr name="lineHeight"/>
 
-        <!-- 进度的最大值 -->
-        <attr name="progressMax" format="integer" />
+        <!-- 进度的最大值 默认值 0 -->
+        <attr name="progress" />
 
-        <!-- 完成的进度条的颜色 -->
-        <attr name="colorFinished" format="color" />
+        <!-- 进度的最大值 默认值 100 -->
+        <attr name="progressMax" />
 
-        <!-- 未完成的进度条的颜色 -->
-        <attr name="colorUnfinished" format="color" />
+        <!-- 完成的进度条的颜色 默认值 0xFF009E96 -->
+        <attr name="colorFinished"/>
+
+        <!-- 未完成的进度条的颜色 默认值 0xFFDDDDDD -->
+        <attr name="colorUnfinished"/>
+    </declare-styleable>
+
+    <!-- ================================= 以下是 圆环进度条 属性 ================================= -->
+    <!-- 圆环进度条-->
+    <declare-styleable name="SlopeProgressBar">
+
+        <!-- 线的粗细 默认值 auto -->
+        <attr name="lineWidth" format="dimension" />
+
+        <!-- 进度的最大值 默认值 0 -->
+        <attr name="progress" />
+
+        <!-- 进度的最大值 默认值 100 -->
+        <attr name="progressMax" />
+
+        <!-- 进度条颜色 默认值 0xFF009E96 -->
+        <attr name="color" format="color" />
+
+        <!-- 圆圈内的图片类型 默认值 null -->
+        <attr name="imgType">
+            <!-- 没有图片 -->
+            <enum name="not" value="0" />
+            <!-- 对号 -->
+            <enum name="success" value="1" />
+            <!-- 叉号 -->
+            <enum name="error" value="2" />
+            <!-- 进度 -->
+            <enum name="progress" value="3" />
+            <!-- 自定义图片 -->
+            <enum name="picture" value="4" />
+        </attr>
+
+        <!-- 圆圈内的图片资源 默认值 null -->
+        <attr name="pictureSrc" format="reference" />
+
+        <!-- 圆圈内的图片与圈的间距 默认值 auto(lineWidth的三分之一) -->
+        <attr name="pictureMargin" format="integer" />
+
+    </declare-styleable>
+
+    <!-- =============================== 以下是 移动数字进度条 属性 =============================== -->
+    <!-- 移动数字进度条-->
+    <declare-styleable name="MoveNumberProgressBar">
+
+        <!-- 线的高度 默认值 2 -->
+        <attr name="lineHeight" />
+
+        <!-- 进度的最大值 默认值 0 -->
+        <attr name="progress" />
+
+        <!-- 进度的最大值 默认值 100 -->
+        <attr name="progressMax" />
+
+        <!-- 完成的进度条的颜色 默认值 0xFF009E96 -->
+        <attr name="colorFinished" />
+
+        <!-- 未完成的进度条的颜色 默认值 0xFFDDDDDD -->
+        <attr name="colorUnfinished" />
+
+        <!-- 数字大小 默认值 10sp -->
+        <attr name="textSize" format="dimension" />
+
     </declare-styleable>
 </resources>

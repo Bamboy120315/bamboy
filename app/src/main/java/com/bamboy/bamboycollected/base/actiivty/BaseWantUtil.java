@@ -55,7 +55,7 @@ public class BaseWantUtil {
      * @param topView
      */
     public void setImmerseTitleBar(final View topView) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT || topView == null) {
             return;
         }
         // 去掉根布局顶部的状态栏高度间距

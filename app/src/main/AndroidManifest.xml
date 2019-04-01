@@ -75,8 +75,10 @@
             android:screenOrientation="portrait" />
 
         <!-- 节点进度条页 -->
-        <activity android:name=".page.noun_progress.NounProgressActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name=".page.progress.ProgressActivity" android:screenOrientation="portrait" />
+        <activity android:name=".page.progress.ActNoun" android:screenOrientation="portrait" />
+        <activity android:name=".page.progress.ActSlope" android:screenOrientation="portrait" />
+        <activity android:name=".page.progress.ActMoveNumber" android:screenOrientation="portrait" />
 
         <!-- 右滑关闭 -->
         <activity android:name=".page.slidingshut.SlidingShutActivity" />

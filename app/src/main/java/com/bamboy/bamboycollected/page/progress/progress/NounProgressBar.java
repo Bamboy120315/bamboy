@@ -1,26 +1,20 @@
-package com.bamboy.bamboycollected.page.noun_progress;
+package com.bamboy.bamboycollected.page.progress.progress;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.view.View;
 
 import com.bamboy.bamboycollected.R;
+import com.bamboy.bamboycollected.page.progress.progress.BaseProgress;
 
 /**
- * Created by Bamboy on 2018/4/3.
+ * Created by Bamboy on 2019/2/20.
  */
-public class NounProgressBar extends View {
-
-    /**
-     * 进度改变时的监听
-     */
-    private OnProgressListener mListener;
+public class NounProgressBar extends BaseProgress {
 
     /**
      * View宽度
@@ -31,27 +25,18 @@ public class NounProgressBar extends View {
      */
     private int mViewHeight;
     /**
-     * 顶部间距，用户竖直居中
+     * 顶部间距，用于竖直居中
      */
-    private int mTopPadding;
+    private float mTopPadding;
 
     /**
      * 进度条的长度
      */
-    private int mProgressLenth;
+    private float mProgressLenth;
     /**
      * 进度条绿色部分的长度
      */
     private int mFinishedLenth;
-
-    /**
-     * 当前进度
-     */
-    private int progress;
-    /**
-     * 总进度
-     */
-    private int mProgressMax;
 
     /**
      * 节点数
@@ -60,11 +45,11 @@ public class NounProgressBar extends View {
     /**
      * 节点高度
      */
-    private int mNounHeight;
+    private float mNounHeight;
     /**
      * 进度条高度
      */
-    private int mProgressHeight;
+    private float mProgressHeight;
 
     /**
      * 完成的进度条的颜色
@@ -97,18 +82,19 @@ public class NounProgressBar extends View {
             mNounHeight = 50;
             mProgressHeight = 25;
             mProgressMax = 100;
-            mFinishedColor = 0xFF2BBC69;
+            mFinishedColor = 0xFF009E96;
             mUnfinishedColor = 0xFFDDDDDD;
             return;
         }
 
         // -------------------- 获取自定义属性 --------------------
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.NounProgressBar);
-        mNounCount = typedArray.getInteger(R.styleable.NounProgressBar_nounCount, 5);
-        mNounHeight = typedArray.getInteger(R.styleable.NounProgressBar_heightNoun, 50);
-        mProgressHeight = typedArray.getInteger(R.styleable.NounProgressBar_heightProgress, 25);
+        progress = typedArray.getInteger(R.styleable.NounProgressBar_progress, 0);
         mProgressMax = typedArray.getInteger(R.styleable.NounProgressBar_progressMax, 100);
-        mFinishedColor = typedArray.getColor(R.styleable.NounProgressBar_colorFinished, 0xFF2BBC69);
+        mNounCount = typedArray.getInteger(R.styleable.NounProgressBar_nounCount, 5);
+        mNounHeight = typedArray.getInteger(R.styleable.NounProgressBar_nounHeight, 50);
+        mProgressHeight = typedArray.getDimension(R.styleable.NounProgressBar_lineHeight, 25);
+        mFinishedColor = typedArray.getColor(R.styleable.NounProgressBar_colorFinished, 0xFF009E96);
         mUnfinishedColor = typedArray.getColor(R.styleable.NounProgressBar_colorUnfinished, 0xFFDDDDDD);
 
         // -------------------- 效验属性值 --------------------
@@ -128,11 +114,19 @@ public class NounProgressBar extends View {
         mViewHeight = getMeasuredHeight();
 
         // 计算进度条的长度
-        mProgressLenth = mViewWidth - (mNounHeight / 2) - (mProgressHeight / 2);
+        mProgressLenth = mViewWidth - mNounHeight;
         // 计算进度条绿色部分的长度
         mFinishedLenth = (int) (mProgressLenth * ((float) progress / (float) mProgressMax));
         // 计算顶部预留多少间距
         mTopPadding = (mViewHeight - mNounHeight) / 2;
+
+        this.post(new Runnable() {
+            @Override
+            public void run() {
+                // 更新UI
+                invalidate();
+            }
+        });
     }
 
     @Override
@@ -147,7 +141,7 @@ public class NounProgressBar extends View {
         // -------------------- 先画灰色部分 --------------------
         // 构造灰色画笔
         Paint paintUnFinished = initPaint(mUnfinishedColor, Paint.Style.FILL, 0);
-        // 画进度条方块
+        // 画进度条线条
         onDrawUnfinishedProgres(canvas, paintUnFinished);
         // 画灰色节点
         onDrawNoun(canvas, paintUnFinished, finishedNounNum, mNounCount);
@@ -155,15 +149,10 @@ public class NounProgressBar extends View {
         // -------------------- 然后画绿色部分 --------------------
         // 构造绿色画笔
         Paint paintFinished = initPaint(mFinishedColor, Paint.Style.FILL, 0);
-        // 画绿色进度条方块
-        int progresArrowStartLeft = onDrawProgres(canvas, paintFinished);
-        // 画绿色进度条右侧圆头
-        onDrawProgresArrow(canvas, paintFinished, progresArrowStartLeft);
+        // 画绿色进度条线条
+        onDrawProgres(canvas, paintFinished);
         // 画绿色节点
         onDrawNoun(canvas, paintFinished, 0, finishedNounNum);
-
-        if (mListener != null)
-            mListener.onProgress(this, progress);
     }
 
     /**
@@ -184,70 +173,47 @@ public class NounProgressBar extends View {
         paint.setStyle(style);
         // 设置画笔的宽度
         paint.setStrokeWidth(width);
+        // 设置线条圆角
+        paint.setStrokeCap(Paint.Cap.ROUND);
+        // 修改画笔的宽度
+        paint.setStrokeWidth(mProgressHeight);
         return paint;
     }
 
     /**
-     * 画未完成的灰色方块
+     * 画未完成的灰色线条
      *
      * @return
      */
     private void onDrawUnfinishedProgres(Canvas canvas, Paint paint) {
-        // 先计算坐标
-        int startLeft = mNounHeight / 2 + mFinishedLenth;
-        int startTop = (mNounHeight - mProgressHeight) / 2 + mTopPadding;
-        int endRight = mViewWidth - mNounHeight / 2;
-        int endBottom = startTop + mProgressHeight;
+        // 计算左上右下坐标
+        float startX = mProgressHeight + mFinishedLenth;
+        float startY = mViewHeight / 2;
+        float endX = mProgressLenth + mNounHeight / 2;
+        float endY = startY;
 
-        //构造进度条
-        Rect rect = new Rect(startLeft, startTop, endRight, endBottom);
-
-        //画出进度条
-        canvas.drawRect(rect, paint);
+        // 绘制直线
+        canvas.drawLine(startX, startY, endX, endY, paint);
     }
 
     /**
-     * 画绿色进度条方块
+     * 画绿色进度条线条
      *
      * @return
      */
-    private int onDrawProgres(Canvas canvas, Paint paint) {
+    private void onDrawProgres(Canvas canvas, Paint paint) {
         // 计算左上右下坐标
-        int startLeft = mNounHeight / 2;
-        int startTop = (mNounHeight - mProgressHeight) / 2 + mTopPadding;
-        int endRight = startLeft + mFinishedLenth;
-        int endBottom = startTop + mProgressHeight;
+        float startX = mProgressHeight;
+        float startY = mViewHeight / 2;
+        float endX = startX + mFinishedLenth;
+        float endY = startY;
 
-        if (endRight > mViewWidth - mProgressHeight / 2) {
-            endRight = mViewWidth - mProgressHeight / 2;
+        if (endX > mViewWidth - mProgressHeight / 2) {
+            endX = mViewWidth - mProgressHeight / 2;
         }
 
-        //构造进度条
-        Rect rect = new Rect(startLeft, startTop, endRight, endBottom);
-
-        //画出进度条
-        canvas.drawRect(rect, paint);
-
-        return endRight;
-    }
-
-    /**
-     * 画绿色进度条右侧圆头
-     *
-     * @return
-     */
-    private void onDrawProgresArrow(Canvas canvas, Paint paint, int startLeft) {
-        // 计算左上右下坐标
-        startLeft = (int) (startLeft - (float) mProgressHeight / 2);
-        int startTop = (mNounHeight - mProgressHeight) / 2 + mTopPadding;
-        int endRight = startLeft + mProgressHeight;
-        int endBottom = startTop + mProgressHeight;
-
-        // 构造圆头
-        RectF rectF = new RectF(startLeft, startTop, endRight, endBottom);
-
-        // 画出圆头
-        canvas.drawArc(rectF, -90, 180, false, paint);
+        // 绘制直线
+        canvas.drawLine(startX, startY, endX, endY, paint);
     }
 
     /**
@@ -258,10 +224,10 @@ public class NounProgressBar extends View {
     private void onDrawNoun(Canvas canvas, Paint paint, int startIndex, int endIndex) {
         for (int i = startIndex; i < endIndex; i++) {
             // 计算左上右下坐标
-            int startLeft = (int) ((float) (mViewWidth - mNounHeight) / (float) (mNounCount - 1) * i);
-            int startTop = mTopPadding;
-            int endRight = startLeft + mNounHeight;
-            int endBottom = startTop + mNounHeight;
+            int startLeft = (int) ((mViewWidth - mNounHeight) / (float) (mNounCount - 1) * i);
+            float startTop = mTopPadding;
+            float endRight = startLeft + mNounHeight;
+            float endBottom = startTop + mNounHeight;
 
             // 构造圆头
             RectF rectF = new RectF(startLeft, startTop, endRight, endBottom);
@@ -287,50 +253,6 @@ public class NounProgressBar extends View {
      */
     public int getNounCount() {
         return mNounCount;
-    }
-
-    /**
-     * 设置进度
-     *
-     * @param progress
-     */
-    public void setProgress(float progress) {
-        if (progress < 0)
-            progress = 0;
-
-        if (progress > mProgressMax)
-            progress = mProgressMax;
-
-        this.progress = (int) progress;
-
-        invalidate();
-    }
-
-    /**
-     * 获取进度
-     *
-     * @return 当前进度
-     */
-    public int getProgress() {
-        return progress;
-    }
-
-    /**
-     * 获取最大值
-     *
-     * @return 最大进度
-     */
-    public int getProgressMax() {
-        return mProgressMax;
-    }
-
-    /**
-     * 设置监听
-     *
-     * @param listener
-     */
-    public void setProgressListener(OnProgressListener listener) {
-        mListener = listener;
     }
 
 }
