@@ -85,7 +85,7 @@ public class DivideBean extends FreedomBean {
                 switch (bean.getPagination() % 5) {
                     case 1:
                     default:
-                        vh.tv_pagination.setBackgroundColor(context.getResources().getColor(R.color.colorBlue));
+                        vh.tv_pagination.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary));
                         break;
                     case 2:
                         vh.tv_pagination.setBackgroundColor(context.getResources().getColor(R.color.colorBrownDark));

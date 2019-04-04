@@ -207,20 +207,22 @@ public class UtilAnim {
     public void showIntroduce(final View view, final int duration) {
         view.setAlpha(0);
         view.setVisibility(View.VISIBLE);
-        ObjectAnimator.ofFloat(view, "alpha", 0, 1).setDuration(duration).start();
+
+        // 容器的渐入动画
+        view.animate().alpha(1).setDuration(duration);
 
         try {
-            LinearLayout ll_text = (LinearLayout) view.findViewById(R.id.ll_introduce_text);
+            LinearLayout ll_text = view.findViewById(R.id.ll_introduce_text);
             ll_text.setAlpha(0f);
-            Animator anim_alpha = ObjectAnimator.ofFloat(ll_text, "alpha", 0, 1);
-            anim_alpha.setStartDelay(duration * 2 / 3);
-            anim_alpha.setDuration(duration);
-            anim_alpha.start();
+            ll_text.setY(80);
 
-            Animator anim_y = ObjectAnimator.ofFloat(ll_text, "Y", 80, 0);
-            anim_y.setStartDelay(duration * 2 / 3);
-            anim_y.setDuration(duration);
-            anim_y.start();
+            // 介绍渐入动画
+            ll_text.animate()
+                    .alpha(1)
+                    .y(0)
+                    .setDuration(duration)
+                    .setStartDelay(duration * 2 / 3);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -249,42 +251,28 @@ public class UtilAnim {
                 return;
             }
 
-            ll_text.setAlpha(0f);
-            Animator anim_alpha = ObjectAnimator.ofFloat(ll_text, "alpha", 1, 0);
-            anim_alpha.setDuration(duration);
-            anim_alpha.start();
+            // 介绍隐藏动画
+            ll_text.animate()
+                    .alpha(0)
+                    .y(80)
+                    .setDuration(duration);
 
-            float tvY = ll_text.getY();
-            Animator anim_y = ObjectAnimator.ofFloat(ll_text, "Y", tvY, tvY + 80);
-            anim_y.setDuration(duration);
-            anim_y.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         // 容器的渐出动画
-        Animator anim = ObjectAnimator.ofFloat(view, "alpha", 1, 0);
-        anim.setStartDelay(duration * 2 / 3);
-        anim.setDuration(duration);
-        anim.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-            }
+        view.animate()
+                .alpha(0)
+                .setDuration(duration)
+                .setStartDelay(duration * 2 / 3)
+                .withEndAction(new Runnable() {
+                    @Override
+                    public void run() {
+                        view.setVisibility(View.GONE);
+                    }
+                });
 
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                view.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-            }
-        });
-        anim.start();
     }
 
 }

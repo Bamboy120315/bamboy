@@ -287,24 +287,20 @@ public class ExpressCardActivity extends BamFragmentActivity implements View.OnC
      * @param arrow
      */
     private void showBtns(RelativeLayout rl, ImageView arrow) {
-        ObjectAnimator animTy = ObjectAnimator.ofFloat(
-                rl,
-                "translationY",
-                rl.getTranslationY(),
-                0);
-        animTy.setDuration(500);
-        animTy.setInterpolator(new OvershootInterpolator(1.5f));
-        animTy.start();
+        rl.animate()
+                .translationY(0)
+                .setDuration(500)
+                .setStartDelay(0)
+                .setInterpolator(new OvershootInterpolator(1.5f))
+                .start();
 
         if (arrow != null) {
-            ObjectAnimator animRotation = ObjectAnimator.ofFloat(
-                    arrow,
-                    "rotation",
-                    arrow.getRotation(),
-                    180);
-            animRotation.setDuration(500);
-            animRotation.setInterpolator(new OvershootInterpolator(1.5f));
-            animRotation.start();
+            arrow.animate()
+                    .rotation(180)
+                    .setDuration(500)
+                    .setStartDelay(0)
+                    .setInterpolator(new OvershootInterpolator(1.5f))
+                    .start();
         }
     }
 
@@ -333,27 +329,20 @@ public class ExpressCardActivity extends BamFragmentActivity implements View.OnC
         }
         int ty = rl.getHeight() - arrowHeight - rl.getPaddingTop();
 
-        ObjectAnimator animTy = ObjectAnimator.ofFloat(
-                rl,
-                "translationY",
-                rl.getTranslationY(),
-                ty);
-        animTy.setStartDelay(startDelay);
-        animTy.setDuration(500);
-        animTy.setInterpolator(new OvershootInterpolator(1.5f));
-        animTy.start();
+        rl.animate()
+                .translationY(ty)
+                .setDuration(500)
+                .setStartDelay(startDelay)
+                .setInterpolator(new OvershootInterpolator(1.5f))
+                .start();
 
         if (arrow != null) {
-            ObjectAnimator animRotation = ObjectAnimator.ofFloat(
-                    arrow,
-                    "rotation",
-                    arrow.getRotation(),
-                    0);
-            animRotation.setStartDelay(startDelay);
-            animRotation.setDuration(500);
-            animRotation.setInterpolator(new OvershootInterpolator(1.5f));
-            animRotation.start();
+            arrow.animate()
+                    .rotation(0)
+                    .setDuration(500)
+                    .setStartDelay(startDelay)
+                    .setInterpolator(new OvershootInterpolator(1.5f))
+                    .start();
         }
     }
-
 }

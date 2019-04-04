@@ -8,7 +8,7 @@
     <string name="title_bamboy_anim_click">点击动画</string>
 
     <string name="slidingshut_git_str">GitHub地址：\nhttps://github.com/Bamboy120315/SlidingShut.git</string>
-    <string name="slidingshut_csdn_str">CSDN地址: \nhttps://blog.csdn.net/bamboy_/article/details/83863260
+    <string name="slidingshut_csdn_str">CSDN地址: \nhttps://bamboy.blog.csdn.net/article/details/83863260
         \n
         \n
         如有问题欢迎加入技术探讨QQ群：\n
@@ -79,41 +79,41 @@
         又称万能适配器。\n
         近期会更新，\n
         更好的兼容单列与多列混合的情况。\n
-        详情链接：https://blog.csdn.net/bamboy_/article/details/71727461\n
+        详情链接：https://bamboy.blog.csdn.net/article/details/71727461\n
         \n
         2、节点进度条\n
         完全用Canvas画出来的，\n
         颜色、节点数量、尺寸均可控制，\n
         还支持监听。\n
-        详情链接：https://blog.csdn.net/bamboy_/article/details/79825006\n
+        详情链接：https://bamboy.blog.csdn.net/article/details/79825006\n
         \n
         3、无感分页（分批加载）\n
         无感分页，\n
         无须三方，\n
         被京东、淘宝等各大APP“借鉴”，\n
         分页加载最佳方案。\n
-        详情链接：https://blog.csdn.net/bamboy_/article/details/54408691\n
+        详情链接：https://bamboy.blog.csdn.net/article/details/54408691\n
         \n
         4、高斯模糊（毛玻璃）\n
         性能高，\n
         效果好，\n
         使用简单。\n
-        详情链接：https://blog.csdn.net/bamboy_/article/details/54345636\n
+        详情链接：https://bamboy.blog.csdn.net/article/details/54345636\n
         \n
         5、点击动画\n
         使用简单，\n
         效果炫酷。\n
-        详情链接：https://blog.csdn.net/bamboy_/article/details/54342079\n
+        详情链接：https://bamboy.blog.csdn.net/article/details/54342079\n
         \n
         6、Toast（近期会更新，无视通知权限）\n
         BamToast全新升级，\n
         即使没有通知权限也可以弹出Toast，\n
         \n
-        详情链接：https://blog.csdn.net/bamboy_/article/details/54952174\n
+        详情链接：https://bamboy.blog.csdn.net/article/details/54952174\n
         \n
         7、View自动换行\n
         支持自动换行的View\n
-        详情链接：https://blog.csdn.net/bamboy_/article/details/54409840\n
+        详情链接：https://bamboy.blog.csdn.net/article/details/54409840\n
         \n
         8、右滑关闭（无须透明主题）\n
         Android 8.0禁止非全屏的Activity使用透明主题，\n
@@ -123,7 +123,7 @@
         兼容Android 8.0，\n
         兼容SDK 27，\n
         无须透明主题。\n
-        详情链接：https://blog.csdn.net/bamboy_/article/details/83863260\n
+        详情链接：https://bamboy.blog.csdn.net/article/details/83863260\n
         \n
         9、物流卡片\n
         使用ViewPager+Fragment的实现方式，\n
@@ -136,7 +136,7 @@
         \t\t· 逐一\n
         \t\t· 展开\n
         \t\t· 旋转\n
-        详情链接：https://blog.csdn.net/bamboy_/article/details/88415267\n
+        详情链接：https://bamboy.blog.csdn.net/article/details/88415267\n
         \n
         10、信息滚动ViewFlipperDemo\n
         类似淘宝、京东、今日头条的信息滚动效果。\n
@@ -144,12 +144,12 @@
         性能高，稳定性好，\n
         除了最经典的动画外，\n
         本人又写了六个效果。\n
-        详情链接：https://blog.csdn.net/bamboy_/article/details/88793011\n
+        详情链接：https://bamboy.blog.csdn.net/article/details/88793011\n
         \n
         \n
         \n
         CSDN地址：\n
-        <a href="https://blog.csdn.net/bamboy_">https://blog.csdn.net/bamboy_</a>
+        <a href="https://bamboy.blog.csdn.net">https://bamboy.blog.csdn.net</a>
     </string>
 
     <!-- 自定义Toast介绍 -->
@@ -235,7 +235,7 @@
         clickPopupWindow()方法\n
         \n
         本Demo的CSDN地址：\n
-        <a href="http://blog.csdn.net/bamboy_/article/details/54345636">http://blog.csdn.net/bamboy_/article/details/54345636</a>
+        <a href="http://bamboy.blog.csdn.net/article/details/54345636">http://bamboy.blog.csdn.net/article/details/54345636</a>
     </string>
 
     <!-- 自动换行介绍 -->
@@ -252,7 +252,7 @@
         \n
         \n
         本Demo的CSDN地址：\n
-        <a href="http://blog.csdn.net/bamboy_/article/details/54409840">http://blog.csdn.net/bamboy_/article/details/54409840</a>
+        <a href="http://bamboy.blog.csdn.net/article/details/54409840">http://bamboy.blog.csdn.net/article/details/54409840</a>
     </string>
 
     <!-- 分批加载介绍 -->
@@ -316,7 +316,7 @@
         是关于ListView的分批加载，\n
         使用的是相同的思路，\n
         有需要的同学可以研究下：\n
-        <a href="http://blog.csdn.net/bamboy_/article/details/54408691">http://blog.csdn.net/bamboy_/article/details/54408691</a>
+        <a href="http://bamboy.blog.csdn.net/article/details/54408691">http://bamboy.blog.csdn.net/article/details/54408691</a>
     </string>
 
     <!-- 点击动画介绍 -->
@@ -397,7 +397,7 @@
         \n
         \n
         本Demo的CSDN地址：\n
-        <a href="http://blog.csdn.net/bamboy_/article/details/54342079">http://blog.csdn.net/bamboy_/article/details/54342079</a>
+        <a href="http://bamboy.blog.csdn.net/article/details/54342079">http://bamboy.blog.csdn.net/article/details/54342079</a>
     </string>
 
     <!-- 非约束列表介绍 -->
@@ -451,7 +451,7 @@
         如果想进一步了解，\n
         可以看下本Demo的CSDN，\n
         获得详解以及使用方法：\n
-        <a href="http://blog.csdn.net/bamboy_/article/details/71727461">http://blog.csdn.net/bamboy_/article/details/71727461</a>\n
+        <a href="http://bamboy.blog.csdn.net/article/details/71727461">http://bamboy.blog.csdn.net/article/details/71727461</a>\n
         \n
     </string>
 
@@ -479,7 +479,7 @@
         如果想进一步了解，\n
         可以看下本Demo的CSDN，\n
         获得详解以及使用方法：\n
-        <a href="https://blog.csdn.net/bamboy_/article/details/79825006">https://blog.csdn.net/bamboy_/article/details/79825006</a>\n
+        <a href="https://bamboy.blog.csdn.net/article/details/79825006">https://bamboy.blog.csdn.net/article/details/79825006</a>\n
     </string>
 
     <!-- 物流卡片介绍 -->
@@ -505,7 +505,7 @@
         \n
         如果想进一步了解，\n
         可以看下本Demo的CSDN：\n
-        <a href="https://blog.csdn.net/bamboy_/article/details/88415267">https://blog.csdn.net/bamboy_/article/details/88415267</a>\n
+        <a href="https://bamboy.blog.csdn.net/article/details/88415267">https://bamboy.blog.csdn.net/article/details/88415267</a>\n
         \n
         git地址：\n
         <a href="https://github.com/Bamboy120315/ExpressCard">https://github.com/Bamboy120315/ExpressCard</a>\n
@@ -526,7 +526,7 @@
         本人又写了六个效果。\n
         \n
         本Demo的CSDN：\n
-        <a href="https://blog.csdn.net/bamboy_/article/details/88793011">https://blog.csdn.net/bamboy_/article/details/88793011</a>
+        <a href="https://bamboy.blog.csdn.net/article/details/88793011">https://bamboy.blog.csdn.net/article/details/88793011</a>
     </string>
 
 </resources>
